@@ -35,13 +35,18 @@ class Library():
   def __init__(self):
     self.name = "" 
     self.year = 0
+    self.authors = []
     self.books = []
+  def add_author(self,author):
+    self.books.append(author)
   def add_book(self,book):
     self.books.append(book)
   def get_name(self):
     return self.name
   def get_year(self):
     return self.year
+  def get_authors(self):
+    return self.authors
   def get_books(self):
     return self.books
   def set_name(self,name):
@@ -53,8 +58,12 @@ class Library():
       if book.get_title() == title:
         return book
     return None
-  #def sort_by_genre(self,genre):
-  #  self.
+  def sort_by_genre(self,genre):
+    sorted_books_genre = []
+    for book in self.books:
+      if book.get_genre() is genre:
+        sorted_books_genre.append(book)
+    return sorted_books_genre
 
 # Add Example Book Data
 book1 = Book()
@@ -91,6 +100,7 @@ lib.add_book(book3)
 lib_books = lib.get_books()
 
 # Add Employees to the Project
+# Define Employee Class
 class Employee():
   def __init__(self):
     self.id = 1
@@ -112,6 +122,9 @@ class Employee():
   def get_job_title(self):
     return self.job_title
 
+# Create Employee Database
+# Define EmployeeDatabse class
+# A storage class for sensitive employee information
 class EmployeeDatabase():
   def __init__(self):
     self.employees = []
@@ -150,6 +163,11 @@ emp6.set_name("Employee Six")
 emp6.set_age(29)
 emp6.set_job_title("Cashier")
 
+emp7 = Employee()
+emp7.set_name("Employee Seven")
+emp7.set_age(25)
+emp7.set_job_title("Cashier")
+
 emp_db = EmployeeDatabase()
 emp_db.add_employee(emp1)
 emp_db.add_employee(emp2)
@@ -157,7 +175,8 @@ emp_db.add_employee(emp3)
 emp_db.add_employee(emp4)
 emp_db.add_employee(emp5)
 emp_db.add_employee(emp6)
-employees = emp_db.get_employees()
+emp_db.add_employee(emp7)
+employees = emp_db.get_employees() # Store employee information objects in an easier-to-use variable
 
 class Customer():
   def __init__(self):
@@ -253,7 +272,26 @@ print("\n")
 
 # Unit Test for finding a customer in the customer database
 # Unit Test for using cust_db.find_customer() method
-cust_db.find_customer("Customer One")
+customer_example1 = "Customer One"
+customer_example2 = "Customer Two"
+found_customer1 = cust_db.find_customer(customer_example1)
+found_customer2 = cust_db.find_customer(customer_example2)
+print("Test1 for cust_db.find_customer():")
+if found_customer1 is None:
+  print("Failure.")
+  print(customer_example1 + " was not found.")
+else:
+  print("Success!")
+  print(customer_example1 + " was found!")
+
+print("Test2 for cust_db.find_customer():")
+if found_customer2 is None:
+  print("Failure.")
+  print(customer_example2 + " was not found.")
+else:
+  print("Success!")
+  print(customer_example2 + " was found!")
+print("\n")
 
 # Unit Test for finding a book in the library
 # Unit Tests for using lib.find_book() method
@@ -300,5 +338,15 @@ else:
 print("\n")
 
 # Todos:
-# 2.) Add book sorting method for Library 
-# 2.) find_customer() method in customer database
+# 1.) Write set_salary() and give_bonus() methods for Employee/EmployeeDB classes
+#     - Bonuses will be based on a few factors. 
+#     - Can a cashier give themselves a bonus? No. Obviously not. 
+# Let's make a check for this
+
+# 2.) Write test for sort by genre method for library class
+# 3.) Add book sorting method for Library 
+# 4.) find_customer() method in customer database
+# 5.) More advanced unit testing
+
+# Data
+# 1. Add more cistomers to the cuatomers list
