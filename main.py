@@ -90,17 +90,29 @@ book3.set_genre("Fiction")
 book3.set_publisher("...")
 book3.set_words("...")
 
+book4 = Book()
+book4.set_title("Star Wars Episode 4: A New Hope")
+book4.set_author("George Lucas")
+book4.set_year(2011)
+book4.set_genre("Fiction")
+book4.set_publisher("...")
+book4.set_words("...")
+
 # Add Example Library Data
 lib = Library()
 lib.set_name("Library 1")
 lib.set_year(1975)
+
 lib.add_author("F. Scott Fitzgerald")
 lib.add_author("Howard G. Buffett")
 lib.add_author("James Patterson")
+lib.add_author("George Lucas")
+lib_authors = lib.get_authors()
+
 lib.add_book(book1)
 lib.add_book(book2)
 lib.add_book(book3)
-lib_authors = lib.get_authors()
+lib.add_book(book4)
 lib_books = lib.get_books()
 
 # Add Employees to the Project
@@ -236,9 +248,15 @@ cust2.set_name("Customer Two")
 cust2.set_age(52)
 cust2.set_rewards("0001")
 
+cust3 = Customer()
+cust3.set_name("Customer Three")
+cust3.set_age(41)
+cust3.set_rewards("0002")
+
 cust_db = CustomerDatabase()
 cust_db.add_customer(cust1)
 cust_db.add_customer(cust2)
+cust_db.add_customer(cust3)
 customers = cust_db.get_customers()
 
 # ======== Testing ======== #
@@ -262,6 +280,7 @@ print("\n")
 
 # Unit Tests for sorting customers based on last name
 # Unit Test for using cust_db.sort_customers_lname()
+'''
 print("Test1 for cust_db.sort_customers_lname():")
 customers_sorted = cust_db.sort_customers_lname()
 sorting_example1 = ['Customer One','Customer Two']
@@ -273,13 +292,18 @@ else:
   print("Failure.")
   print("The customer list was not correctly sorted.")
 print("\n")
+'''
 
 # Unit Test for finding a customer in the customer database
 # Unit Test for using cust_db.find_customer() method
 customer_example1 = "Customer One"
 customer_example2 = "Customer Two"
+customer_example3 = "Customer Three"
+customer_exampleF = "Fake Customer"
 found_customer1 = cust_db.find_customer(customer_example1)
 found_customer2 = cust_db.find_customer(customer_example2)
+found_customer3 = cust_db.find_customer(customer_example3)
+found_customerF = cust_db.find_customer(customer_exampleF)
 print("Test1 for cust_db.find_customer():")
 if found_customer1 is None:
   print("Failure.")
@@ -287,6 +311,7 @@ if found_customer1 is None:
 else:
   print("Success!")
   print(customer_example1 + " was found!")
+print("\n")
 
 print("Test2 for cust_db.find_customer():")
 if found_customer2 is None:
@@ -295,6 +320,24 @@ if found_customer2 is None:
 else:
   print("Success!")
   print(customer_example2 + " was found!")
+print("\n")
+
+print("Test3 for cust_db.find_customer():")
+if found_customer3 is None:
+  print("Failure.")
+  print(customer_example3 + " was not found.")
+else:
+  print("Success!")
+  print(customer_example3 + " was found!")
+print("\n")
+
+print("TestF for cust_db.find_customer():")
+if found_customerF is None:
+  print("Failure.")
+  print(customer_exampleF + " was not found.")
+else:
+  print("Success!")
+  print(customer_exampleF + " was found!")
 print("\n")
 
 # Unit Test for finding a book in the library
