@@ -38,7 +38,7 @@ class Library():
     self.authors = []
     self.books = []
   def add_author(self,author):
-    self.books.append(author)
+    self.authors.append(author)
   def add_book(self,book):
     self.books.append(book)
   def get_name(self):
@@ -94,9 +94,13 @@ book3.set_words("...")
 lib = Library()
 lib.set_name("Library 1")
 lib.set_year(1975)
+lib.add_author("F. Scott Fitzgerald")
+lib.add_author("Howard G. Buffett")
+lib.add_author("James Patterson")
 lib.add_book(book1)
 lib.add_book(book2)
 lib.add_book(book3)
+lib_authors = lib.get_authors()
 lib_books = lib.get_books()
 
 # Add Employees to the Project
