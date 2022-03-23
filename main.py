@@ -231,12 +231,12 @@ class CustomerDatabase():
       name_reversed = lname + " " + fname
       customers_reversed_names.append(name_reversed)
     customers_sorted = sorted(customers_reversed_names)
-    customers_sorted_rearranged = []
-    for customer in customers_sorted:
-      [lname,fname] = customer.split(" ")
-      name = fname + " " + lname
-      customers_sorted_rearranged.append(name)
-    return customers_sorted_rearranged
+    #customers_sorted_rearranged = []
+    #for customer in customers_sorted:
+    #  [lname,fname] = customer.split(" ")
+    #  name = fname + " " + lname
+    #  customers_sorted_rearranged.append(name)
+    #return customers_sorted_rearranged
 
 cust1 = Customer()
 cust1.set_name("Customer One")
