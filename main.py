@@ -215,6 +215,7 @@ class Customer():
 class CustomerDatabase():
   def __init__(self):
     self.customers = []
+    self.customer_names = []
   def add_customer(self,customer):
     self.customers.append(customer)
   def get_customers(self):
@@ -225,18 +226,18 @@ class CustomerDatabase():
         return customer
     return None
   def sort_customers_lname(self):
-    customers_reversed_names = []
+    customers_names_reversed = []
     for customer in self.customers:
       [fname,lname] = customer.get_name().split(" ")
       name_reversed = lname + " " + fname
-      customers_reversed_names.append(name_reversed)
-    customers_sorted = sorted(customers_reversed_names)
-    #customers_sorted_rearranged = []
-    #for customer in customers_sorted:
-    #  [lname,fname] = customer.split(" ")
-    #  name = fname + " " + lname
-    #  customers_sorted_rearranged.append(name)
-    #return customers_sorted_rearranged
+      customers_names_reversed.append(name_reversed)
+    customers_sorted = sorted(customers_names_reversed)
+    customers_sorted_rearranged = []
+    for customer in customers_sorted:
+      [lname,fname] = customer.split(" ")
+      name = fname + " " + lname
+      customers_sorted_rearranged.append(name)
+    self.customers_names = customers_sorted_rearranged
 
 cust1 = Customer()
 cust1.set_name("Customer One")
@@ -257,6 +258,7 @@ cust_db = CustomerDatabase()
 cust_db.add_customer(cust1)
 cust_db.add_customer(cust2)
 cust_db.add_customer(cust3)
+cust_db.sort_customers_lname()
 customers = cust_db.get_customers()
 
 # ======== Testing ======== #
