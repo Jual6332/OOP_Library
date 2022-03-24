@@ -348,10 +348,12 @@ book_example1 = "The Great Gatsby"
 book_example2 = "Forty Chances"
 book_example3 = "..."
 book_example4 = "Along Came a Spider"
+book_example5 = "Star Wars Episode 4: A New Hope"
 found_book = lib.find_book(book_example1)
 found_book2 = lib.find_book(book_example2)
 found_book3 = lib.find_book(book_example3)
 found_book4 = lib.find_book(book_example4)
+found_book5 = lib.find_book(book_example5)
 
 print("Test1 for lib.find_book():")
 if found_book is None:
@@ -371,19 +373,27 @@ else:
 
 print("Test3 for lib.find_book():")
 if found_book3 is None:
-  print("Success!")
   print(book_example3 + " was not found.")
 else:
-  print("Failure.")
+  print("Success!")
   print(book_example3 + " was found!")
 
 print("Test4 for lib.find_book():")
-if found_book2 is None:
+if found_book4 is None:
   print("Failure.")
   print(book_example4 + " was not found.")
 else:
   print("Success!")
   print(book_example4 + " was found!")
+#print("\n")
+
+print("Test5 for lib.find_book():")
+if found_book5 is None:
+  print("Failure.")
+  print(book_example5 + " was not found.")
+else:
+  print("Success!")
+  print(book_example5 + " was found!")
 print("\n")
 
 # Todos:
