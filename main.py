@@ -179,22 +179,25 @@ emp4 = Employee()
 emp4.set_name("Employee Four")
 emp4.set_age(33)
 emp4.set_job_title("Cashier")
-emp4.set_salary(34000)
+emp4.set_salary(36000)
 
 emp5 = Employee()
 emp5.set_name("Employee Five")
 emp5.set_age(40)
 emp5.set_job_title("Cashier")
+emp5.set_salary(30000)
 
 emp6 = Employee()
 emp6.set_name("Employee Six")
 emp6.set_age(29)
 emp6.set_job_title("Cashier")
+emp4.set_salary(31000)
 
 emp7 = Employee()
 emp7.set_name("Employee Seven")
 emp7.set_age(25)
 emp7.set_job_title("Cashier")
+emp4.set_salary(27000)
 
 emp_db = EmployeeDatabase()
 emp_db.add_employee(emp1)
@@ -287,7 +290,7 @@ cust_db.sort_customers_lname()
 customers = cust_db.get_customers()
 
 # ======== Continued Development ======== #
-# I would like to give a performance review to two employees
+# I would like to give a performance review (1/2 employees)
 employee_review1 = emp4.get_name() # Employee under review
 selling_credit_cards_grade = "A" # How well did he/she sell credit cards?
 punctuality_grade = "A" # How punctual was he/she?
@@ -303,6 +306,21 @@ print(emp4.performance_grades)
 print(emp4.performance_comments)
 print("\n")
 
+# I would like to give a performance review (1/2 employees)
+employee_review2 = emp5.get_name() # Employee under review
+selling_credit_cards_grade = "C" # How well did he/she sell credit cards?
+punctuality_grade = "B" # How punctual was he/she?
+customer_service_grade = "C" # How was their customer service rating?
+emp5.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
+
+comments = "This employee did join the cashier squad two months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She will be let-go during next round of budget cuts."
+emp5.performance_comments.append(comments)
+
+# Print Output
+print(employee_review2)
+print(emp5.performance_grades)
+print(emp5.performance_comments)
+print("\n")
 
 # ======== Testing ======== #
 # Print the Name of Each Book
