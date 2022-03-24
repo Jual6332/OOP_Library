@@ -115,17 +115,19 @@ lib.add_book(book3)
 lib.add_book(book4)
 lib_books = lib.get_books()
 
-# Add Employees to the Project
 # Define Employee Class
 class Employee():
   def __init__(self):
-    self.id = 1
+    self.id = 0
     self.name = ""
     self.age = 0
     self.job_title = ""
     self.salary = 0
+    self.start_date = ""
     self.performance_grades = []
     self.performance_comments = []
+  def set_id(self,id):
+    self.id = id
   def set_name(self,name):
     self.name = name
   def set_age(self,age):
@@ -134,6 +136,9 @@ class Employee():
     self.job_title = job_title
   def set_salary(self,salary):
     self.salary = salary
+  def set_start_date(self,start_date):
+    self.start_date = start_date
+  
   def get_id(self):
     return self.id
   def get_name(self):
@@ -144,56 +149,67 @@ class Employee():
     return self.job_title
   def get_salary(self):
     return self.salary
+  def get_start_date(self):
+    return self.start_date
 
 # Create Employee Database
-# Define EmployeeDatabse class
 # A storage class for sensitive employee information
 class EmployeeDatabase():
   def __init__(self):
     self.employees = []
-    self.performance_review_data = {}
+    self.raise_history = []
   def add_employee(self,employee):
     self.employees.append(employee)
   def get_employees(self):
     return self.employees
+  def add_raise_data(self,raise_new):
+      self.raise_history.append(raise_new)
 
+# Add Employees to the Project
 emp1 = Employee()
+emp1.set_id(1)
 emp1.set_name("Employee One")
 emp1.set_age(45)
 emp1.set_job_title("Manager")
 emp1.set_salary(72000)
 
 emp2 = Employee()
+emp1.set_id(2)
 emp2.set_name("Employee Two")
 emp2.set_age(35)
 emp2.set_job_title("Supervisor")
 emp2.set_salary(54000)
 
 emp3 = Employee()
+emp1.set_id(3)
 emp3.set_name("Employee Three")
 emp3.set_age(42)
 emp3.set_job_title("Supervisor")
 emp3.set_salary(48000)
 
 emp4 = Employee()
+emp1.set_id(4)
 emp4.set_name("Employee Four")
 emp4.set_age(33)
 emp4.set_job_title("Cashier")
 emp4.set_salary(36000)
 
 emp5 = Employee()
+emp1.set_id(5)
 emp5.set_name("Employee Five")
 emp5.set_age(40)
 emp5.set_job_title("Cashier")
 emp5.set_salary(30000)
 
 emp6 = Employee()
+emp1.set_id(6)
 emp6.set_name("Employee Six")
 emp6.set_age(29)
 emp6.set_job_title("Cashier")
 emp4.set_salary(31000)
 
 emp7 = Employee()
+emp1.set_id(7)
 emp7.set_name("Employee Seven")
 emp7.set_age(25)
 emp7.set_job_title("Cashier")
@@ -235,7 +251,7 @@ class CustomerDatabase():
     self.customers.append(customer)
   def get_customers(self):
     return self.customers
-  def find_customer(self,name):
+  def find_customer_by_name(self,name):
     for customer in self.customers:
       if customer.get_name() == name:
         return customer
@@ -258,22 +274,22 @@ class CustomerDatabase():
 cust1 = Customer()
 cust1.set_name("Customer One")
 cust1.set_age(34)
-cust1.set_rewards("0000")
+cust1.set_rewards("0001")
 
 cust2 = Customer()
 cust2.set_name("Customer Two")
 cust2.set_age(52)
-cust2.set_rewards("0001")
+cust2.set_rewards("0002")
 
 cust3 = Customer()
 cust3.set_name("Customer Three")
 cust3.set_age(41)
-cust3.set_rewards("0002")
+cust3.set_rewards("0003")
 
 cust4 = Customer()
 cust4.set_name("Customer Four")
 cust4.set_age(30)
-cust4.set_rewards("0003")
+cust4.set_rewards("0004")
 
 cust5 = Customer()
 cust5.set_name("Customer Five")
@@ -297,8 +313,8 @@ punctuality_grade = "A" # How punctual was he/she?
 customer_service_grade = "B" # How was their customer service rating?
 emp4.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
 
-comments = "This employee is great at selling credit cards. She is never late for work. Loved by her manager. Sold 15 credit cards in the last month. Gives reliable advice to other cashiers. A great choice for a supervisor role soon." # Manager/supervisor comments
-emp4.performance_comments.append(comments)
+comments = "This employee is great at selling credit cards. She is never late for work. Loved by her manager. Sold 15 credit cards in the last month. Gives reliable advice to other cashiers. A great choice for a supervisor role soon. May get a raise." # Manager/supervisor comments
+emp4.performance_comments.append(comments) # Store comments 
 
 # Print Output
 print(employee_review1)
@@ -306,21 +322,24 @@ print(emp4.performance_grades)
 print(emp4.performance_comments)
 print("\n")
 
-# I would like to give a performance review (1/2 employees)
+# I would like to give a performance review (2/2 employees)
 employee_review2 = emp5.get_name() # Employee under review
 selling_credit_cards_grade = "C" # How well did he/she sell credit cards?
 punctuality_grade = "B" # How punctual was he/she?
 customer_service_grade = "C" # How was their customer service rating?
 emp5.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
 
-comments = "This employee did join the cashier squad two months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She will be let-go during next round of budget cuts."
-emp5.performance_comments.append(comments)
+comments = "This employee did join the cashier squad two months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She will be let-go during next round of budget cuts." # Manager/supervisor comments
+emp5.performance_comments.append(comments) # Store comments
 
 # Print Output
 print(employee_review2)
 print(emp5.performance_grades)
 print(emp5.performance_comments)
 print("\n")
+
+# ======== Continued Development ======== #
+# Write function to determine if person gets a raise next based on performance review scores
 
 # ======== Testing ======== #
 # Print the Name of Each Book
@@ -363,11 +382,11 @@ customer_example1 = "Customer One"
 customer_example2 = "Customer Two"
 customer_example3 = "Customer Three"
 customer_exampleF = "Fake Customer"
-found_customer1 = cust_db.find_customer(customer_example1)
-found_customer2 = cust_db.find_customer(customer_example2)
-found_customer3 = cust_db.find_customer(customer_example3)
-found_customerF = cust_db.find_customer(customer_exampleF)
-print("Test1 for cust_db.find_customer():")
+found_customer1 = cust_db.find_customer_by_name(customer_example1)
+found_customer2 = cust_db.find_customer_by_name(customer_example2)
+found_customer3 = cust_db.find_customer_by_name(customer_example3)
+found_customerF = cust_db.find_customer_by_name(customer_exampleF)
+print("Test1 for cust_db.find_customer_by_name():")
 if found_customer1 is None:
   print("Failure.")
   print(customer_example1 + " was not found.")
@@ -376,7 +395,7 @@ else:
   print(customer_example1 + " was found!")
 print("\n")
 
-print("Test2 for cust_db.find_customer():")
+print("Test2 for cust_db.find_customer_by_name():")
 if found_customer2 is None:
   print("Failure.")
   print(customer_example2 + " was not found.")
@@ -385,7 +404,7 @@ else:
   print(customer_example2 + " was found!")
 print("\n")
 
-print("Test3 for cust_db.find_customer():")
+print("Test3 for cust_db.find_customer_by_name():")
 if found_customer3 is None:
   print("Failure.")
   print(customer_example3 + " was not found.")
@@ -394,7 +413,7 @@ else:
   print(customer_example3 + " was found!")
 print("\n")
 
-print("TestF for cust_db.find_customer():")
+print("TestF for cust_db.find_customer_by_name():")
 if found_customerF is None:
   print("Failure.")
   print(customer_exampleF + " was not found.")
