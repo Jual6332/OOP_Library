@@ -123,12 +123,17 @@ class Employee():
     self.name = ""
     self.age = 0
     self.job_title = ""
+    self.salary = 0
+    self.performance_grades = []
+    self.performance_comments = []
   def set_name(self,name):
     self.name = name
   def set_age(self,age):
     self.age = age
   def set_job_title(self,job_title):
     self.job_title = job_title
+  def set_salary(self,salary):
+    self.salary = salary
   def get_id(self):
     return self.id
   def get_name(self):
@@ -137,6 +142,8 @@ class Employee():
     return self.age
   def get_job_title(self):
     return self.job_title
+  def get_salary(self):
+    return self.salary
 
 # Create Employee Database
 # Define EmployeeDatabse class
@@ -144,6 +151,7 @@ class Employee():
 class EmployeeDatabase():
   def __init__(self):
     self.employees = []
+    self.performance_review_data = {}
   def add_employee(self,employee):
     self.employees.append(employee)
   def get_employees(self):
@@ -153,21 +161,25 @@ emp1 = Employee()
 emp1.set_name("Employee One")
 emp1.set_age(45)
 emp1.set_job_title("Manager")
+emp1.set_salary(72000)
 
 emp2 = Employee()
 emp2.set_name("Employee Two")
 emp2.set_age(35)
-emp1.set_job_title("Supervisor")
+emp2.set_job_title("Supervisor")
+emp2.set_salary(54000)
 
 emp3 = Employee()
 emp3.set_name("Employee Three")
 emp3.set_age(42)
 emp3.set_job_title("Supervisor")
+emp3.set_salary(48000)
 
 emp4 = Employee()
 emp4.set_name("Employee Four")
 emp4.set_age(33)
 emp4.set_job_title("Cashier")
+emp4.set_salary(34000)
 
 emp5 = Employee()
 emp5.set_name("Employee Five")
@@ -239,6 +251,7 @@ class CustomerDatabase():
       customers_sorted_rearranged.append(name)
     self.customers_names = customers_sorted_rearranged
 
+# Data Input: Customer Data
 cust1 = Customer()
 cust1.set_name("Customer One")
 cust1.set_age(34)
@@ -254,12 +267,42 @@ cust3.set_name("Customer Three")
 cust3.set_age(41)
 cust3.set_rewards("0002")
 
+cust4 = Customer()
+cust4.set_name("Customer Four")
+cust4.set_age(30)
+cust4.set_rewards("0003")
+
+cust5 = Customer()
+cust5.set_name("Customer Five")
+cust5.set_age(46)
+cust5.set_rewards("0004")
+
 cust_db = CustomerDatabase()
 cust_db.add_customer(cust1)
 cust_db.add_customer(cust2)
 cust_db.add_customer(cust3)
+cust_db.add_customer(cust4)
+cust_db.add_customer(cust5)
 cust_db.sort_customers_lname()
 customers = cust_db.get_customers()
+
+# ======== Continued Development ======== #
+# I would like to give a performance review to two employees
+employee_review1 = emp4.get_name() # Employee under review
+selling_credit_cards_grade = "A" # How well did he/she sell credit cards?
+punctuality_grade = "A" # How punctual was he/she?
+customer_service_grade = "B" # How was their customer service rating?
+emp4.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
+
+comments = "This employee is great at selling credit cards. She is never late for work. Loved by her manager. Sold 15 credit cards in the last month. Gives reliable advice to other cashiers. A great choice for a supervisor role soon." # Manager/supervisor comments
+emp4.performance_comments.append(comments)
+
+# Print Output
+print(employee_review1)
+print(emp4.performance_grades)
+print(emp4.performance_comments)
+print("\n")
+
 
 # ======== Testing ======== #
 # Print the Name of Each Book
@@ -408,4 +451,4 @@ print("\n")
 # 5.) More advanced unit testing
 
 # Data
-# 1. Add more cistomers to the cuatomers list
+# 1. Add more customers to the customers list
