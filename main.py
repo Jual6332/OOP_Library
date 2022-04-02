@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 class Book():
   def __init__(self):
     self.title = ""
@@ -360,22 +362,6 @@ for customer in customers:
   print(customer.get_name())
 print("\n")
 
-# Unit Tests for sorting customers based on last name
-# Unit Test for using cust_db.sort_customers_lname()
-'''
-print("Test1 for cust_db.sort_customers_lname():")
-customers_sorted = cust_db.sort_customers_lname()
-sorting_example1 = ['Customer One','Customer Two']
-
-if customers_sorted == sorting_example1:
-  print("Success!")
-  print("The customer list was correctly sorted.")
-else:
-  print("Failure.")
-  print("The customer list was not correctly sorted.")
-print("\n")
-'''
-
 # Unit Test for finding a customer in the customer database
 # Unit Test for using cust_db.find_customer() method
 customer_example1 = "Customer One"
@@ -475,6 +461,18 @@ else:
   print("Success!")
   print(book_example5 + " was found!")
 print("\n")
+
+# ======== Plotting ======== #
+name_data = []; salary_data = [];
+for employee in employees:
+  salary = employee.get_salary()
+  name = employee.get_name()
+  name_data.append(name)
+  salary_data.append(salary)
+
+#plt.bar([1,2,3],salary_data[0:3])
+plt.bar(name_data[0:5],salary_data[0:5])
+plt.show()
 
 # Todos:
 # 1.) Write set_salary() and give_bonus() methods for Employee/EmployeeDB classes
