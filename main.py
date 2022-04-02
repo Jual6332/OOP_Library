@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import random
 
 class Book():
   def __init__(self):
@@ -341,6 +342,33 @@ print(emp5.performance_comments)
 print("\n")
 
 # ======== Continued Development ======== #
+# Make a purchase
+print("TRANSACTION.")
+print("cust1 enters to purchase a book.")
+pick_random_book = random.choice(lib_books)
+bought_book1 = pick_random_book.get_title()
+#print(bought_book1)
+cash = 50.00
+cost = 0.00
+
+if bought_book1 == "The Great Gatsby":
+  cost = 22.50
+elif bought_book1 == "Forty Chances":
+  cost = 25.00
+elif bought_book1 == "Along Came a Spider":
+  cost = 15.00
+elif bought_book1 == "Star Wars Episode 4: A New Hope":
+  cost = 17.50
+
+print("The customer has ${0} in cash.".format(cash))
+print("The book costs ${0}".format(cost))
+print("Customer1 purchases {0} with ${1} remaining.".format(bought_book1,cash-cost))
+print("\n")
+
+## Write to file the books purchased from each transaction
+
+
+
 # Write function to determine if person gets a raise next based on performance review scores
 
 # ======== Testing ======== #
@@ -471,8 +499,8 @@ for employee in employees:
   salary_data.append(salary)
 
 #plt.bar([1,2,3],salary_data[0:3])
-plt.bar(name_data[0:5],salary_data[0:5])
-plt.show()
+#plt.bar(name_data[0:5],salary_data[0:5])
+#plt.show()
 
 # Todos:
 # 1.) Write set_salary() and give_bonus() methods for Employee/EmployeeDB classes
