@@ -201,14 +201,14 @@ class EmployeeDatabase():
 emp1 = Employee()
 emp1.set_id(1)
 emp1.set_name("Employee One")
-emp1.set_age(45)
+emp1.set_age(50)
 emp1.set_job_title("Manager")
 emp1.set_salary(72000)
 
 emp2 = Employee()
 emp2.set_id(2)
 emp2.set_name("Employee Two")
-emp2.set_age(35)
+emp2.set_age(45)
 emp2.set_job_title("Supervisor")
 emp2.set_salary(54000)
 
@@ -224,14 +224,14 @@ emp4.set_id(4)
 emp4.set_name("Employee Four")
 emp4.set_age(33)
 emp4.set_job_title("Cashier")
-emp4.set_salary(36000)
+emp4.set_salary(40000)
 
 emp5 = Employee()
 emp5.set_id(5)
 emp5.set_name("Employee Five")
 emp5.set_age(40)
 emp5.set_job_title("Cashier")
-emp5.set_salary(30000)
+emp5.set_salary(39000)
 
 emp6 = Employee()
 emp6.set_id(6)
@@ -250,9 +250,23 @@ emp7.set_salary(27000)
 emp8 = Employee()
 emp8.set_id(8)
 emp8.set_name("Employee Eight")
-emp8.set_age(47)
+emp8.set_age(55)
 emp8.set_job_title("Manager")
 emp8.set_salary(74000)
+
+emp9 = Employee()
+emp9.set_id(9)
+emp9.set_name("Employee Nine")
+emp9.set_age(28)
+emp9.set_job_title("Bakery Cashier")
+emp9.set_salary(30000)
+
+emp10 = Employee()
+emp10.set_id(10)
+emp10.set_name("Employee Ten")
+emp10.set_age(27)
+emp10.set_job_title("Bakery Cashier")
+emp10.set_salary(29000)
 
 emp_db = EmployeeDatabase()
 emp_db.add_employee(emp1)
@@ -263,6 +277,8 @@ emp_db.add_employee(emp5)
 emp_db.add_employee(emp6)
 emp_db.add_employee(emp7)
 emp_db.add_employee(emp8)
+emp_db.add_employee(emp9)
+emp_db.add_employee(emp10)
 employees = emp_db.get_employees() # Store employee information objects in an easier-to-use variable
 
 class Customer():
@@ -561,3 +577,5 @@ for employee in employees:
 
 # Data
 # 1. Add more customers to the customers list
+
+# Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
