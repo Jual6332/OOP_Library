@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import random
 
 class Book():
@@ -386,19 +386,25 @@ print("\n")
 
 # ======== Testing ======== #
 # Print the Name of Each Book
-print("Books:")
+print("Books in Library:")
 for book in lib_books:
   print(book.get_title())
 print("\n")
 
+# Print the Name of Each Author
+print("Authors in Library:")
+for author in lib_authors:
+  print(author)
+print("\n")
+
 # Print the Name of Each Employee
-print("Employees:")
+print("Employees at Bookstore:")
 for employee in employees:
   print(employee.get_name())
 print("\n")
 
 # Print the Name of Each Employee
-print("Customers:")
+print("Previous Customers:")
 for customer in customers:
   print(customer.get_name())
 print("\n")
