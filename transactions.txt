@@ -1,0 +1,6 @@
+TRANSACTION.
+cust1 enters checkout aisle to purchase a book.
+Employee 4 helps customer with purchase.
+The customer has $50.0 in cash.
+The book costs $15.0
+Customer1 purchases Along Came a Spider with $36.5 remaining.

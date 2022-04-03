@@ -364,16 +364,17 @@ def cost_of_specific_book(book):
     cost = 17.50
   return cost
   
-# Make a purchase
-print("TRANSACTION.")
-print("cust1 enters checkout aisle to purchase a book.")
+# Make a purchase - Write to a file
+file1 = open("transactions.txt", "w") 
+file1.write("TRANSACTION.\n")
+file1.write("cust1 enters checkout aisle to purchase a book.\n")
 pick_random_book = random.choice(lib_books)
 bought_book1 = pick_random_book.get_title()
 #print(bought_book1)
 cash = 50.00
 cost = cost_of_specific_book(bought_book1)
 employee = emp4
-print("Employee 4 helps customer with purchase.")
+file1.write("Employee 4 helps customer with purchase.\n")
 
 total_cost = 0
 if cust1.rewards != "xxxx":
@@ -383,10 +384,10 @@ else:
   # Discount does not apply
   pass
 
-print("The customer has ${0} in cash.".format(cash))
-print("The book costs ${0}".format(cost))
-print("Customer1 purchases {0} with ${1} remaining.".format(bought_book1,total_cost))
-print("\n")
+file1.write("The customer has ${0} in cash.\n".format(cash))
+file1.write("The book costs ${0}\n".format(cost))
+file1.write("Customer1 purchases {0} with ${1} remaining.\n".format(bought_book1,total_cost))
+file1.close()
 
 ## Write to file the books purchased from each transaction
 
