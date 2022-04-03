@@ -31,7 +31,7 @@ class Book():
   def get_year(self):
     return self.year
   def get_genre(self):
-    self.genre = genre
+    return self.genre
   def get_publisher(self):
     return self.publisher
   def get_words(self):
@@ -66,12 +66,6 @@ class Library():
       if book.get_title() == title:
         return book
     return None
-  def sort_by_genre(self,genre):
-    sorted_books_genre = []
-    for book in self.books:
-      if book.get_genre() is genre:
-        sorted_books_genre.append(book)
-    return sorted_books_genre
 
 # Add Example Book Data
 book1 = Book()
@@ -350,7 +344,17 @@ cust4.set_rewards("xxxx")
 cust5 = Customer()
 cust5.set_name("Customer Five")
 cust5.set_age(46)
-cust5.set_rewards("0004")
+cust5.set_rewards("0005")
+
+cust6 = Customer()
+cust6.set_name("Customer Six")
+cust6.set_age(18)
+cust6.set_rewards("0006")
+
+cust7 = Customer()
+cust7.set_name("Customer Seven")
+cust7.set_age(21)
+cust7.set_rewards("0007")
 
 cust_db = CustomerDatabase()
 cust_db.add_customer(cust1)
@@ -408,6 +412,7 @@ def cost_of_specific_book(book):
     cost = 17.50
   return cost
   
+  # Write function for writing transaction to file??
 # Make a purchase - Write to a file
 file1 = open("transactions.txt", "w") 
 file1.write("TRANSACTION.\n")
@@ -458,6 +463,34 @@ file1.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book2
 file1.close()
 
 # Write function to determine if person gets a raise next based on performance review scores
+
+# ======== Continued Development ======== #
+# Store genre of books, count how many books per genre
+genres = []
+for book in lib_books:
+  genres.append(book.get_genre())
+  print(book.get_genre())
+
+#val = 0
+genres_books = {}
+for val in range(0,3):
+  chosen_genre = genres[val]
+  duplicates = 0
+  for genre in genres[val+1:len(genres)]:
+    if genre == chosen_genre:
+      duplicates+=1
+
+  print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_genre,duplicates))
+  print("\n")
+  
+  genres_books[chosen_genre] = duplicates
+  
+print(genres_books)
+
+
+    
+  
+
 
 # ======== Testing ======== #
 # Print the Name of Each Book
@@ -579,3 +612,6 @@ for employee in employees:
 # 1. Add more customers to the customers list
 
 # Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
+
+# The book array needs to check for repeats somehow. 
+# The cost needs to be removed from book class
