@@ -159,6 +159,10 @@ class Employee():
     return self.salary
   def get_start_date(self):
     return self.start_date
+  def get_performance_grades(self):
+    return self.performance_grades
+  def get_performance_comments(self):
+    return self.performance_comments
 
 # Create Employee Database
 # A storage class for sensitive employee information
@@ -287,7 +291,7 @@ cust1.set_rewards("0001")
 cust2 = Customer()
 cust2.set_name("Customer Two")
 cust2.set_age(52)
-cust2.set_rewards("0002")
+cust2.set_rewards("xxxx")
 
 cust3 = Customer()
 cust3.set_name("Customer Three")
@@ -297,7 +301,7 @@ cust3.set_rewards("0003")
 cust4 = Customer()
 cust4.set_name("Customer Four")
 cust4.set_age(30)
-cust4.set_rewards("0004")
+cust4.set_rewards("xxxx")
 
 cust5 = Customer()
 cust5.set_name("Customer Five")
@@ -395,50 +399,40 @@ for customer in customers:
   print(customer.get_name())
 print("\n")
 
-# Unit Test for finding a customer in the customer database
-# Unit Test for using cust_db.find_customer() method
+# ======== Testing ======== #
+# Unit Tests for finding a customer in the customer database
+# Unit Tests for using cust_db.find_customer() method
 customer_example1 = "Customer One"
 customer_example2 = "Customer Two"
 customer_example3 = "Customer Three"
 customer_exampleF = "Fake Customer"
-found_customer1 = cust_db.find_customer_by_name(customer_example1)
-found_customer2 = cust_db.find_customer_by_name(customer_example2)
-found_customer3 = cust_db.find_customer_by_name(customer_example3)
-found_customerF = cust_db.find_customer_by_name(customer_exampleF)
+
+# If Customer name is in the list of usual customers, then the customer is "found" by our database
+def find_customer_by_name_unittest(customer_example):
+  found_customer = cust_db.find_customer_by_name(customer_example)
+  if found_customer is None:
+    print("Failure.")
+    print(customer_example + " was not found.")
+  else:
+    print("Success!")
+    print(customer_example + " was found!")
+
+# Unit Test 1
 print("Test1 for cust_db.find_customer_by_name():")
-if found_customer1 is None:
-  print("Failure.")
-  print(customer_example1 + " was not found.")
-else:
-  print("Success!")
-  print(customer_example1 + " was found!")
-print("\n")
+find_customer_by_name_unittest(customer_example1)
 
+# Unit Test 2
 print("Test2 for cust_db.find_customer_by_name():")
-if found_customer2 is None:
-  print("Failure.")
-  print(customer_example2 + " was not found.")
-else:
-  print("Success!")
-  print(customer_example2 + " was found!")
-print("\n")
+find_customer_by_name_unittest(customer_example2)
 
+# Unit Test 3
 print("Test3 for cust_db.find_customer_by_name():")
-if found_customer3 is None:
-  print("Failure.")
-  print(customer_example3 + " was not found.")
-else:
-  print("Success!")
-  print(customer_example3 + " was found!")
-print("\n")
+find_customer_by_name_unittest(customer_example3)
 
-print("TestF for cust_db.find_customer_by_name():")
-if found_customerF is None:
-  print("Failure.")
-  print(customer_exampleF + " was not found.")
-else:
-  print("Success!")
-  print(customer_exampleF + " was found!")
+# Unit Test 4
+print("Test4 for cust_db.find_customer_by_name():")
+find_customer_by_name_unittest(customer_exampleF)
+
 print("\n")
 
 # Unit Test for finding a book in the library
