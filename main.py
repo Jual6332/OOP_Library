@@ -106,6 +106,22 @@ book4.set_genre("Fiction")
 book4.set_publisher("...")
 book4.set_words("...")
 
+book5 = Book()
+book5.set_title("Sherlock Holmes")
+book5.set_author("Arthur Conan Doyle")
+book5.set_year(1887)
+book5.set_genre("Fiction")
+book5.set_publisher("...")
+book5.set_words("...")
+
+book6 = Book()
+book6.set_title("Martian")
+book6.set_author("Andy Weir")
+book6.set_year(2020)
+book6.set_genre("Fiction")
+book6.set_publisher("...")
+book6.set_words("...")
+
 # Add Example Library Data
 lib = Library()
 lib.set_name("Library 1")
@@ -115,12 +131,16 @@ lib.add_author("F. Scott Fitzgerald")
 lib.add_author("Howard G. Buffett")
 lib.add_author("James Patterson")
 lib.add_author("George Lucas")
+lib.add_author("Arthur Conan Doyle")
+lib.add_author("Andy Weir")
 lib_authors = lib.get_authors()
 
 lib.add_book(book1)
 lib.add_book(book2)
 lib.add_book(book3)
 lib.add_book(book4)
+lib.add_book(book5)
+lib.add_book(book6)
 lib_books = lib.get_books()
 
 # Define Employee Class
@@ -227,6 +247,13 @@ emp7.set_age(25)
 emp7.set_job_title("Cashier")
 emp7.set_salary(27000)
 
+emp8 = Employee()
+emp8.set_id(8)
+emp8.set_name("Employee Eight")
+emp8.set_age(47)
+emp8.set_job_title("Manager")
+emp8.set_salary(74000)
+
 emp_db = EmployeeDatabase()
 emp_db.add_employee(emp1)
 emp_db.add_employee(emp2)
@@ -235,6 +262,7 @@ emp_db.add_employee(emp4)
 emp_db.add_employee(emp5)
 emp_db.add_employee(emp6)
 emp_db.add_employee(emp7)
+emp_db.add_employee(emp8)
 employees = emp_db.get_employees() # Store employee information objects in an easier-to-use variable
 
 class Customer():
@@ -528,15 +556,8 @@ for employee in employees:
 #plt.show()
 
 # Todos:
-# 1.) Write set_salary() and give_bonus() methods for Employee/EmployeeDB classes
-#     - Bonuses will be based on a few factors. 
-#     - Can a cashier give themselves a bonus? No. Obviously not. 
-# Let's make a check for this
 
 # 2.) Write test for sort by genre method for library class
-# 3.) Add book sorting method for Library 
-# 4.) find_customer() method in customer database
-# 5.) More advanced unit testing
 
 # Data
 # 1. Add more customers to the customers list
