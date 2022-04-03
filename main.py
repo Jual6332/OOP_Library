@@ -351,6 +351,19 @@ print(emp5.performance_comments)
 print("\n")
 
 # ======== Continued Development ======== #
+# Cost of a book depends on the book
+def cost_of_specific_book(book):
+  cost = 0.00
+  if bought_book1 == "The Great Gatsby":
+    cost = 22.50
+  elif bought_book1 == "Forty Chances":
+    cost = 25.00
+  elif bought_book1 == "Along Came a Spider":
+    cost = 15.00
+  elif bought_book1 == "Star Wars Episode 4: A New Hope":
+    cost = 17.50
+  return cost
+  
 # Make a purchase
 print("TRANSACTION.")
 print("cust1 enters to purchase a book.")
@@ -358,16 +371,7 @@ pick_random_book = random.choice(lib_books)
 bought_book1 = pick_random_book.get_title()
 #print(bought_book1)
 cash = 50.00
-cost = 0.00
-
-if bought_book1 == "The Great Gatsby":
-  cost = 22.50
-elif bought_book1 == "Forty Chances":
-  cost = 25.00
-elif bought_book1 == "Along Came a Spider":
-  cost = 15.00
-elif bought_book1 == "Star Wars Episode 4: A New Hope":
-  cost = 17.50
+cost = cost_of_specific_book(bought_book1)
 
 print("The customer has ${0} in cash.".format(cash))
 print("The book costs ${0}".format(cost))
@@ -435,6 +439,7 @@ find_customer_by_name_unittest(customer_exampleF)
 
 print("\n")
 
+# ======== Testing ======== #
 # Unit Test for finding a book in the library
 # Unit Tests for using lib.find_book() method
 book_example1 = "The Great Gatsby"
@@ -442,52 +447,36 @@ book_example2 = "Forty Chances"
 book_example3 = "..."
 book_example4 = "Along Came a Spider"
 book_example5 = "Star Wars Episode 4: A New Hope"
-found_book = lib.find_book(book_example1)
-found_book2 = lib.find_book(book_example2)
-found_book3 = lib.find_book(book_example3)
-found_book4 = lib.find_book(book_example4)
-found_book5 = lib.find_book(book_example5)
 
+# If the book name is in the list of books in the database, then the book requested is "found" by our database
+def find_book_by_name_unittest(book_example):
+  found_book = lib.find_book(book_example)
+  if found_book is None:
+    print("Failure.")
+    print(book_example + " was not found.")
+  else:
+    print("Success!")
+    print(book_example + " was found!")
+
+# Unit Test 1
 print("Test1 for lib.find_book():")
-if found_book is None:
-  print("Failure.")
-  print(book_example1 + " was not found.")
-else:
-  print("Success!")
-  print(book_example1 + " was found!")
+find_book_by_name_unittest(book_example1)
 
+# Unit Test 2
 print("Test2 for lib.find_book():")
-if found_book2 is None:
-  print("Failure.")
-  print(book_example2 + " was not found.")
-else:
-  print("Success!")
-  print(book_example2 + " was found!")
+find_book_by_name_unittest(book_example2)
 
+# Unit Test 3
 print("Test3 for lib.find_book():")
-if found_book3 is None:
-  print(book_example3 + " was not found.")
-else:
-  print("Success!")
-  print(book_example3 + " was found!")
+find_book_by_name_unittest(book_example3)
 
+# Unit Test 4
 print("Test4 for lib.find_book():")
-if found_book4 is None:
-  print("Failure.")
-  print(book_example4 + " was not found.")
-else:
-  print("Success!")
-  print(book_example4 + " was found!")
-#print("\n")
+find_book_by_name_unittest(book_example4)
 
+# Unit Test 5
 print("Test5 for lib.find_book():")
-if found_book5 is None:
-  print("Failure.")
-  print(book_example5 + " was not found.")
-else:
-  print("Success!")
-  print(book_example5 + " was found!")
-print("\n")
+find_book_by_name_unittest(book_example5)
 
 # ======== Plotting ======== #
 name_data = []; salary_data = [];
