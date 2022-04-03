@@ -387,11 +387,31 @@ else:
 file1.write("The customer has ${0} in cash.\n".format(cash))
 file1.write("The book costs ${0}\n".format(cost))
 file1.write("Customer1 purchases {0} with ${1} remaining.\n".format(bought_book1,total_cost))
+
+# Make a purchase - Write to a file
+file1.write("TRANSACTION.\n")
+file1.write("cust2 enters checkout aisle to purchase a book.\n")
+
+pick_random_book = random.choice(lib_books)
+bought_book2 = pick_random_book.get_title()
+#print(bought_book1)
+cash = 40.00
+cost = cost_of_specific_book(bought_book2)
+employee = emp4
+file1.write("Employee 4 helps customer with purchase.\n")
+
+total_cost = 0
+if cust2.rewards != "xxxx":
+  # 10% discount applies
+  total_cost = cash-cost*0.90
+else:
+  # Discount does not apply
+  total_cost = cash-cost
+
+file1.write("The customer has ${0} in cash.\n".format(cash))
+file1.write("The book costs ${0}\n".format(cost))
+file1.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book2,total_cost))
 file1.close()
-
-## Write to file the books purchased from each transaction
-
-
 
 # Write function to determine if person gets a raise next based on performance review scores
 
