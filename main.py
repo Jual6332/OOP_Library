@@ -489,6 +489,7 @@ print("\n")
 job_titles = []
 for employee in employees:
   job_titles.append(employee.get_job_title())
+  print(employee.get_job_title())
 
 '''
 job_title_dict = {}
@@ -502,8 +503,14 @@ for val in range(0,10):
   print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_job_title,duplicates))
   job_title_dict[chosen_job_title] = duplicates
 '''
-print(job_titles)
-#print(job_title_dict)
+
+job_titles_dict = {}
+job_titles_dict["Manager"] = job_titles.count("Manager")
+job_titles_dict["Supervisor"] = job_titles.count("Supervisor")
+job_titles_dict["Cashier"] = job_titles.count("Cashier")
+job_titles_dict["Bakery Cashier"] = job_titles.count("Bakery Cashier")
+
+print(job_titles_dict)
 print("\n")
   
 
