@@ -398,6 +398,8 @@ print(emp5.performance_grades)
 print(emp5.performance_comments)
 print("\n")
 
+# Write function to determine if person gets a raise next based on performance review scores
+
 # ======== Continued Development ======== #
 # Cost of a book depends on the book
 def cost_of_specific_book(book):
@@ -462,8 +464,6 @@ file1.write("The book costs ${0}\n".format(cost))
 file1.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book2,total_cost))
 file1.close()
 
-# Write function to determine if person gets a raise next based on performance review scores
-
 # ======== Continued Development ======== #
 # Store genre of books, count how many books per genre
 genres = []
@@ -471,7 +471,6 @@ for book in lib_books:
   genres.append(book.get_genre())
   print(book.get_genre())
 
-#val = 0
 genres_books = {}
 for val in range(0,3):
   chosen_genre = genres[val]
@@ -479,16 +478,33 @@ for val in range(0,3):
   for genre in genres[val+1:len(genres)]:
     if genre == chosen_genre:
       duplicates+=1
-
-  print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_genre,duplicates))
-  print("\n")
-  
+  #print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_genre,duplicates))
   genres_books[chosen_genre] = duplicates
   
 print(genres_books)
+print("\n")
 
+# ======== Continued Development ======== #
+# See how many of each employees have each job
+job_titles = []
+for employee in employees:
+  job_titles.append(employee.get_job_title())
 
-    
+'''
+job_title_dict = {}
+copy_job_titles = job_titles
+for val in range(0,10):
+  chosen_job_title = job_titles[val]
+  duplicates = 0
+  for job_title in job_titles[val+1:len(job_titles)]:
+    if job_title == chosen_job_title:
+      duplicates+=1
+  print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_job_title,duplicates))
+  job_title_dict[chosen_job_title] = duplicates
+'''
+print(job_titles)
+#print(job_title_dict)
+print("\n")
   
 
 
