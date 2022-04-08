@@ -4,8 +4,7 @@ An application for storing bookstore data, including customer-base, book catalog
 # Object-Oriented Approach
 This project relies heavily on encapsulation. Inheritance will also be present when the customer and employee classes inherit from the person class.
 
-# Custom Classes including their Attributes and Methods
-Book class.
+# Custom Classes: Book class.
 Attributes:
 1. Title - a string, title of the book
 2. Author - a string, author of the book
@@ -24,10 +23,15 @@ Setter Methods:
 6. set_words() - Store the words of the book. 1 string input param
 7. set_cost() - Set cost of the book. 1 double input param
 
-1. Setters
-3. Getters
-4. Additional methods
+Getter Methods:
+1. get_title() - Return title of the book
+2. get_author() - Return author of the book
+3. get_year() - Return year of the book
+4. get_genre() - Return genre of the book
+5. get_publisher() - Return publisher of the book
+6. get_words() - Return words of the book
+7. get_cost() - Return cost of the book
 
 # External Libraries
-import random
-import matplotlib.pyplot as plt
+- import random
+- import matplotlib.pyplot as plt
