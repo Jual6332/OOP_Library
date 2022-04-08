@@ -1,8 +1,9 @@
 # OOP_Library Project Description
 An application for storing bookstore data, including customer-base, book catalog, and employee database. From a technology standpoint, written ourely in Object-Oriented Python.
 
-# Object-Oriented Approach
-This project relies heavily on encapsulation. Inheritance will also be present when the customer and employee classes inherit from the person class.
+# Object-Oriented Approach to Development
+This project relies heavily on encapsulation and abstraction. Abstraction is accomplished when offering the user 
+Inheritance will also be present when the customer and employee classes inherit from the person class.
 
 # Custom Classes: Book class.
 Attributes:
