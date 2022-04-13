@@ -190,6 +190,8 @@ class EmployeeDatabase():
     return self.employees
   def add_raise_data(self,raise_new):
       self.raise_history.append(raise_new)
+  def get_raise_data(self):
+    return self.raise_history
 
 # Add Employees to the Project
 emp1 = Employee()
