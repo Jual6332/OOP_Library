@@ -9,7 +9,6 @@ class Book():
     self.genre = ""
     self.publisher = ""
     self.words = ""
-    self.cost = 0.00
   def set_title(self,title):
     self.title = title
   def set_author(self,author):
@@ -22,8 +21,6 @@ class Book():
     self.publisher = publisher
   def set_words(self,words):
     self.words = words
-  def set_cost(self,cost):
-    self.cost = cost
   def get_title(self):
     return self.title
   def get_author(self):
@@ -36,8 +33,6 @@ class Book():
     return self.publisher
   def get_words(self):
     return self.words
-  def get_cost(self):
-    return self.cost
 
 class Library():
   def __init__(self):
@@ -294,6 +289,9 @@ class Customer():
     return self.age
   def get_rewards_number(self):
     return self.rewards
+
+# Set_rewards_number()
+
 
 class CustomerDatabase():
   def __init__(self):
