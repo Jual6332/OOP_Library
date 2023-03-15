@@ -33,6 +33,16 @@ class Book():
     return self.publisher
   def get_words(self):
     return self.words
+  
+  # Method: update_title()
+  # Input Parameter 1: tle, a string for the new title
+  # Purpose: to change title string value to a new string value. Similar methods: set_title() is only used for the first time the year is set - update_title() is used on other occassions to set the number value of year
+  def update_title(self,tle):
+    self.title = tle
+  # Method: update_year() 
+  # Purpose: to change year number to new number value. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occassions to set the number value of year
+  def update_year(self,yr):
+    self.year = yr
 
 class Library():
   def __init__(self):
@@ -111,11 +121,13 @@ book6.set_genre("Fiction")
 book6.set_publisher("Crown Publishing Group")
 book6.set_words("...")
 
-# Add Example Library Data
+## Add Example Library Data
+# Create Library Object
 lib = Library()
 lib.set_name("Library 1")
 lib.set_year(1975)
 
+# Add Authors to Library
 lib.add_author("F. Scott Fitzgerald")
 lib.add_author("Howard G. Buffett")
 lib.add_author("James Patterson")
@@ -124,15 +136,16 @@ lib.add_author("Arthur Conan Doyle")
 lib.add_author("Andy Weir")
 lib_authors = lib.get_authors()
 
+# Add Books to Library Class
 lib.add_book(book1)
 lib.add_book(book2)
 lib.add_book(book3)
 lib.add_book(book4)
 lib.add_book(book5)
 lib.add_book(book6)
-lib_books = lib.get_books()
+lib_books = lib.get_books() # SHort-hand
 
-# Define Employee Class
+## Define Employee Class
 class Employee():
   def __init__(self):
     self.id = 0
@@ -155,7 +168,6 @@ class Employee():
     self.salary = salary
   def set_start_date(self,start_date):
     self.start_date = start_date
-  
   def get_id(self):
     return self.id
   def get_name(self):
@@ -173,7 +185,7 @@ class Employee():
   def get_performance_comments(self):
     return self.performance_comments
 
-# Create Employee Database
+## Create Employee Database
 # A storage class for sensitive employee information
 class EmployeeDatabase():
   def __init__(self):
@@ -188,7 +200,7 @@ class EmployeeDatabase():
   def get_raise_data(self):
     return self.raise_history
 
-# Add Employees to the Project
+## Add Employees to the Project
 emp1 = Employee()
 emp1.set_id(1)
 emp1.set_name("Employee One")
@@ -272,16 +284,17 @@ emp_db.add_employee(emp9)
 emp_db.add_employee(emp10)
 employees = emp_db.get_employees() # Store employee information objects in an easier-to-use variable
 
+# Create Customer Class
 class Customer():
   def __init__(self):
     self.name = ""
     self.age = 0
-    self.rewards = ""
+    self.rewards_number = ""
   def set_name(self,name):
     self.name = name
   def set_age(self,age):
     self.age = age
-  def set_rewards(self,rewards):
+  def set_rewards_number(self,rewards):
     self.rewards = rewards
   def get_name(self):
     return self.name
@@ -324,7 +337,7 @@ class CustomerDatabase():
 cust1 = Customer()
 cust1.set_name("Customer One")
 cust1.set_age(34)
-cust1.set_rewards("0001")
+cust1.set_rewards_number("0001")
 
 cust2 = Customer()
 cust2.set_name("Customer Two")
