@@ -9,6 +9,7 @@ class Book():
     self.genre = ""
     self.publisher = ""
     self.words = ""
+    self.cost = 0
   def set_title(self,title):
     self.title = title
   def set_author(self,author):
@@ -21,6 +22,8 @@ class Book():
     self.publisher = publisher
   def set_words(self,words):
     self.words = words
+  def set_cost(self,cost):
+    self.cost = cost
   def get_title(self):
     return self.title
   def get_author(self):
@@ -33,6 +36,8 @@ class Book():
     return self.publisher
   def get_words(self):
     return self.words
+  def get_cost(self):
+    return self.cost
   
   # Method: update_title()
   # Input Parameter 1: tle, a string for the new title
@@ -435,7 +440,9 @@ pick_random_book = random.choice(lib_books)
 bought_book1 = pick_random_book.get_title()
 #print(bought_book1)
 cash = 50.00
-cost = cost_of_specific_book(bought_book1)
+cost = cost_of_specific_book(bought_book1) # 
+pick_random_book.set_cost(cost)
+print("{0}".format(pick_random_book.get_cost()))
 employee = emp4
 file1.write("Employee 4 helps customer with purchase.\n")
 
