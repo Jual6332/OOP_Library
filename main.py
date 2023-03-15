@@ -127,15 +127,6 @@ lib = Library()
 lib.set_name("Library 1")
 lib.set_year(1975)
 
-# Add Authors to Library
-lib.add_author("F. Scott Fitzgerald")
-lib.add_author("Howard G. Buffett")
-lib.add_author("James Patterson")
-lib.add_author("George Lucas")
-lib.add_author("Arthur Conan Doyle")
-lib.add_author("Andy Weir")
-lib_authors = lib.get_authors()
-
 # Add Books to Library Class
 lib.add_book(book1)
 lib.add_book(book2)
@@ -144,6 +135,11 @@ lib.add_book(book4)
 lib.add_book(book5)
 lib.add_book(book6)
 lib_books = lib.get_books() # SHort-hand
+
+# Add Authors to Library
+for book in lib_books:
+  lib.add_author(book.author)
+lib_authors = lib.get_authors()
 
 ## Define Employee Class
 class Employee():
