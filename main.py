@@ -191,6 +191,7 @@ class EmployeeDatabase():
     self.employees.append(employee)
   def get_employees(self):
     return self.employees
+  # Replacing total salary or adding only the difference which wuld be the raise amount per year
   def add_raise_data(self,raise_new):
       self.raise_history.append(raise_new)
   def get_raise_data(self):
@@ -286,6 +287,9 @@ class Customer():
     self.name = ""
     self.age = 0
     self.rewards_number = ""
+    self.previous_purchases = []
+  def add_purchase(self,book,cost):
+    self.previous_purchases.append("Bought {0} for ${1}.".format(book.title,cost))
   def set_name(self,name):
     self.name = name
   def set_age(self,age):
@@ -298,9 +302,8 @@ class Customer():
     return self.age
   def get_rewards_number(self):
     return self.rewards
-
-# Set_rewards_number()
-
+  def get_previous_purchases(self):
+    return self.previous_purchases
 
 class CustomerDatabase():
   def __init__(self):
