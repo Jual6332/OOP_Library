@@ -342,32 +342,32 @@ cust1.set_rewards_number("0001")
 cust2 = Customer()
 cust2.set_name("Customer Two")
 cust2.set_age(52)
-cust2.set_rewards("xxxx")
+cust2.set_rewards_number("xxxx")
 
 cust3 = Customer()
 cust3.set_name("Customer Three")
 cust3.set_age(41)
-cust3.set_rewards("0003")
+cust3.set_rewards_number("0003")
 
 cust4 = Customer()
 cust4.set_name("Customer Four")
 cust4.set_age(30)
-cust4.set_rewards("xxxx")
+cust4.set_rewards_number("xxxx")
 
 cust5 = Customer()
 cust5.set_name("Customer Five")
 cust5.set_age(46)
-cust5.set_rewards("0005")
+cust5.set_rewards_number("0005")
 
 cust6 = Customer()
 cust6.set_name("Customer Six")
 cust6.set_age(18)
-cust6.set_rewards("0006")
+cust6.set_rewards_number("0006")
 
 cust7 = Customer()
 cust7.set_name("Customer Seven")
 cust7.set_age(21)
-cust7.set_rewards("0007")
+cust7.set_rewards_number("0007")
 
 cust_db = CustomerDatabase()
 cust_db.add_customer(cust1)
@@ -379,7 +379,7 @@ cust_db.sort_customers_lname()
 customers = cust_db.get_customers()
 
 # ======== Continued Development ======== #
-# I would like to give a performance review (1/2 employees)
+# I would like to give a performance review (first employee)
 employee_review1 = emp4.get_name() # Employee under review
 selling_credit_cards_grade = "A" # How well did he/she sell credit cards?
 punctuality_grade = "A" # How punctual was he/she?
@@ -395,7 +395,7 @@ print(emp4.performance_grades)
 print(emp4.performance_comments)
 print("\n")
 
-# I would like to give a performance review (2/2 employees)
+# I would like to give a performance review (second employee)
 employee_review2 = emp5.get_name() # Employee under review
 selling_credit_cards_grade = "C" # How well did he/she sell credit cards?
 punctuality_grade = "B" # How punctual was he/she?
@@ -442,7 +442,7 @@ file1.write("Employee 4 helps customer with purchase.\n")
 
 total_cost = 0
 if cust1.rewards != "xxxx":
-  # 10% discount applies
+  # 10% discount applies if it is an actual rewards number setup by the user
   total_cost = cash-cost*0.90
 else:
   # Discount does not apply
