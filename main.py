@@ -38,6 +38,25 @@ class Book():
     return self.words
   def get_cost(self):
     return self.cost
+
+class StoreItem():
+  def __init__(self):
+    self.name = ""
+    self.details = ""
+    self.price = 0
+  def set_name(self,name):
+    self.name = name
+  def set_details(self,details):
+    self.details = details
+  def set_price(self,price):
+    self.price = price
+  def get_name(self):
+    return self.name
+  def get_details(self):
+    return self.details
+  def get_price(self):
+    return self.price
+    
   
   # Method: update_title()
   # Input Parameter 1: tle, a string for the new title
