@@ -9,4 +9,4 @@ cust2 enters checkout aisle to purchase a book.
 Employee 4 helps customer with purchase.
 The customer has $40.0 in cash.
 The book costs $22.5
-Customer2 purchases The Great Gatsby with $17.5 remaining.
+Customer2 purchases Forty Chances with $17.5 remaining.

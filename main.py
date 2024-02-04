@@ -485,22 +485,39 @@ file1.close()
 
 # ======== Continued Development ======== #
 # Store genre of books, count how many books per genre
+
+# Bug Fixed: The number of books for Histrocial fiction, non-fiction, and fiction were incorrect but that's fixed
+# 2/2/24 Justin
 genres = []
 for book in lib_books:
   genres.append(book.get_genre())
   print(book.get_genre())
+print(genres)
 
-genres_books = {}
-for val in range(0,3):
-  chosen_genre = genres[val]
-  duplicates = 0
-  for genre in genres[val+1:len(genres)]:
-    if genre == chosen_genre:
-      duplicates+=1
+genres_dictionary = {}
+
+# Old code - Broken, deprecated at this point
+#for index in range(0,len(genres)):
+#  chosen_genre = genres[index]
+#  numBooksInThisGenre = 0
+#  for genre in genres[index:len(genres)]:
+#    if genre == chosen_genre:
+#      print("Index: "+str(index))
+#      print("Genre: "+genre)
+#      print("Chosen genre: "+chosen_genre)
+#      numBooksInThisGenre+=1
+#      print("Number of Books in this Genre: "+str(numBooksInThisGenre))
   #print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_genre,duplicates))
-  genres_books[chosen_genre] = duplicates
-  
-print(genres_books)
+#genres_books[chosen_genre] = numBooksInThisGenre
+
+for genre in genres:
+  if (genre in genres_dictionary): # If the genre is already in the dictionary, increment the number of occurrences of this genre 
+    genres_dictionary[genre] += 1
+  else:
+    genres_dictionary[genre] = 1
+
+# There was a Bug being printed here. Fixed 2/4/24, found 2/4/24 - Justin
+print(genres_dictionary)
 print("\n")
 
 # ======== Continued Development ======== #
@@ -657,3 +674,5 @@ for employee in employees:
 
 # The book array needs to check for repeats somehow. 
 # The cost needs to be removed from book class
+
+# Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
