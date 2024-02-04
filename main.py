@@ -38,6 +38,15 @@ class Book():
     return self.words
   def get_cost(self):
     return self.cost
+  # Method: update_title()
+  # Input Parameter 1: tle, a string for the new title
+  # Purpose: to change title string value to a new string value. Similar methods: set_title() is only used for the first time the title value is set - update_title() is used on other occassions to set the string value of title
+  def update_title(self,tle):
+    self.title = tle
+  # Method: update_year() 
+  # Purpose: to change year number to new number value. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occassions to set the number value of year
+  def update_year(self,yr):
+    self.year = yr
 
 class StoreItem():
   def __init__(self):
@@ -56,17 +65,6 @@ class StoreItem():
     return self.details
   def get_price(self):
     return self.price
-    
-  
-  # Method: update_title()
-  # Input Parameter 1: tle, a string for the new title
-  # Purpose: to change title string value to a new string value. Similar methods: set_title() is only used for the first time the year is set - update_title() is used on other occassions to set the number value of year
-  def update_title(self,tle):
-    self.title = tle
-  # Method: update_year() 
-  # Purpose: to change year number to new number value. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occassions to set the number value of year
-  def update_year(self,yr):
-    self.year = yr
 
 class Library():
   def __init__(self):
