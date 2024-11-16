@@ -455,11 +455,11 @@ file1.write("TRANSACTION.\n")
 file1.write("cust1 enters checkout aisle to purchase a book.\n")
 pick_random_book = random.choice(lib_books)
 bought_book1 = pick_random_book.get_title()
+file1.write("cust1 selects book {0} \n".format(bought_book1))
 #print(bought_book1)
 cash = 50.00
-cost = cost_of_specific_book(bought_book1) # 
+cost = cost_of_specific_book(bought_book1) # Data hiding, encapsulation
 pick_random_book.set_cost(cost)
-print("{0}".format(pick_random_book.get_cost()))
 employee = emp4
 file1.write("Employee 4 helps customer with purchase.\n")
 
@@ -473,7 +473,7 @@ else:
 
 file1.write("The customer has ${0} in cash.\n".format(cash))
 file1.write("The book costs ${0}\n".format(cost))
-file1.write("Customer1 purchases {0} with ${1} remaining.\n".format(bought_book1,total_cost))
+file1.write("Customer1 purchases {0} with ${1} remaining.\n\n".format(bought_book1,total_cost))
 
 # Make a purchase - Write to a file
 file1.write("TRANSACTION.\n")
