@@ -143,6 +143,14 @@ book6.set_genre("Fiction")
 book6.set_publisher("Crown Publishing Group")
 book6.set_words("...")
 
+book7 = Book()
+book7.set_title("Star Wars Episode 5: The Empire Strikes Back")
+book7.set_author("George Lucas")
+book7.set_year(1985)
+book7.set_genre("Fiction")
+book7.set_publisher("Random House Worlds")
+book7.set_words("...")
+
 ## Add Example Library Data
 # Create Library Object
 lib = Library()
@@ -156,6 +164,7 @@ lib.add_book(book3)
 lib.add_book(book4)
 lib.add_book(book5)
 lib.add_book(book6)
+lib.add_book(book7)
 lib_books = lib.get_books() # SHort-hand
 
 # Add Authors to Library
@@ -542,9 +551,12 @@ authors_dictionary = {};
 
 for author in lib_authors:
   if (author in authors_dictionary): # If the genre is already in the dictionary, increment the number of occurrences of this genre 
-    authors_dictionary[genre] += 1
+    authors_dictionary[author] += 1
   else:
-    authors_dictionary[genre] = 1
+    authors_dictionary[author] = 1
+
+print(authors_dictionary)
+print("\n")
 
 # ======== Continued Development ======== #
 # See how many of each employees have each job
