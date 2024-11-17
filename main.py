@@ -432,7 +432,7 @@ punctuality_grade = "B" # How punctual was he/she?
 customer_service_grade = "C" # How was their customer service rating?
 emp5.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
 
-comments = "This employee did join the cashier squad two months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She will be let-go during next round of budget cuts." # Manager/supervisor comments
+comments = "This employee did join the cashier squad 4 months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She will be let-go during next round of budget cuts." # Manager/supervisor comments
 emp5.performance_comments.append(comments) # Store comments
 
 # Print Output
@@ -455,6 +455,8 @@ def cost_of_specific_book(book):
     cost = 15.00
   elif bought_book1 == "Star Wars Episode 4: A New Hope":
     cost = 17.50
+  elif bought_book1 == "Star Wars Episode 5: The Empire Strikes Back":
+    cost = 7.95
   return cost
   
   # Write function for writing transaction to file??
@@ -542,11 +544,8 @@ for genre in genres:
   else:
     genres_dictionary[genre] = 1
 
-# There was a Bug being printed here. Fixed 2/4/24, found 2/4/24 - Justin
-print(genres_dictionary)
-print("\n")
-
 # ======== Continued Development ======== # 
+# Key on author, value of how mnay times that author appears in library 
 authors_dictionary = {};
 
 for author in lib_authors:
@@ -554,9 +553,6 @@ for author in lib_authors:
     authors_dictionary[author] += 1
   else:
     authors_dictionary[author] = 1
-
-print(authors_dictionary)
-print("\n")
 
 # ======== Continued Development ======== #
 # See how many of each employees have each job
@@ -587,8 +583,6 @@ job_titles_dict["Bakery Cashier"] = job_titles.count("Bakery Cashier")
 print(job_titles_dict)
 print("\n")
   
-
-
 # ======== Testing ======== #
 # Print the Name of Each Book
 print("Books in Library:")
@@ -612,6 +606,15 @@ print("\n")
 print("Previous Customers:")
 for customer in customers:
   print(customer.get_name())
+print("\n")
+
+# Print the Number of times each  shows up in the library
+# There was a Bug here. Found 2/4/24, fixed 2/4/24, documented 11/16/24,  - Justin
+print(genres_dictionary)
+print("\n")
+
+# Print the Number of times each author shows up in the library
+print(authors_dictionary)
 print("\n")
 
 # ======== Testing ======== #
