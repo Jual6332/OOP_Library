@@ -1,14 +1,14 @@
 TRANSACTION.
 cust1 enters checkout aisle to purchase a book.
-cust1 selects book Martian 
+cust1 selects book Star Wars Episode 4: A New Hope 
 Employee 4 helps customer with purchase.
 The customer has $50.0 in cash.
-The book costs $0.0
-Customer1 purchases Martian with $50.0 remaining.
+The book costs $17.5
+Customer1 purchases Star Wars Episode 4: A New Hope with $34.25 remaining.
 
 TRANSACTION.
 cust2 enters checkout aisle to purchase a book.
 Employee 4 helps customer with purchase.
 The customer has $40.0 in cash.
-The book costs $0.0
-Customer2 purchases Star Wars Episode 4: A New Hope with $40.0 remaining.
+The book costs $17.5
+Customer2 purchases Martian with $22.5 remaining.

@@ -537,6 +537,15 @@ for genre in genres:
 print(genres_dictionary)
 print("\n")
 
+# ======== Continued Development ======== # 
+authors_dictionary = {};
+
+for author in lib_authors:
+  if (author in authors_dictionary): # If the genre is already in the dictionary, increment the number of occurrences of this genre 
+    authors_dictionary[genre] += 1
+  else:
+    authors_dictionary[genre] = 1
+
 # ======== Continued Development ======== #
 # See how many of each employees have each job
 job_titles = []
