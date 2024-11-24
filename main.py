@@ -732,10 +732,7 @@ for employee in employees:
 #plt.bar(name_data[0:5],salary_data[0:5])
 #plt.show()
 
-# Todos:
-
-# 2.) Write test for sort by genre method for library class
-# Unit Test for sort_by_genre() method for Library class
+# 1.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
 print("Test 1 for lib.sort_by_genre()")
 fiction_books = lib.sort_by_genre("Fiction")
@@ -746,6 +743,17 @@ else:
     print(book.get_title())
 print("\n")
 
+# 1.) Unit Test for sort_by_year() method for Library class
+print("Test 1 for lib.sort_by_year()")
+old_books = lib.sort_by_year(1925)
+if old_books is None:
+  print("No Fiction books in the library.")
+else:
+  for book in old_books:
+    print(book.get_title())
+print("\n")
+
+# Todos:
 # Data
 # 1. Add more customers to the customers list
 
