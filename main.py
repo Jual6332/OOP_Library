@@ -115,7 +115,12 @@ class Library():
       if book.get_author() == author:
         authors.append(book)
     return authors
-  
+  def sort_by_year(self,year):
+    books = []
+    for book in self.books:
+      if book.get_year() == year:
+        books.append(book)
+    return books
 
 # Add Example Book Data
 book1 = Book()
