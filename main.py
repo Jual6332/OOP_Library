@@ -109,6 +109,12 @@ class Library():
       if book.get_genre() == genre:
         books.append(book)
     return books
+  def sort_by_author(self,author):
+    authors = []
+    for book in self.books:
+      if book.get_author() == author:
+        authors.append(book)
+    return authors
   
 
 # Add Example Book Data
