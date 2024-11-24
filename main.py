@@ -735,6 +735,16 @@ for employee in employees:
 # Todos:
 
 # 2.) Write test for sort by genre method for library class
+# Unit Test for sort_by_genre() method for Library class
+print("\n")
+print("Test 1 for lib.sort_by_genre()")
+fiction_books = lib.sort_by_genre("Fiction")
+if fiction_books is None:
+  print("No Fiction books in the library.")
+else:
+  for book in fiction_books:
+    print(book.get_title())
+print("\n")
 
 # Data
 # 1. Add more customers to the customers list
