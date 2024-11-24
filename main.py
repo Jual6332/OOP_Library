@@ -743,11 +743,21 @@ else:
     print(book.get_title())
 print("\n")
 
+# 1.)  Unit Test for sort_by_author() method for Library class
+print("Test 1 for lib.sort_by_author()")
+authored_books = lib.sort_by_author("James Patterson")
+if authored_books is None:
+  print("No books by James Patterson.")
+else:
+  for book in authored_books:
+    print(book.get_title())
+print("\n")
+
 # 1.) Unit Test for sort_by_year() method for Library class
 print("Test 1 for lib.sort_by_year()")
 old_books = lib.sort_by_year(1925)
 if old_books is None:
-  print("No Fiction books in the library.")
+  print("No books for the year {0}.".format(1925))
 else:
   for book in old_books:
     print(book.get_title())
