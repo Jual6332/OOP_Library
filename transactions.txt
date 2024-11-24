@@ -11,4 +11,4 @@ cust2 enters checkout aisle to purchase a book.
 Employee 4 helps customer with purchase.
 The customer has $40.0 in cash.
 The book costs $7.95
-Customer2 purchases The Complete Sherlock Holmes Volume II with $32.05 remaining.
+Customer2 purchases Star Wars Episode 5: The Empire Strikes Back with $32.05 remaining.

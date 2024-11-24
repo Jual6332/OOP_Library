@@ -66,6 +66,16 @@ class StoreItem():
   def get_price(self):
     return self.price
 
+class StoreItemDatabase():
+  def __init__(self):
+    self.items = []
+  def add_item(self,item):
+    self.items.append(item)
+  def get_item(self,itemName):
+    for item in self.items:
+      if item.get_name() == itemName:
+        return item
+
 class Library():
   def __init__(self):
     self.name = "" 
@@ -93,6 +103,13 @@ class Library():
       if book.get_title() == title:
         return book
     return None
+  def sort_by_genre(self,genre):
+    books = []
+    for book in self.books:
+      if book.get_genre() == genre:
+        books.append(book)
+    return books
+  
 
 # Add Example Book Data
 book1 = Book()
@@ -717,3 +734,4 @@ for employee in employees:
 # The cost needs to be removed from book class
 
 # Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
+
