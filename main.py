@@ -473,21 +473,27 @@ print("\n")
 
 # ======== Continued Development ======== #
 # Cost of a book depends on the book
-def cost_of_specific_book(book):
+def cost_of_specific_book(bought_book):
   cost = 0.00
-  if bought_book1 == "The Great Gatsby":
+  if bought_book == "The Great Gatsby":
     cost = 22.50
-  elif bought_book1 == "Forty Chances":
+  elif bought_book == "Forty Chances":
     cost = 25.00
-  elif bought_book1 == "Along Came a Spider":
+  elif bought_book == "Along Came a Spider":
     cost = 15.00
-  elif bought_book1 == "Star Wars Episode 4: A New Hope":
+  elif bought_book == "Star Wars Episode 4: A New Hope":
     cost = 17.50
-  elif bought_book1 == "Star Wars Episode 5: The Empire Strikes Back":
+  elif bought_book == "Star Wars Episode 5: The Empire Strikes Back":
     cost = 7.95
+  elif bought_book == "Martian":
+    cost = 9.99
+  elif bought_book == "The Complete Sherlock Holmes Volume II"
+    cost = 9.97
+  elif bought_book == "Star Wars Episode 5: The Empire Strikes Back":
+    cost = 9.99
   return cost
   
-  # Write function for writing transaction to file??
+# Write function for writing transaction to file??
 # Make a purchase - Write to a file
 file1 = open("transactions.txt", "w") 
 file1.write("TRANSACTION.\n")
@@ -770,7 +776,11 @@ print("\n")
 # Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
 
 # The book array needs to check for repeats somehow. 
-# The cost needs to be removed from book class
+# The cost needs to be removed from book class (why?)
 
 # Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
+# Database exists but needs some work - Justin 11/24/24
+
+# Add a "buy" function
+
 
