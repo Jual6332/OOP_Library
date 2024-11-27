@@ -487,7 +487,7 @@ def cost_of_specific_book(bought_book):
     cost = 7.95
   elif bought_book == "Martian":
     cost = 9.99
-  elif bought_book == "The Complete Sherlock Holmes Volume II"
+  elif bought_book == "The Complete Sherlock Holmes Volume II":
     cost = 9.97
   elif bought_book == "Star Wars Episode 5: The Empire Strikes Back":
     cost = 9.99
@@ -595,19 +595,6 @@ for employee in employees:
   job_titles.append(employee.get_job_title())
   print(employee.get_job_title())
 
-'''
-job_title_dict = {}
-copy_job_titles = job_titles
-for val in range(0,10):
-  chosen_job_title = job_titles[val]
-  duplicates = 0
-  for job_title in job_titles[val+1:len(job_titles)]:
-    if job_title == chosen_job_title:
-      duplicates+=1
-  print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_job_title,duplicates))
-  job_title_dict[chosen_job_title] = duplicates
-'''
-
 job_titles_dict = {}
 job_titles_dict["Manager"] = job_titles.count("Manager")
 job_titles_dict["Supervisor"] = job_titles.count("Supervisor")
@@ -695,6 +682,9 @@ book_example2 = "Forty Chances"
 book_example3 = "..."
 book_example4 = "Along Came a Spider"
 book_example5 = "Star Wars Episode 4: A New Hope"
+book_example6 = "Star Wars Episode 5: The Empire Strikes Back"
+book_example7 = "Martian"
+book_example8 = "The Complete Sherlock Holmes Volume II"
 
 # If the book name is in the list of books in the database, then the book requested is "found" by our database
 def find_book_by_name_unittest(book_example):
@@ -725,6 +715,18 @@ find_book_by_name_unittest(book_example4)
 # Unit Test 5
 print("Test5 for lib.find_book():")
 find_book_by_name_unittest(book_example5)
+
+# Unit Test 6
+print("Test6 for lib.find_book():")
+find_book_by_name_unittest(book_example6)
+
+# Unit Test 7
+print("Test7 for lib.find_book():")
+find_book_by_name_unittest(book_example7)
+
+# Unit Test 8
+print("Test8 for lib.find_book():")
+find_book_by_name_unittest(book_example8)
 
 # ======== Plotting ======== #
 name_data = []; salary_data = [];
