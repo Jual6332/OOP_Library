@@ -427,12 +427,32 @@ cust7.set_name("Customer Seven")
 cust7.set_age(21)
 cust7.set_rewards_number("0007")
 
+cust8 = Customer()
+cust8.set_name("Customer Eight")
+cust8.set_age(32)
+cust8.set_rewards_number("xxxx")
+
+cust9 = Customer()
+cust9.set_name("Customer Nine")
+cust9.set_age(42)
+cust9.set_rewards_number("xxxx")
+
+cust10 = Customer()
+cust10.set_name("Customer Ten")
+cust10.set_age(27)
+cust10.set_rewards_number("0010")
+
 cust_db = CustomerDatabase()
 cust_db.add_customer(cust1)
 cust_db.add_customer(cust2)
 cust_db.add_customer(cust3)
 cust_db.add_customer(cust4)
 cust_db.add_customer(cust5)
+cust_db.add_customer(cust6)
+cust_db.add_customer(cust7)
+cust_db.add_customer(cust8)
+cust_db.add_customer(cust9)
+cust_db.add_customer(cust10)
 cust_db.sort_customers_lname()
 customers = cust_db.get_customers()
 
@@ -778,7 +798,6 @@ print("\n")
 # Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
 
 # The book array needs to check for repeats somehow. 
-# The cost needs to be removed from book class (why?)
 
 # Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
 # Database exists but needs some work - Justin 11/24/24
