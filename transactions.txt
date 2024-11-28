@@ -1,14 +1,14 @@
 TRANSACTION.
 cust1 enters checkout aisle to purchase a book.
-cust1 selects book The Great Gatsby 
+cust1 selects book Martian 
 Employee 4 helps customer with purchase.
 The customer has $50.0 in cash.
-The book costs $22.5
-Customer1 purchases The Great Gatsby with $29.75 remaining.
+The book costs $9.99
+Customer1 purchases Martian with $41.009 remaining.
 
 TRANSACTION.
 cust2 enters checkout aisle to purchase a book.
 Employee 4 helps customer with purchase.
 The customer has $40.0 in cash.
-The book costs $9.97
-Customer2 purchases The Complete Sherlock Holmes Volume II with $30.03 remaining.
+The book costs $7.95
+Customer2 purchases Star Wars Episode 5: The Empire Strikes Back with $32.05 remaining.

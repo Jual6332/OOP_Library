@@ -665,6 +665,8 @@ customer_example1 = "Customer One"
 customer_example2 = "Customer Two"
 customer_example3 = "Customer Three"
 customer_exampleF = "Fake Customer"
+customer_example4 = "Customer Four"
+customer_example5 = "Customer Five"
 
 # If Customer name is in the list of usual customers, then the customer is "found" by our database
 def find_customer_by_name_unittest(customer_example):
@@ -691,6 +693,12 @@ find_customer_by_name_unittest(customer_example3)
 # Unit Test 4
 print("Test4 for cust_db.find_customer_by_name():")
 find_customer_by_name_unittest(customer_exampleF)
+
+print("Test5 for cust_db.find_customer_by_name():")
+find_customer_by_name_unittest(customer_example4)
+
+print("Test6 for cust_db.find_customer_by_name():")
+find_customer_by_name_unittest(customer_example5)
 
 print("\n")
 
