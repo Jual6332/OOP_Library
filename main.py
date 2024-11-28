@@ -667,6 +667,8 @@ customer_example3 = "Customer Three"
 customer_exampleF = "Fake Customer"
 customer_example4 = "Customer Four"
 customer_example5 = "Customer Five"
+customer_example6 = "Customer Six"
+customer_example7 = "Customer Seven"
 
 # If Customer name is in the list of usual customers, then the customer is "found" by our database
 def find_customer_by_name_unittest(customer_example):
@@ -699,6 +701,12 @@ find_customer_by_name_unittest(customer_example4)
 
 print("Test6 for cust_db.find_customer_by_name():")
 find_customer_by_name_unittest(customer_example5)
+
+print("Test7 for cust_db.find_customer_by_name():")
+find_customer_by_name_unittest(customer_example6)
+
+print("Test8 for cust_db.find_customer_by_name():")
+find_customer_by_name_unittest(customer_example7)
 
 print("\n")
 
@@ -801,7 +809,7 @@ print("\n")
 
 # Todos:
 # Data
-# 1. Add more customers to the customers list
+# 1. 
 
 # Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
 
