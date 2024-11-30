@@ -541,29 +541,29 @@ file1.write("The book costs ${0}\n".format(cost))
 file1.write("Customer1 purchases {0} with ${1} remaining.\n\n".format(bought_book1,total_cost))
 
 # Make a purchase - Write to a file
-file1.write("TRANSACTION.\n")
-file1.write("cust2 enters checkout aisle to purchase a book.\n")
+def make_purchase(file,cust,lib_books,cash,emp):
+  file.write("TRANSACTION.\n")
+  file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
+  pick_random_book = random.choice(lib_books)
+  bought_book = pick_random_book.get_title()
+  cost = cost_of_specific_book(bought_book)
+  employee = emp.get_name();
+  file1.write(employee+" helps customer with purchase.\n")
+  total_cost = 0
+  if cust.rewards != "xxxx":
+    # 10% discount applies
+    total_cost = cash-cost*0.90
+  else:
+    # Discount does not apply
+    total_cost = cash-cost
+  file.write("The customer has ${0} in cash.\n".format(cash))
+  file.write("The book costs ${0}\n".format(cost))
+  file.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book,total_cost))
+  file.close()
+  
 
-pick_random_book = random.choice(lib_books)
-bought_book2 = pick_random_book.get_title()
-#print(bought_book1)
-cash = 40.00
-cost = cost_of_specific_book(bought_book2)
-employee = emp4
-file1.write("Employee 4 helps customer with purchase.\n")
+make_purchase(file1,cust2,lib_books,40.00,emp4)
 
-total_cost = 0
-if cust2.rewards != "xxxx":
-  # 10% discount applies
-  total_cost = cash-cost*0.90
-else:
-  # Discount does not apply
-  total_cost = cash-cost
-
-file1.write("The customer has ${0} in cash.\n".format(cash))
-file1.write("The book costs ${0}\n".format(cost))
-file1.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book2,total_cost))
-file1.close()
 
 # ======== Continued Development ======== #
 # Store genre of books, count how many books per genre

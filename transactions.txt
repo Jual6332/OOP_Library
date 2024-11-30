@@ -1,14 +1,14 @@
 TRANSACTION.
 cust1 enters checkout aisle to purchase a book.
-cust1 selects book Star Wars Episode 5: The Empire Strikes Back 
+cust1 selects book Star Wars Episode 4: A New Hope 
 Employee 4 helps customer with purchase.
 The customer has $50.0 in cash.
-The book costs $7.95
-Customer1 purchases Star Wars Episode 5: The Empire Strikes Back with $42.845 remaining.
+The book costs $17.5
+Customer1 purchases Star Wars Episode 4: A New Hope with $34.25 remaining.
 
 TRANSACTION.
-cust2 enters checkout aisle to purchase a book.
-Employee 4 helps customer with purchase.
+Customer Two enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
 The customer has $40.0 in cash.
-The book costs $22.5
-Customer2 purchases The Great Gatsby with $17.5 remaining.
+The book costs $25.0
+Customer2 purchases Forty Chances with $15.0 remaining.
