@@ -516,32 +516,10 @@ def cost_of_specific_book(bought_book):
 # Write function for writing transaction to file??
 # Make a purchase - Write to a file
 file1 = open("transactions.txt", "w") 
-file1.write("TRANSACTION.\n")
-file1.write("cust1 enters checkout aisle to purchase a book.\n")
-pick_random_book = random.choice(lib_books)
-bought_book1 = pick_random_book.get_title()
-file1.write("cust1 selects book {0} \n".format(bought_book1))
-#print(bought_book1)
-cash = 50.00
-cost = cost_of_specific_book(bought_book1) # Data hiding, encapsulation
-pick_random_book.set_cost(cost)
-employee = emp4
-file1.write("Employee 4 helps customer with purchase.\n")
-
-total_cost = 0
-if cust1.rewards != "xxxx":
-  # 10% discount applies if it is an actual rewards number setup by the user
-  total_cost = cash-cost*0.90
-else:
-  # Discount does not apply
-  pass
-
-file1.write("The customer has ${0} in cash.\n".format(cash))
-file1.write("The book costs ${0}\n".format(cost))
-file1.write("Customer1 purchases {0} with ${1} remaining.\n\n".format(bought_book1,total_cost))
 
 # Make a purchase - Write to a file
-def make_purchase(file,cust,lib_books,cash,emp):
+def make_purchase(cust,lib_books,cash,emp):
+  file = open("transactions.txt", "w") 
   file.write("TRANSACTION.\n")
   file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
   pick_random_book = random.choice(lib_books)
@@ -561,8 +539,8 @@ def make_purchase(file,cust,lib_books,cash,emp):
   file.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book,total_cost))
   file.close()
   
-
-make_purchase(file1,cust2,lib_books,40.00,emp4)
+make_purchase(cust1,lib_books,50.00,emp4)
+make_purchase(cust2,lib_books,40.00,emp4)
 
 
 # ======== Continued Development ======== #
