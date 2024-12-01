@@ -574,7 +574,7 @@ for genre in genres:
 authors_dictionary = {};
 
 for author in lib_authors:
-  if (author in authors_dictionary): # If the genre is already in the dictionary, increment the number of occurrences of this genre 
+  if (author in authors_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
     authors_dictionary[author] += 1
   else:
     authors_dictionary[author] = 1
@@ -585,6 +585,7 @@ job_titles = []
 for employee in employees:
   job_titles.append(employee.get_job_title())
   print(employee.get_job_title())
+print(job_titles)
 
 job_titles_dict = {}
 job_titles_dict["Manager"] = job_titles.count("Manager")
@@ -750,6 +751,7 @@ for employee in employees:
 # Unit Test for Transactions
 make_purchase(cust1,lib_books,50.00,emp4)
 make_purchase(cust2,lib_books,40.00,emp4)
+make_purchase(cust3,lib_books,30.00,emp4)
 
 # 1.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
@@ -793,6 +795,5 @@ print("\n")
 # Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
 # Database exists but needs some work - Justin 11/24/24
 
-# Add a "buy" function
 
 
