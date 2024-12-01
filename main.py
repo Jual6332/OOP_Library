@@ -71,10 +71,14 @@ class StoreItemDatabase():
     self.items = []
   def add_item(self,item):
     self.items.append(item)
+  def get_iems(self):
+    return self.items
   def get_item(self,itemName):
     for item in self.items:
       if item.get_name() == itemName:
         return item
+  def remove_item(self,item):
+    self.items.remove(item)
 
 class Library():
   def __init__(self):
