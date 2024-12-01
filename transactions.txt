@@ -1,5 +1,6 @@
+TRANSACTION.
+Customer Two enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
-Employee Four helps customer with purchase.
-.0 in cash.
+The customer has $40.0 in cash.
 The book costs $9.97
 Customer2 purchases The Complete Sherlock Holmes Volume II with $30.03 remaining.

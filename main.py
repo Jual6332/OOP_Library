@@ -513,10 +513,6 @@ def cost_of_specific_book(bought_book):
     cost = 9.99
   return cost
   
-# Write function for writing transaction to file??
-# Make a purchase - Write to a file
-file1 = open("transactions.txt", "w") 
-
 # Make a purchase - Write to a file
 def make_purchase(cust,lib_books,cash,emp):
   file = open("transactions.txt", "w") 
@@ -526,7 +522,7 @@ def make_purchase(cust,lib_books,cash,emp):
   bought_book = pick_random_book.get_title()
   cost = cost_of_specific_book(bought_book)
   employee = emp.get_name();
-  file1.write(employee+" helps customer with purchase.\n")
+  file.write(employee+" helps customer with purchase.\n")
   total_cost = 0
   if cust.rewards != "xxxx":
     # 10% discount applies
@@ -538,14 +534,9 @@ def make_purchase(cust,lib_books,cash,emp):
   file.write("The book costs ${0}\n".format(cost))
   file.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book,total_cost))
   file.close()
-  
-make_purchase(cust1,lib_books,50.00,emp4)
-make_purchase(cust2,lib_books,40.00,emp4)
-
 
 # ======== Continued Development ======== #
-# Store genre of books, count how many books per genre
-
+# Organized genres into a list
 # Bug Fixed: The number of books for Histrocial fiction, non-fiction, and fiction were incorrect but that's fixed
 # 2/2/24 Justin
 genres = []
@@ -553,8 +544,6 @@ for book in lib_books:
   genres.append(book.get_genre())
   print(book.get_genre())
 print(genres)
-
-genres_dictionary = {}
 
 # Old code - Broken, deprecated at this point
 #for index in range(0,len(genres)):
@@ -570,6 +559,10 @@ genres_dictionary = {}
   #print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_genre,duplicates))
 #genres_books[chosen_genre] = numBooksInThisGenre
 
+# Key on genre, value is how mnay times that author appears in library
+genres_dictionary = {}
+
+# Store genre of books, count how many books per genre
 for genre in genres:
   if (genre in genres_dictionary): # If the genre is already in the dictionary, increment the number of occurrences of this genre 
     genres_dictionary[genre] += 1
@@ -577,7 +570,7 @@ for genre in genres:
     genres_dictionary[genre] = 1
 
 # ======== Continued Development ======== # 
-# Key on author, value of how mnay times that author appears in library 
+# Key on author, value is how mnay times that author appears in library 
 authors_dictionary = {};
 
 for author in lib_authors:
@@ -752,7 +745,11 @@ for employee in employees:
 
 #plt.bar([1,2,3],salary_data[0:3])
 #plt.bar(name_data[0:5],salary_data[0:5])
-#plt.show()
+#plt.show
+
+# Unit Test for Transactions
+make_purchase(cust1,lib_books,50.00,emp4)
+make_purchase(cust2,lib_books,40.00,emp4)
 
 # 1.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
