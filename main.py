@@ -66,6 +66,14 @@ class StoreItem():
   def get_price(self):
     return self.price
 
+class Bag(StoreItem):
+  def printBagDetails(self):
+    print("Bag Name: " + self.name)
+    print("Bag Details: " + self.details)
+    print("Bag Price: " + str(self.price))
+
+# Does Python allow for lists to have different object types in the same list? A string and a set to exist within a list. JavaScript does. C++ does not
+
 class StoreItemDatabase():
   def __init__(self):
     self.items = []
@@ -203,6 +211,16 @@ lib_books = lib.get_books() # SHort-hand
 for book in lib_books:
   lib.add_author(book.author)
 lib_authors = lib.get_authors()
+
+# Add other store items
+bag1 = Bag()
+bag1.set_name("Bag 1")
+bag1.set_details("Brown leather bag with zippers. Worn. A few years old.")
+bag1.set_price(12)
+
+# Add Store Items to StoreItemDatabase
+si_db = StoreItemDatabase()
+si_db.add_item(bag1)
 
 ## Define Employee Class
 class Employee():
