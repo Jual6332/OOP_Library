@@ -464,6 +464,11 @@ cust10.set_name("Customer Ten")
 cust10.set_age(27)
 cust10.set_rewards_number("0010")
 
+cust11 = Customer()
+cust11.set_name("Abigail Flannery")
+cust11.set_age(24)
+cust11.set_rewards_number("xxxx")
+
 cust_db = CustomerDatabase()
 cust_db.add_customer(cust1)
 cust_db.add_customer(cust2)
@@ -475,8 +480,18 @@ cust_db.add_customer(cust7)
 cust_db.add_customer(cust8)
 cust_db.add_customer(cust9)
 cust_db.add_customer(cust10)
+cust_db.add_customer(cust11)
+customers_before = cust_db.get_customers()
+
+for customer in customers_before:
+  print(customer.get_name())
+
+# Sort customers by last name
 cust_db.sort_customers_lname()
 customers = cust_db.get_customers()
+
+for customer in customers:
+  print(customer.get_name())
 
 # ======== Continued Development ======== #
 # I would like to give a performance review (first employee)
