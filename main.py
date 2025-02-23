@@ -512,9 +512,17 @@ for customer_name in customers_names_sorted:
 print("\n")
 """
 
-print("Testing: Sort customers by last name, sorting the object")
+print("Testing: Sort customers by last name")
 for customer in customers:
   print(customer.get_name())
+print("\n")
+
+cust_db.sort_customers_age()
+customers = cust_db.get_customers()
+
+print("Testing: Sort customers by age")
+for customer in customers:
+  print(customer.get_name() + " is age " + str(customer.get_age()))
 print("\n")
 
 # ======== Continued Development ======== #
