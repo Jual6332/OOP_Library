@@ -209,7 +209,7 @@ lib_books = lib.get_books() # SHort-hand
 
 # Add Authors to Library
 for book in lib_books:
-  lib.add_author(book.author)
+  lib.add_author(book.get_author())
 lib_authors = lib.get_authors()
 
 # Add other store items
@@ -369,8 +369,10 @@ class Customer():
     self.age = 0
     self.rewards_number = ""
     self.previous_purchases = []
+    self.rewards_points = 0
   def add_purchase(self,book,cost):
     self.previous_purchases.append("Bought {0} for ${1}.".format(book.title,cost))
+    self.rewards_points += cost
   def set_name(self,name):
     self.name = name
   def set_age(self,age):
@@ -385,6 +387,10 @@ class Customer():
     return self.rewards
   def get_previous_purchases(self):
     return self.previous_purchases
+  def get_rewards_points(self):
+    return self.rewards_points
+  def add_rewards_points(self,points):
+    self.rewards_points += points
 
 class CustomerDatabase():
   def __init__(self):
@@ -424,6 +430,9 @@ cust1 = Customer()
 cust1.set_name("Customer One")
 cust1.set_age(34)
 cust1.set_rewards_number("0001")
+cust1.add_purchase(book1,12)
+
+print("The total rewards points for Customer One is: " + str(cust1.get_rewards_points()))
 
 cust2 = Customer()
 cust2.set_name("Customer Two")
