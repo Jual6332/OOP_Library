@@ -490,6 +490,7 @@ for customer in customers_before:
 cust_db.sort_customers_lname()
 customers = cust_db.get_customers()
 
+print("Testing: Sort customers by last name")
 for customer in customers:
   print(customer.get_name())
 
@@ -615,6 +616,16 @@ for author in lib_authors:
     authors_dictionary[author] += 1
   else:
     authors_dictionary[author] = 1
+
+
+# Key on book, value is how mnay times that book appears in library 
+books_dictionary = {};
+books_local = lib.get_books()
+for book in books_local:
+  if (book in books_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
+    books_dictionary[book.get_title()] += 1
+  else:
+    books_dictionary[book.get_title()] = 1
 
 # ======== Continued Development ======== #
 # See how many of each employees have each job
@@ -801,7 +812,7 @@ else:
     print(book.get_title())
 print("\n")
 
-# 1.)  Unit Test for sort_by_author() method for Library class
+# 2.)  Unit Test for sort_by_author() method for Library class
 print("Test 1 for lib.sort_by_author()")
 authored_books = lib.sort_by_author("James Patterson")
 if authored_books is None:
@@ -811,7 +822,7 @@ else:
     print(book.get_title())
 print("\n")
 
-# 1.) Unit Test for sort_by_year() method for Library class
+# 3.) Unit Test for sort_by_year() method for Library class
 print("Test 1 for lib.sort_by_year()")
 old_books = lib.sort_by_year(1925)
 if old_books is None:
