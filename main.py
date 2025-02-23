@@ -416,6 +416,8 @@ class CustomerDatabase():
     return self.customers_names"""
   def sort_customers_fname(self):
     self.customers = sorted(self.customers, key=lambda x: x.name)
+  def sort_customers_age(self):
+    self.customers = sorted(self.customers, key=lambda x: x.age)
 
 # Data Input: Customer Data
 cust1 = Customer()
