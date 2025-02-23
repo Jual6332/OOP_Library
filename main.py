@@ -399,7 +399,7 @@ class CustomerDatabase():
       if customer.get_name() == name:
         return customer
     return None
-  def sort_customers_lname(self):
+  """def sort_customers_lname(self):
     customers_names_reversed = []
     for customer in self.customers:
       [fname,lname] = customer.get_name().split(" ")
@@ -412,6 +412,10 @@ class CustomerDatabase():
       name = fname + " " + lname
       customers_sorted_rearranged.append(name)
     self.customers_names = customers_sorted_rearranged
+  def get_customers_names(self):
+    return self.customers_names"""
+  def sort_customers_fname(self):
+    self.customers = sorted(self.customers, key=lambda x: x.name)
 
 # Data Input: Customer Data
 cust1 = Customer()
@@ -487,12 +491,29 @@ for customer in customers_before:
   print(customer.get_name())
 
 # Sort customers by last name
-cust_db.sort_customers_lname()
+#cust_db.sort_customers_lname()
+#customers = cust_db.get_customers()
+
+#customers_names_sorted = cust_db.get_customers_names()
+
+cust_db.sort_customers_fname()
 customers = cust_db.get_customers()
 
-print("Testing: Sort customers by last name")
+"""
+print("Testing: Print customers names")
 for customer in customers:
   print(customer.get_name())
+
+print("Testing: Sort customers by last name")
+for customer_name in customers_names_sorted:
+  print(customer_name)
+print("\n")
+"""
+
+print("Testing: Sort customers by last name, sorting the object")
+for customer in customers:
+  print(customer.get_name())
+print("\n")
 
 # ======== Continued Development ======== #
 # I would like to give a performance review (first employee)
