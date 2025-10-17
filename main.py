@@ -850,9 +850,27 @@ if fiction_books is None:
 else:
   for book in fiction_books:
     print(book.get_title())
+
 print("\n")
+print("Test 2 for lib.sort_by_genre()")
+nonfiction_books = lib.sort_by_genre("Non-fiction")
+if nonfiction_books is None:
+  print("No non-fiction books in the library.")
+else:
+  for book in nonfiction_books:
+    print(book.get_title())
+
+print("\n")
+print("Test 3 for lib.sort_by_genre()")
+hist_fiction_books = lib.sort_by_genre("Historical Fiction")
+if hist_fiction_books is None:
+  print("No historical fiction books in the library.")
+else:
+  for book in hist_fiction_books:
+    print(book.get_title())
 
 # 2.)  Unit Test for sort_by_author() method for Library class
+print("\n")
 print("Test 1 for lib.sort_by_author()")
 authored_books = lib.sort_by_author("James Patterson")
 if authored_books is None:
@@ -860,9 +878,9 @@ if authored_books is None:
 else:
   for book in authored_books:
     print(book.get_title())
-print("\n")
 
 # 3.) Unit Test for sort_by_year() method for Library class
+print("\n")
 print("Test 1 for lib.sort_by_year()")
 old_books = lib.sort_by_year(1925)
 if old_books is None:
