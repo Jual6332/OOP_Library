@@ -2,5 +2,5 @@ TRANSACTION.
 Customer Three enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $30.0 in cash.
-The book costs $22.5
-Customer2 purchases The Great Gatsby with $9.75 remaining.
+The book costs $25.0
+Customer2 purchases Forty Chances with $7.5 remaining.

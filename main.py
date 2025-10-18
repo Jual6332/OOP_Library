@@ -617,7 +617,7 @@ def make_purchase(cust,lib_books,cash,emp):
   employee = emp.get_name();
   file.write(employee+" helps customer with purchase.\n")
   total_cost = 0
-  if cust.rewards != "xxxx":
+  if cust.get_rewards_number() != "xxxx":
     # 10% discount applies
     total_cost = cash-cost*0.90
   else:
