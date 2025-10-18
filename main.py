@@ -10,7 +10,6 @@ class Book():
     self.publisher = ""
     self.words = ""
     self.cost = 0
-    self.quantity = 0
   def set_title(self,title):
     self.title = title
   def set_author(self,author):
@@ -25,8 +24,6 @@ class Book():
     self.words = words
   def set_cost(self,cost):
     self.cost = cost
-  def set_quantity(self,quantity):
-    self.quantity = quantity
   def get_title(self):
     return self.title
   def get_author(self):
@@ -41,8 +38,6 @@ class Book():
     return self.words
   def get_cost(self):
     return self.cost
-  def get_quantity(self):
-    return self.quantity
   # Method: update_title()
   # Input Parameter 1: tle, a string for the new title
   # Purpose: to change title string value to a new string value. Similar methods: set_title() is only used for the first time the title value is set - update_title() is used on other occassions to set the string value of title
@@ -215,6 +210,19 @@ lib.add_book(book5)
 lib.add_book(book6)
 lib.add_book(book7)
 lib_books = lib.get_books() # SHort-hand
+
+# Track book inventory in a dictionary
+# Key on book, value is how many times that book appears in library
+books_dictionary = {};
+books_local = lib.get_books()
+for book in books_local:
+  if (book in books_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
+    books_dictionary[book.get_title()] += 1
+  else:
+    books_dictionary[book.get_title()] = 1
+    print("Book: " + book.get_title() + " Quantity: " + str(books_dictionary[book.get_title()]))
+print("\n")
+
 
 # Add Authors to Library
 for book in lib_books:
