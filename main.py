@@ -47,6 +47,10 @@ class Book():
   # Purpose: to change year number to new number value. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occassions to set the number value of year
   def update_year(self,yr):
     self.year = yr
+  # Method: update_cost() 
+  # Purpose: to change cost of a book when it goes on sale. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occasions to set the number value of year
+  def update_cost(self,c):
+    self.cost = c
 
 class StoreItem():
   def __init__(self):
@@ -79,7 +83,7 @@ class StoreItemDatabase():
     self.items = []
   def add_item(self,item):
     self.items.append(item)
-  def get_iems(self):
+  def get_all_items(self):
     return self.items
   def get_item(self,itemName):
     for item in self.items:
@@ -658,7 +662,7 @@ for author in lib_authors:
     authors_dictionary[author] = 1
 
 
-# Key on book, value is how mnay times that book appears in library 
+# Key on book, value is how many times that book appears in library 
 books_dictionary = {};
 books_local = lib.get_books()
 for book in books_local:
