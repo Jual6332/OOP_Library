@@ -284,6 +284,24 @@ class Employee():
     return self.performance_grades
   def get_performance_comments(self):
     return self.performance_comments
+  def calculate_average_performance_score(self):
+    # Convert letter grades to numeric scores and calculate average
+    # A=4, B=3, C=2, D=1, F=0
+    grade_values = {'A': 4, 'B': 3, 'C': 2, 'D': 1, 'F': 0}
+    total_score = 0
+    grade_count = 0
+    
+    for grade_string in self.performance_grades:
+      # Split the grade string (e.g., "A A B" becomes ["A", "A", "B"])
+      individual_grades = grade_string.split()
+      for grade in individual_grades:
+        if grade in grade_values:
+          total_score += grade_values[grade]
+          grade_count += 1
+    
+    if grade_count == 0:
+      return 0  # No grades yet
+    return total_score / grade_count
 
 ## Create Employee Database
 # A storage class for sensitive employee information
@@ -300,6 +318,22 @@ class EmployeeDatabase():
       self.raise_history.append(raise_new)
   def get_raise_data(self):
     return self.raise_history
+  def get_employee_leaderboard(self):
+    # Sort employees by performance score (highest to lowest)
+    # Returns list of tuples: (employee, average_score)
+    employee_scores = []
+    for employee in self.employees:
+      score = employee.calculate_average_performance_score()
+      employee_scores.append((employee, score))
+    
+    # Sort by score in descending order (highest first)
+    employee_scores_sorted = sorted(employee_scores, key=lambda x: x[1], reverse=True)
+    return employee_scores_sorted
+  def find_employee_by_id(self,emp_id):
+    for employee in self.employees:
+      if employee.get_id() == emp_id:
+        return employee
+    return None
 
 ## Add Employees to the Project
 emp1 = Employee()
@@ -447,6 +481,17 @@ class CustomerDatabase():
     self.customers = sorted(self.customers, key=lambda x: x.name)
   def sort_customers_age(self):
     self.customers = sorted(self.customers, key=lambda x: x.age)
+  def get_customer_rewards_leaderboard(self):
+    # Sort customers by rewards points (highest to lowest)
+    # Returns list of tuples: (customer, rewards_points)
+    customer_rewards = []
+    for customer in self.customers:
+      points = customer.get_rewards_points()
+      customer_rewards.append((customer, points))
+    
+    # Sort by rewards points in descending order (highest first)
+    customer_rewards_sorted = sorted(customer_rewards, key=lambda x: x[1], reverse=True)
+    return customer_rewards_sorted
 
 # Data Input: Customer Data
 cust1 = Customer()
@@ -911,6 +956,39 @@ if old_books is None:
 else:
   for book in old_books:
     print(book.get_title())
+print("\n")
+
+# ======== LEADERBOARD TESTING ======== #
+# Test Employee Performance Leaderboard
+print("=" * 50)
+print("EMPLOYEE PERFORMANCE LEADERBOARD - Top Performers for Promotion")
+print("=" * 50)
+employee_leaderboard = emp_db.get_employee_leaderboard()
+rank = 1
+for employee, score in employee_leaderboard:
+  if score > 0:  # Only show employees with performance reviews
+    print(f"Rank {rank}: {employee.get_name()} - Score: {score:.2f}/4.0 - {employee.get_job_title()}")
+    rank += 1
+
+# If no employees have reviews yet
+if rank == 1:
+  print("No employees with performance reviews yet.")
+print("\n")
+
+# Test Customer Rewards Leaderboard
+print("=" * 50)
+print("CUSTOMER REWARDS LEADERBOARD - Top Customers for Giveaways")
+print("=" * 50)
+customer_leaderboard = cust_db.get_customer_rewards_leaderboard()
+rank = 1
+for customer, points in customer_leaderboard:
+  if points > 0:  # Only show customers with rewards points
+    print(f"Rank {rank}: {customer.get_name()} - {points} Points")
+    rank += 1
+
+# If no customers have points yet
+if rank == 1:
+  print("No customers with rewards points yet.")
 print("\n")
 
 # Todos:
