@@ -388,13 +388,13 @@ class Customer():
   def set_age(self,age):
     self.age = age
   def set_rewards_number(self,rewards):
-    self.rewards = rewards
+    self.rewards_number = rewards
   def get_name(self):
     return self.name
   def get_age(self):
     return self.age
   def get_rewards_number(self):
-    return self.rewards
+    return self.rewards_number
   def get_previous_purchases(self):
     return self.previous_purchases
   def get_rewards_points(self):
