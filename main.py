@@ -226,6 +226,12 @@ bag1.set_price(12)
 si_db = StoreItemDatabase()
 si_db.add_item(bag1)
 
+# Print all items in the store item database
+print("Items in Store Item Database:")
+si_db_items = si_db.get_all_items()
+for item in si_db_items:
+  print(item.get_name())
+
 ## Define Employee Class
 class Employee():
   def __init__(self):
