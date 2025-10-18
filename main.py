@@ -618,8 +618,8 @@ def make_purchase(cust,lib_books,cash,emp):
   file.write(employee+" helps customer with purchase.\n")
   total_cost = 0
   if cust.get_rewards_number() != "xxxx":
-    # 10% discount applies
-    total_cost = cash-cost*0.90
+    # 5% discount applies
+    total_cost = cash-cost*0.95
   else:
     # Discount does not apply
     total_cost = cash-cost

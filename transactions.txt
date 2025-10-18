@@ -3,4 +3,4 @@ Customer Three enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $30.0 in cash.
 The book costs $25.0
-Customer2 purchases Forty Chances with $7.5 remaining.
+Customer2 purchases Forty Chances with $6.25 remaining.
