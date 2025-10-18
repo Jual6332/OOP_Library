@@ -10,6 +10,7 @@ class Book():
     self.publisher = ""
     self.words = ""
     self.cost = 0
+    self.quantity = 0
   def set_title(self,title):
     self.title = title
   def set_author(self,author):
@@ -24,6 +25,8 @@ class Book():
     self.words = words
   def set_cost(self,cost):
     self.cost = cost
+  def set_quantity(self,quantity):
+    self.quantity = quantity
   def get_title(self):
     return self.title
   def get_author(self):
@@ -38,6 +41,8 @@ class Book():
     return self.words
   def get_cost(self):
     return self.cost
+  def get_quantity(self):
+    return self.quantity
   # Method: update_title()
   # Input Parameter 1: tle, a string for the new title
   # Purpose: to change title string value to a new string value. Similar methods: set_title() is only used for the first time the title value is set - update_title() is used on other occassions to set the string value of title
