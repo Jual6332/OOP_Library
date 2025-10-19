@@ -484,13 +484,17 @@ class CustomerDatabase():
   def get_customer_rewards_leaderboard(self):
     # Sort customers by rewards points (highest to lowest)
     # Returns list of tuples: (customer, rewards_points)
-    customer_rewards = []
+    customer_rewards = {}
     for customer in self.customers:
       points = customer.get_rewards_points()
-      customer_rewards.append((customer, points))
+      if customer.get_name() in customer_rewards:
+        customer_rewards[customer.get_name()] += points
+      else:
+        customer_rewards[customer.get_name()] = points
     
     # Sort by rewards points in descending order (highest first)
-    customer_rewards_sorted = sorted(customer_rewards, key=lambda x: x[1], reverse=True)
+    #customer_rewards_sorted = sorted(customer_rewards, key=lambda x: , reverse=True)
+    customer_rewards_sorted = sorted(customer_rewards.items(), key=lambda x:x[1] , reverse=True)
     return customer_rewards_sorted
 
 # Data Input: Customer Data
@@ -981,9 +985,10 @@ print("CUSTOMER REWARDS LEADERBOARD - Top Customers for Giveaways")
 print("=" * 50)
 customer_leaderboard = cust_db.get_customer_rewards_leaderboard()
 rank = 1
-for customer, points in customer_leaderboard:
-  if points > 0:  # Only show customers with rewards points
-    print(f"Rank {rank}: {customer.get_name()} - {points} Points")
+for key,value in customer_leaderboard:
+  if value > 0:  # Only show customers with rewards points
+    #print(f"Rank {rank}: {key} - {value} Points")
+    print("Rank {0}: {1} - {2} Points".format(rank,key,value))
     rank += 1
 
 # If no customers have points yet
