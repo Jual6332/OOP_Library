@@ -665,14 +665,9 @@ def cost_of_specific_book(bought_book):
   
 # Make a purchase - Write to a file
 def make_purchase(cust,lib_books,cash,emp):
-  file = open("transactions.txt", "w") 
-  file.write("TRANSACTION.\n")
-  file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
   pick_random_book = random.choice(lib_books)
   bought_book = pick_random_book.get_title()
   cost = cost_of_specific_book(bought_book)
-  employee = emp.get_name();
-  file.write(employee+" helps customer with purchase.\n")
   total_cost = 0
   if cust.get_rewards_number() != "xxxx":
     # 5% discount applies
@@ -680,10 +675,21 @@ def make_purchase(cust,lib_books,cash,emp):
   else:
     # Discount does not apply
     total_cost = cash-cost
+  print_transaction(cust,bought_book,cash,cost,total_cost,emp)
+
+def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
+  file = open("transactions.txt", "w") 
+  file.write("TRANSACTION.\n")
+  file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
+  employee = emp.get_name();
+  file.write(employee+" helps customer with purchase.\n")
   file.write("The customer has ${0} in cash.\n".format(cash))
-  file.write("The book costs ${0}\n".format(cost))
+  file.write("The book normally costs ${0}\n".format(cost))
+  
+  
   file.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book,total_cost))
   file.close()
+  
 
 # ======== Continued Development ======== #
 # Organized genres into a list
