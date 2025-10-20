@@ -2,5 +2,8 @@ TRANSACTION.
 Customer Three enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $30.0 in cash.
-The book normally costs $17.5
-Customer2 purchases Star Wars Episode 4: A New Hope with $13.375 remaining.
+The book normally costs $9.97
+The customer has a rewards number.
+The customer gets a 5% discount.
+The customer pays $9.4715.
+Customer2 purchases The Complete Sherlock Holmes Volume II with $20.5285 remaining.

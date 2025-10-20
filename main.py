@@ -685,8 +685,13 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
   file.write(employee+" helps customer with purchase.\n")
   file.write("The customer has ${0} in cash.\n".format(cash))
   file.write("The book normally costs ${0}\n".format(cost))
-  
-  
+  if cust.get_rewards_number() != "xxxx":
+    file.write("The customer has a rewards number.\n")
+    file.write("The customer gets a 5% discount.\n")
+    file.write("The customer pays ${0}.\n".format(cost*0.95))
+  else:
+    file.write("The customer does not have a rewards number.\n")
+    file.write("The customer does not get a discount.\n")
   file.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book,total_cost))
   file.close()
   
