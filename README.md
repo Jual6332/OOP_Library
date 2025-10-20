@@ -5,6 +5,12 @@ An application for storing bookstore data, including customer-base, book catalog
 This project relies heavily on encapsulation and abstraction. You'll notice the encapsulation technique of using getter and setter methods to modify private attributes in the various classes. 
 Inheritance was also implemented in the code, such as when the bag class inherits from the StoreItem class.
 
+# Other unique Features:
+- Inventory tracking for items (using dictionaries)
+- Customer rewards
+- Customer leaderboard for rewards points (using dictionaries)
+- Employee performance review tracking and leaderboard 
+
 # Custom Classes: Book class.
 Attributes:
 1. Title - a string, title of the book
@@ -35,9 +41,3 @@ Getter Methods:
 
 # External Libraries
 - import random
-
-# Other unique Features:
-- Inventory tracking for items (using dictionaries)
-- Customer rewards
-- Customer leaderboard for rewards points (using dictionaries)
-- Employee performance review tracking and leaderboard 
