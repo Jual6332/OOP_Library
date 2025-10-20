@@ -671,7 +671,7 @@ def make_purchase(cust,lib_books,cash,emp):
   total_cost = 0
   if cust.get_rewards_number() != "xxxx":
     # 5% discount applies
-    total_cost = cash-cost*0.95
+    total_cost = round(cash-cost*0.95,2)
   else:
     # Discount does not apply
     total_cost = cash-cost
@@ -686,13 +686,16 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
   file.write("The customer has ${0} in cash.\n".format(cash))
   file.write("The book normally costs ${0}\n".format(cost))
   if cust.get_rewards_number() != "xxxx":
-    file.write("The customer has a rewards number.\n")
+    file.write("The customer has a rewards number of {0}\n".format(cust.get_rewards_number()))
     file.write("The customer gets a 5% discount.\n")
-    file.write("The customer pays ${0}.\n".format(cost*0.95))
+    file.write("The customer pays ${0}.\n".format(round(cost*0.95,2)))
+    file.write("The customer gets {0} rewards points.\n".format(round(cost*0.95,2)))
+    cust.add_rewards_points(round(cost*0.95,2))
+    file.write("The total rewards points for this customer is: " + str(cust.get_rewards_points())+"\n")
   else:
     file.write("The customer does not have a rewards number.\n")
     file.write("The customer does not get a discount.\n")
-  file.write("Customer2 purchases {0} with ${1} remaining.\n".format(bought_book,total_cost))
+  file.write("{0} purchases {1} with ${2} remaining.\n".format(cust.get_name(),bought_book,total_cost))
   file.close()
   
 
