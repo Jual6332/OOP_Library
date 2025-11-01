@@ -94,8 +94,8 @@ class StoreItemDatabase():
     for item in self.items:
       if item.get_name() == itemName:
         self.items.remove(item)
-        itemFound=True
-    if itemFound==False:
+        found=True
+    if not found:
       print("Item {0} not found in database.".format(itemName))
 
 class Library():
