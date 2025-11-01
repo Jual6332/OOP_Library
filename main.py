@@ -89,11 +89,13 @@ class StoreItemDatabase():
     for item in self.items:
       if item.get_name() == itemName:
         return item
-  def remove_item(self,item):
-    try:
-      self.items.remove(item)
-    except ValueError:
-      print("Item not found in database.")
+  def remove_item(self,itemName):
+    for item in self.items:
+      if item.get_name() == itemName:
+        try:
+          self.items.remove(item)
+        except ValueError:
+          print("Item not found in database.")
 
 class Library():
   def __init__(self):
@@ -257,7 +259,7 @@ for item in all_store_items:
   print("\n")
 
 # Test removing an item from the store item database
-#si_db.remove_item()
+si_db.remove_item("Bag 6")
 
 
 # Print all items in the store item database
