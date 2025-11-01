@@ -90,12 +90,19 @@ class StoreItemDatabase():
       if item.get_name() == itemName:
         return item
   def remove_item(self,itemName):
+    item_found = False
     for item in self.items:
       if item.get_name() == itemName:
         try:
           self.items.remove(item)
+          item_found = True
+          print(f"Successfully removed {itemName} from database.")
         except ValueError:
-          print("Item not found in database.")
+          print("Error removing item from database.")
+        break  # Exit loop after finding and removing item
+    
+    if not item_found:
+      print(f"Item '{itemName}' not found in database.")
 
 class Library():
   def __init__(self):
