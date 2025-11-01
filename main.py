@@ -90,7 +90,10 @@ class StoreItemDatabase():
       if item.get_name() == itemName:
         return item
   def remove_item(self,item):
-    self.items.remove(item)
+    try:
+      self.items.remove(item)
+    except ValueError:
+      print("Item not found in database.")
 
 class Library():
   def __init__(self):
@@ -232,12 +235,30 @@ lib_authors = lib.get_authors()
 # Add other store items
 bag1 = Bag()
 bag1.set_name("Bag 1")
-bag1.set_details("Brown leather bag with zippers. Worn. A few years old.")
-bag1.set_price(12)
+bag1.set_details("Brown leather backpack with zippers. Real leather. Worn. 3 years old.")
+bag1.set_price(15.00)
 
 # Add Store Items to StoreItemDatabase
 si_db = StoreItemDatabase()
+
+# Test adding an item to the store item database
 si_db.add_item(bag1)
+
+# Test getting an item from the store item database
+si_db.get_item(bag1.get_name())
+
+# Test getting all items from the store item database
+all_store_items = si_db.get_all_items()
+print("All Store Items:")
+for item in all_store_items:
+  print(item.get_name())
+  print(item.get_details())
+  print(item.get_price())
+  print("\n")
+
+# Test removing an item from the store item database
+#si_db.remove_item()
+
 
 # Print all items in the store item database
 print("Items in Store Item Database:")
@@ -752,6 +773,7 @@ for book in books_local:
     books_dictionary[book.get_title()] += 1
   else:
     books_dictionary[book.get_title()] = 1
+    
 
 # ======== Continued Development ======== #
 # See how many of each employees have each job
