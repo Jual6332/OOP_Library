@@ -713,7 +713,6 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
     file.write("The customer has a rewards number of {0}\n".format(cust.get_rewards_number()))
     file.write("The customer gets a 5% discount.\n")
     file.write("The customer pays ${0}.\n".format(round(cost*0.95,2)))
-    file.write("The customer gets {0} rewards points.\n".format(round(cost*0.95,2)))
     cust.add_rewards_points(round(cost*0.95,2))
     file.write("The total rewards points for this customer is: " + str(cust.get_rewards_points())+"\n")
   else:
