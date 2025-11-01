@@ -451,8 +451,8 @@ class Customer():
     self.rewards_number = ""
     self.previous_purchases = []
     self.rewards_points = 0
-  def add_purchase(self,book,cost):
-    self.previous_purchases.append("Bought {0} for ${1}.".format(book.title,cost))
+  def add_purchase(self,bookTitle,cost):
+    self.previous_purchases.append("Bought {0} for ${1}.".format(bookTitle,cost))
     self.rewards_points += cost
   def set_name(self,name):
     self.name = name
@@ -526,7 +526,7 @@ cust1 = Customer()
 cust1.set_name("Customer One")
 cust1.set_age(34)
 cust1.set_rewards_number("0001")
-cust1.add_purchase(book1,12)
+cust1.add_purchase(book1.get_title(),12)
 
 print("The total rewards points for Customer One is: " + str(cust1.get_rewards_points()))
 
@@ -713,13 +713,21 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
     file.write("The customer has a rewards number of {0}\n".format(cust.get_rewards_number()))
     file.write("The customer gets a 5% discount.\n")
     file.write("The customer pays ${0}.\n".format(round(cost*0.95,2)))
-    cust.add_rewards_points(round(cost*0.95,2))
+    #cust.add_rewards_points(round(cost*0.95,2))
+    cust.add_purchase(bought_book,round(cost*0.95,2))
     file.write("The total rewards points for this customer is: " + str(cust.get_rewards_points())+"\n")
   else:
     file.write("The customer does not have a rewards number.\n")
     file.write("The customer does not get a discount.\n")
   file.write("{0} purchases {1} with ${2} remaining.\n".format(cust.get_name(),bought_book,total_cost))
   file.close()
+  print("Transaction complete.\n")
+  prev_purchases = cust.get_previous_purchases()
+  print("Previous Purchases for {0}:".format(cust.get_name()))
+  for purchase in prev_purchases:
+    print(purchase)
+  
+
   
 
 # ======== Continued Development ======== #
