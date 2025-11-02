@@ -741,11 +741,11 @@ def make_purchase(cust,lib_books,cash,emp):
     total_cost = round(cash-cost*0.95,2)
   else:
     # Discount does not apply
-    total_cost = cash-cost
+    total_cost = round(cash-cost,2)
   print_transaction(cust,bought_book,cash,cost,total_cost,emp)
 
 def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
-  file = open("transactions.txt", "w") 
+  file = open("transactions.txt", "a") 
   file.write("TRANSACTION.\n")
   file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
   employee = emp.get_name();
@@ -758,7 +758,7 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
     file.write("The customer pays ${0}.\n".format(round(cost*0.95,2)))
     #cust.add_rewards_points(round(cost*0.95,2))
     cust.add_purchase(bought_book,round(cost*0.95,2))
-    file.write("The total rewards points for this customer is: " + str(cust.get_rewards_points())+"\n")
+    file.write("The total rewards points for this customer is: " + str(round(cust.get_rewards_points(),2))+"\n")
   else:
     file.write("The customer does not have a rewards number.\n")
     file.write("The customer does not get a discount.\n")

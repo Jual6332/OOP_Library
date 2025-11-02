@@ -2,9 +2,121 @@ TRANSACTION.
 Customer Three enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $30.0 in cash.
-The book normally costs $22.5
+The book normally costs $25.0
 The customer has a rewards number of 0003
 The customer gets a 5% discount.
+The customer pays $23.75.
+The total rewards points for this customer is: 23.75
+Customer Three purchases Forty Chances with $6.25 remaining.
+TRANSACTION.
+Customer One enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $50.0 in cash.
+The book normally costs $15.0
+The customer has a rewards number of 0001
+The customer gets a 5% discount.
+The customer pays $14.25.
+The total rewards points for this customer is: 26.25
+Customer One purchases Along Came a Spider with $35.75 remaining.
+TRANSACTION.
+Customer Two enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $40.0 in cash.
+The book normally costs $17.5
+The customer does not have a rewards number.
+The customer does not get a discount.
+Customer Two purchases Star Wars Episode 4: A New Hope with $22.5 remaining.
+TRANSACTION.
+Customer Three enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $30.0 in cash.
+The book normally costs $7.95
+The customer has a rewards number of 0003
+The customer gets a 5% discount.
+The customer pays $7.55.
+The total rewards points for this customer is: 7.55
+Customer Three purchases Star Wars Episode 5: The Empire Strikes Back with $22.45 remaining.
+TRANSACTION.
+Customer One enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $50.0 in cash.
+The book normally costs $9.99
+The customer has a rewards number of 0001
+The customer gets a 5% discount.
+The customer pays $9.49.
+The total rewards points for this customer is: 21.49
+Customer One purchases Martian with $40.51 remaining.
+TRANSACTION.
+Customer Two enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $40.0 in cash.
+The book normally costs $25.0
+The customer does not have a rewards number.
+The customer does not get a discount.
+Customer Two purchases Forty Chances with $15.0 remaining.
+TRANSACTION.
+Customer Three enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $30.0 in cash.
+The book normally costs $9.99
+The customer has a rewards number of 0003
+The customer gets a 5% discount.
+The customer pays $9.49.
+The total rewards points for this customer is: 9.49
+Customer Three purchases Martian with $20.51 remaining.
+TRANSACTION.
+Customer One enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $50.0 in cash.
+The book normally costs $9.99
+The customer has a rewards number of 0001
+The customer gets a 5% discount.
+The customer pays $9.49.
+The total rewards points for this customer is: 21.49
+Customer One purchases Martian with $40.51 remaining.
+TRANSACTION.
+Customer Two enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $40.0 in cash.
+The book normally costs $9.99
+The customer does not have a rewards number.
+The customer does not get a discount.
+Customer Two purchases Martian with $30.01 remaining.
+TRANSACTION.
+Customer Three enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $30.0 in cash.
+The book normally costs $9.99
+The customer has a rewards number of 0003
+The customer gets a 5% discount.
+The customer pays $9.49.
+The total rewards points for this customer is: 9.49
+Customer Three purchases Martian with $20.51 remaining.
+TRANSACTION.
+Customer One enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $50.0 in cash.
+The book normally costs $22.5
+The customer has a rewards number of 0001
+The customer gets a 5% discount.
 The customer pays $21.38.
-The total rewards points for this customer is: 21.38
-Customer Three purchases The Great Gatsby with $8.62 remaining.
+The total rewards points for this customer is: 33.38
+Customer One purchases The Great Gatsby with $28.62 remaining.
+TRANSACTION.
+Customer Two enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $40.0 in cash.
+The book normally costs $9.99
+The customer does not have a rewards number.
+The customer does not get a discount.
+Customer Two purchases Martian with $30.01 remaining.
+TRANSACTION.
+Customer Three enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $30.0 in cash.
+The book normally costs $9.99
+The customer has a rewards number of 0003
+The customer gets a 5% discount.
+The customer pays $9.49.
+The total rewards points for this customer is: 9.49
+Customer Three purchases Martian with $20.51 remaining.
