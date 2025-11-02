@@ -56,25 +56,25 @@ class StoreItem():
   def __init__(self):
     self.name = ""
     self.details = ""
-    self.price = 0
+    self.cost = 0
   def set_name(self,name):
     self.name = name
   def set_details(self,details):
     self.details = details
-  def set_price(self,price):
-    self.price = price
+  def set_cost(self,ct):
+    self.cost = ct
   def get_name(self):
     return self.name
   def get_details(self):
     return self.details
-  def get_price(self):
-    return self.price
+  def get_cost(self):
+    return self.cost
 
 class Bag(StoreItem):
   def printBagDetails(self):
     print("Bag Name: " + self.name)
     print("Bag Details: " + self.details)
-    print("Bag Price: " + str(self.price))
+    print("Bag Cost: " + str(self.cost))
 
 # Does Python allow for lists to have different object types in the same list? A string and a set to exist within a list. JavaScript does. C++ does not
 
@@ -282,7 +282,7 @@ lib_authors = lib.get_authors()
 bag1 = Bag()
 bag1.set_name("Bag 1")
 bag1.set_details("Brown leather backpack with zippers. Real leather. Worn. 3 years old.")
-bag1.set_price(15.00)
+bag1.set_cost(15.00)
 
 # Add Store Items to StoreItemDatabase
 si_db = StoreItemDatabase()
@@ -299,7 +299,7 @@ print("All Store Items:")
 for item in all_store_items:
   print(item.get_name())
   print(item.get_details())
-  print(item.get_price())
+  print(item.get_cost())
   print("\n")
 
 # Test removing an item from the store item database
@@ -1096,5 +1096,5 @@ print("\n")
 # Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
 # Database exists but needs some work - Justin 11/24/24
 
-
+# Check if code knows the difference between MMartian and Martian Chronicles when doing the stock alerts
 
