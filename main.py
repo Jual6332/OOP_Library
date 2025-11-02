@@ -201,6 +201,38 @@ book7.set_genre("Fiction")
 book7.set_publisher("Random House Worlds")
 book7.set_words("...")
 
+book8 = Book()
+book8.set_title("Martian")
+book8.set_author("Andy Weir")
+book8.set_year(2020)
+book8.set_genre("Fiction")
+book8.set_publisher("Crown Publishing Group")
+book8.set_words("...")
+
+book9 = Book()
+book9.set_title("Martian")
+book9.set_author("Andy Weir")
+book9.set_year(2020)
+book9.set_genre("Fiction")
+book9.set_publisher("Crown Publishing Group")
+book9.set_words("...")
+
+book10 = Book()
+book10.set_title("Martian")
+book10.set_author("Andy Weir")
+book10.set_year(2020)
+book10.set_genre("Fiction")
+book10.set_publisher("Crown Publishing Group")
+book10.set_words("...")
+
+book11 = Book()
+book11.set_title("Martian")
+book11.set_author("Andy Weir")
+book11.set_year(2020)
+book11.set_genre("Fiction")
+book11.set_publisher("Crown Publishing Group")
+book11.set_words("...")
+
 ## Add Example Library Data
 # Create Library Object
 lib = Library()
@@ -215,6 +247,10 @@ lib.add_book(book4)
 lib.add_book(book5)
 lib.add_book(book6)
 lib.add_book(book7)
+lib.add_book(book8)
+lib.add_book(book9)
+lib.add_book(book10)
+lib.add_book(book11)
 lib_books = lib.get_books() # SHort-hand
 
 # Track book inventory in a dictionary
@@ -222,13 +258,20 @@ lib_books = lib.get_books() # SHort-hand
 books_dictionary = {};
 books_local = lib.get_books()
 for book in books_local:
-  if (book in books_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
+  if (book.get_title() in books_dictionary): # If the book title is already in the dictionary, increment the number of occurrences of this author
     books_dictionary[book.get_title()] += 1
   else:
     books_dictionary[book.get_title()] = 1
-    print("Book: " + book.get_title() + " Quantity: " + str(books_dictionary[book.get_title()]))
-print("\n")
+    #print("Book: " + book.get_title() + " Quantity: " + str(books_dictionary[book.get_title()]))
+#print("\n")
 
+# Check if Library is low on a book (less than 5 copies))
+for book in books_dictionary:
+  if (books_dictionary[book] < 5):
+    print("Library is low on " + book + ".")
+    print("Quantity: " + str(books_dictionary[book]))
+    print("Order more copies of " + book + ".")
+    print("\n")
 
 # Add Authors to Library
 for book in lib_books:
