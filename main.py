@@ -697,7 +697,7 @@ punctuality_grade = "B" # How punctual was he/she?
 customer_service_grade = "C" # How was their customer service rating?
 emp5.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
 
-comments = "This employee did join the cashier squad 4 months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She will be let-go during next round of budget cuts." # Manager/supervisor comments
+comments = "This employee did join the cashier squad 4 months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She may be let-go during next round of budget cuts." # Manager/supervisor comments
 emp5.performance_comments.append(comments) # Store comments
 
 # Print Output
@@ -705,6 +705,23 @@ print(employee_review2)
 print(emp5.performance_grades)
 print(emp5.performance_comments)
 print("\n")
+
+# I would like to give a performance review (second employee)
+employee_review3 = emp6.get_name() # Employee under review
+selling_credit_cards_grade = "B" # How well did he/she sell credit cards?
+punctuality_grade = "A" # How punctual was he/she?
+customer_service_grade = "B" # How was their customer service rating?
+emp6.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
+
+comments = "This employee joined the cashier squad 8 months ago. They are selling credit cards and helping customers well. Perfect attendance. They are due for a raise now." # Manager/supervisor comments
+emp6.performance_comments.append(comments) # Store comments
+
+# Print Output
+print(employee_review3)
+print(emp6.performance_grades)
+print(emp6.performance_comments)
+print("\n")
+
 
 # Write function to determine if person gets a raise next based on performance review scores
 
@@ -1097,4 +1114,8 @@ print("\n")
 # Database exists but needs some work - Justin 11/24/24
 
 # Check if code knows the difference between MMartian and Martian Chronicles when doing the stock alerts
+
+# Sort employees by most recent raise.
+# Point: Find out who needs a raise next
+
 
