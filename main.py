@@ -233,6 +233,14 @@ book11.set_genre("Fiction")
 book11.set_publisher("Crown Publishing Group")
 book11.set_words("...")
 
+book12 = Book()
+book12.set_title("Martian Chronicles")
+book12.set_author("Ray Bradbury")
+book12.set_year(1950)
+book12.set_genre("Fiction")
+book12.set_publisher("Doubleday")
+book12.set_words("...")
+
 ## Add Example Library Data
 # Create Library Object
 lib = Library()
@@ -251,10 +259,12 @@ lib.add_book(book8)
 lib.add_book(book9)
 lib.add_book(book10)
 lib.add_book(book11)
+lib.add_book(book12)
 lib_books = lib.get_books() # SHort-hand
 
 # Track book inventory in a dictionary
 # Key on book, value is how many times that book appears in library
+# Also, tracks for duplicates
 books_dictionary = {};
 books_local = lib.get_books()
 for book in books_local:
@@ -1029,6 +1039,7 @@ else:
   for book in fiction_books:
     print(book.get_title())
 
+# 2.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
 print("Test 2 for lib.sort_by_genre()")
 nonfiction_books = lib.sort_by_genre("Non-fiction")
@@ -1038,6 +1049,7 @@ else:
   for book in nonfiction_books:
     print(book.get_title())
 
+# 3.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
 print("Test 3 for lib.sort_by_genre()")
 hist_fiction_books = lib.sort_by_genre("Historical Fiction")
@@ -1047,7 +1059,7 @@ else:
   for book in hist_fiction_books:
     print(book.get_title())
 
-# 2.)  Unit Test for sort_by_author() method for Library class
+# 4.)  Unit Test for sort_by_author() method for Library class
 print("\n")
 print("Test 1 for lib.sort_by_author()")
 authored_books = lib.sort_by_author("James Patterson")
@@ -1057,7 +1069,7 @@ else:
   for book in authored_books:
     print(book.get_title())
 
-# 3.) Unit Test for sort_by_year() method for Library class
+# 5.) Unit Test for sort_by_year() method for Library class
 print("\n")
 print("Test 1 for lib.sort_by_year()")
 old_books = lib.sort_by_year(1925)
@@ -1108,12 +1120,10 @@ print("\n")
 
 # Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
 
-# The book array needs to check for repeats somehow. 
-
 # Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
 # Database exists but needs some work - Justin 11/24/24
 
-# Check if code knows the difference between MMartian and Martian Chronicles when doing the stock alerts
+# Check if code knows the difference between Martian and Martian Chronicles when doing the stock alerts
 
 # Sort employees by most recent raise.
 # Point: Find out who needs a raise next

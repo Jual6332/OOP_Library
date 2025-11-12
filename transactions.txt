@@ -148,3 +148,31 @@ The customer gets a 5% discount.
 The customer pays $23.75.
 The total rewards points for this customer is: 23.75
 Customer Three purchases Forty Chances with $6.25 remaining.
+TRANSACTION.
+Customer One enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $50.0 in cash.
+The book normally costs $22.5
+The customer has a rewards number of 0001
+The customer gets a 5% discount.
+The customer pays $21.38.
+The total rewards points for this customer is: 33.38
+Customer One purchases The Great Gatsby with $28.62 remaining.
+TRANSACTION.
+Customer Two enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $40.0 in cash.
+The book normally costs $9.99
+The customer does not have a rewards number.
+The customer does not get a discount.
+Customer Two purchases Martian with $30.01 remaining.
+TRANSACTION.
+Customer Three enters checkout aisle to purchase a book.
+Employee Four helps customer with purchase.
+The customer has $30.0 in cash.
+The book normally costs $9.97
+The customer has a rewards number of 0003
+The customer gets a 5% discount.
+The customer pays $9.47.
+The total rewards points for this customer is: 9.47
+Customer Three purchases The Complete Sherlock Holmes Volume II with $20.53 remaining.
