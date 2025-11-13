@@ -846,13 +846,13 @@ for author in lib_authors:
 
 
 # Key on book, value is how many times that book appears in library 
-books_dictionary = {};
-books_local = lib.get_books()
-for book in books_local:
-  if (book in books_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
-    books_dictionary[book.get_title()] += 1
-  else:
-    books_dictionary[book.get_title()] = 1
+#books_dictionary = {};
+#books_local = lib.get_books()
+#for book in books_local:
+#  if (book in books_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
+#    books_dictionary[book.get_title()] += 1
+#  else:
+#    books_dictionary[book.get_title()] = 1
     
 
 # ======== Continued Development ======== #
