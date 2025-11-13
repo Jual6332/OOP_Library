@@ -1163,3 +1163,14 @@ for job_title in job_titles_dict:
     max = job_titles_dict[job_title]
     mostPopularJobTitle = job_title   # Store the most popular job title
 print("The most popular job title is: " + mostPopularJobTitle + " with " + str(max) + " occurences in the library.")
+
+# Calculate the most frequent purchasers
+max=0;
+mostFrequentPurchaser="";
+for customer in customers:
+  if (customer.get_rewards_points() > max):
+    max = customer.get_rewards_points()
+    mostFrequentPurchaser = customer.get_name()
+print("The most frequent purchaser is: " + mostFrequentPurchaser + " with " + str(max) + " points.")
+
+# Calculate the most frequent purchaser
