@@ -1132,7 +1132,16 @@ print("\n")
 max=0
 mostPopularAuthor=""
 for author in lib_authors:
-  if (authors_dictionary[author] > max): # If the author is already in the dictionary, increment the number of occurrences of this author
+  if (authors_dictionary[author] > max): # If the author is already in the dictionary, more than the current max, increment the number of occurrences of this author
     max = authors_dictionary[author]
     mostPopularAuthor = author
 print("The most popular author is: " + mostPopularAuthor + " with " + str(max) + " occurences in the library.")
+
+# Calculate most popular book
+max=0 # Max occurrences of book
+mostPopularBook=""
+for book in books_dictionary:
+  if (books_dictionary[book] > max): # If the book is already in the dictionary, more than the current max, increment the number of occurrences of this book
+    max = books_dictionary[book]
+    mostPopularBook = book
+print("The most popular book is: " + mostPopularBook + " with " + str(max) + " occurences in the library.")
