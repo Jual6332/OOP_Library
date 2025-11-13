@@ -1154,3 +1154,12 @@ for genre in genres_dictionary:
     max = genres_dictionary[genre]
     mostPopularGenre = genre   # Store the most popular genre
 print("The most popular genre is: " + mostPopularGenre + " with " + str(max) + " occurences in the library.")
+
+# Calculate the most popular job title
+max=0
+mostPopularJobTitle=""
+for job_title in job_titles_dict:
+   if (job_titles_dict[job_title] > max): # If the job title is already in the dictionary, more than the current max, increment the number of occurrences of this job title
+    max = job_titles_dict[job_title]
+    mostPopularJobTitle = job_title   # Store the most popular job title
+print("The most popular job title is: " + mostPopularJobTitle + " with " + str(max) + " occurences in the library.")
