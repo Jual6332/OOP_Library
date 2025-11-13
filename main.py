@@ -1145,3 +1145,12 @@ for book in books_dictionary:
     max = books_dictionary[book]
     mostPopularBook = book
 print("The most popular book is: " + mostPopularBook + " with " + str(max) + " occurences in the library.")
+
+# Calculate the most popular genre
+max=0
+mostPopularGenre=""
+for genre in genres_dictionary:
+   if (genres_dictionary[genre] > max): # If the genre is already in the dictionary, more than the current max, increment the number of occurrences of this genre
+    max = genres_dictionary[genre]
+    mostPopularGenre = genre   # Store the most popular genre
+print("The most popular genre is: " + mostPopularGenre + " with " + str(max) + " occurences in the library.")
