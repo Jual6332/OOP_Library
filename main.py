@@ -835,7 +835,7 @@ for genre in genres:
     genres_dictionary[genre] = 1
 
 # ======== Continued Development ======== # 
-# Key on author, value is how mnay times that author appears in library 
+# Key on author, value is how many times that author appears in library 
 authors_dictionary = {};
 
 for author in lib_authors:
@@ -1128,4 +1128,11 @@ print("\n")
 # Sort employees by most recent raise.
 # Point: Find out who needs a raise next
 
-
+# Calculate most popular author
+max=0
+mostPopularAuthor=""
+for author in lib_authors:
+  if (authors_dictionary[author] > max): # If the author is already in the dictionary, increment the number of occurrences of this author
+    max = authors_dictionary[author]
+    mostPopularAuthor = author
+print("The most popular author is: " + mostPopularAuthor + " with " + str(max) + " occurences in the library.")
