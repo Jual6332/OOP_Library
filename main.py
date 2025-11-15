@@ -757,8 +757,8 @@ def cost_of_specific_book(bought_book):
     cost = 9.99
   return cost
   
-# Make a purchase - Write to a file
-def make_purchase(cust,lib_books,cash,emp):
+# Make a random book purchase - Write to a file
+def purchase_random_book(cust,lib_books,cash,emp):
   pick_random_book = random.choice(lib_books)
   bought_book = pick_random_book.get_title()
   cost = cost_of_specific_book(bought_book)
@@ -771,8 +771,9 @@ def make_purchase(cust,lib_books,cash,emp):
     total_cost = round(cash-cost,2)
   print_transaction(cust,bought_book,cash,cost,total_cost,emp)
 
+# Write transaction to a file
 def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
-  file = open("transactions.txt", "a") 
+  file = open("transactions.txt", "w") 
   file.write("TRANSACTION.\n")
   file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
   employee = emp.get_name();
@@ -797,8 +798,17 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
   for purchase in prev_purchases:
     print(purchase)
   
-
-  
+# Make specific book purchase
+def purchase_specific_book(cust,bought_book,cash,emp):
+  cost = cost_of_specific_book(bought_book)
+  total_cost = 0
+  if cust.get_rewards_number() != "xxxx":
+    # 5% discount applies
+    total_cost = round(cash-cost*0.95,2)
+  else:
+    # Discount does not apply
+    total_cost = round(cash-cost,2)
+  print_transaction(cust,bought_book,cash,cost,total_cost,emp)
 
 # ======== Continued Development ======== #
 # Organized genres into a list
@@ -1025,9 +1035,13 @@ for employee in employees:
 #plt.show
 
 # Unit Test for Transactions
-make_purchase(cust1,lib_books,50.00,emp4)
-make_purchase(cust2,lib_books,40.00,emp4)
-make_purchase(cust3,lib_books,30.00,emp4)
+# Make a random book purchase
+purchase_random_book(cust1,lib_books,50.00,emp4)
+purchase_random_book(cust2,lib_books,40.00,emp4)
+purchase_random_book(cust3,lib_books,30.00,emp4)
+
+# Make a specific book purchase
+purchase_specific_book(cust4,book3,50.00,emp4)
 
 # 1.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
