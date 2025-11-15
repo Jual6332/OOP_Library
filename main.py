@@ -1123,8 +1123,6 @@ print("\n")
 # Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
 # Database exists but needs some work - Justin 11/24/24
 
-# Check if code knows the difference between Martian and Martian Chronicles when doing the stock alerts
-
 # Sort employees by most recent raise.
 # Point: Find out who needs a raise next
 
