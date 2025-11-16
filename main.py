@@ -1041,11 +1041,14 @@ for employee in employees:
 
 # Unit Test for Transactions
 # Make a random book purchase
+print("\n")
+print("Unit Test(s) for purchase_random_book()")
 purchase_random_book(cust1,lib_books,50.00,emp4)
 purchase_random_book(cust2,lib_books,40.00,emp4)
 purchase_random_book(cust3,lib_books,30.00,emp4)
 
 # Make a specific book purchase
+print("Unit Test for purchase_specific_book()")
 purchase_specific_book(cust4,book3.get_title(),50.00,emp4)
 
 # 1.)  Unit Test for sort_by_genre() method for Library class
