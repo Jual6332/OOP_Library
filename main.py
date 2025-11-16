@@ -794,10 +794,6 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
   file.write("{0} purchases {1} with ${2} remaining.\n".format(cust.get_name(),bought_book,total_cost))
   file.close()
   print("Transaction complete.\n")
-  prev_purchases = cust.get_previous_purchases()
-  print("Previous Purchases for {0}:".format(cust.get_name()))
-  for purchase in prev_purchases:
-    print(purchase)
   
 # Make specific book purchase
 def purchase_specific_book(cust,bought_book,cash,emp):
@@ -809,10 +805,11 @@ def purchase_specific_book(cust,bought_book,cash,emp):
   else:
     # Discount does not apply
     total_cost = round(cash-cost,2)
-  print("Cost: "+str(cost))
-  print("Total Cost: "+str(total_cost))
-  print("Cash: "+str(cash))
-  print("Bought Book: "+bought_book)
+  # Debugging
+  #print("Cost: "+str(cost))
+  #print("Total Cost: "+str(total_cost))
+  #print("Cash: "+str(cash))
+  #print("Bought Book: "+bought_book)
   print_transaction(cust,bought_book,cash,cost,total_cost,emp)
 
 # ======== Continued Development ======== #
@@ -1050,6 +1047,15 @@ purchase_random_book(cust3,lib_books,30.00,emp4)
 # Make a specific book purchase
 print("Unit Test for purchase_specific_book()")
 purchase_specific_book(cust4,book3.get_title(),50.00,emp4)
+
+# Previous Purchases for Customers
+print("\n")
+print("Previous Purchases for Customers")
+for customer in customers:
+  prev_purchases = customer.get_previous_purchases()
+  print("Previous Purchases for {0}:".format(customer.get_name()))
+  for purchase in prev_purchases:
+    print(purchase)
 
 # 1.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
