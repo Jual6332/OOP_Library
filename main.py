@@ -755,6 +755,8 @@ def cost_of_specific_book(bought_book):
     cost = 9.97
   elif bought_book == "Star Wars Episode 5: The Empire Strikes Back":
     cost = 9.99
+  elif bought_book == "Martian Chronicles":
+    cost = 8.53
   return cost
   
 # Make a random book purchase - Write to a file
@@ -1039,14 +1041,15 @@ for employee in employees:
 # Unit Test for Transactions
 # Make a random book purchase
 print("\n")
-print("Unit Test(s) for purchase_random_book()")
+print("Unit Tests for purchase_random_book()")
 purchase_random_book(cust1,lib_books,50.00,emp4)
 purchase_random_book(cust2,lib_books,40.00,emp4)
 purchase_random_book(cust3,lib_books,30.00,emp4)
 
 # Make a specific book purchase
-print("Unit Test for purchase_specific_book()")
+print("Unit Tests for purchase_specific_book()")
 purchase_specific_book(cust4,book3.get_title(),50.00,emp4)
+purchase_specific_book(cust5,book12.get_title(),50.00,emp4)
 
 # Previous Purchases for Customers
 print("\n")

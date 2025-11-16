@@ -1,8 +1,10 @@
 TRANSACTION.
-Customer Four enters checkout aisle to purchase a book.
+Customer Five enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $50.0 in cash.
-The book normally costs $15.0
-The customer does not have a rewards number.
-The customer does not get a discount.
-Customer Four purchases Along Came a Spider with $35.0 remaining.
+The book normally costs $8.53
+The customer has a rewards number of 0005
+The customer gets a 5% discount.
+The customer pays $8.1.
+The total rewards points for this customer is: 8.1
+Customer Five purchases Martian Chronicles with $41.9 remaining.
