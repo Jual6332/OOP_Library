@@ -152,6 +152,10 @@ def sale():
     self.book = ""
     self.cost = 0
     self.total_cost = 0
+    self.employee = ""
+    self.rewards_number = ""
+    self.rewards_points = 0
+    self.type = ""
 
 # Add Example Book Data
 book1 = Book()
