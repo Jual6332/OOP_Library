@@ -144,6 +144,15 @@ class Library():
         books.append(book)
     return books
 
+def sale():
+  def __init__(self):
+    self.customer = "" 
+    self.date = ""
+    self.author = ""
+    self.book = ""
+    self.cost = 0
+    self.total_cost = 0
+
 # Add Example Book Data
 book1 = Book()
 book1.set_title("The Great Gatsby")
