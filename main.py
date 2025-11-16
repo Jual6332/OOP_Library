@@ -579,7 +579,9 @@ cust1 = Customer()
 cust1.set_name("Customer One")
 cust1.set_age(34)
 cust1.set_rewards_number("0001")
-cust1.add_purchase(book1.get_title(),12)
+#cust1.add_purchase(book1.get_title(),12)
+# This call to add_purchase is missing the 5% discount for being a member of the Library Rewards Program
+# Bug: Customer rewards leaderboard rounding issue
 
 print("The total rewards points for Customer One is: " + str(cust1.get_rewards_points()))
 
