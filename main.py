@@ -156,6 +156,46 @@ def sale():
     self.rewards_number = ""
     self.rewards_points = 0
     self.type = ""
+  def get_customer(self):
+    return self.customer
+  def get_date(self):
+    return self.date
+  def get_author(self):
+    return self.author
+  def get_book(self):
+    return self.book
+  def get_cost(self):
+    return self.cost
+  def get_total_cost(self):
+    return self.total_cost
+  def get_employee(self):
+    return self.employee
+  def get_rewards_number(self):
+    return self.rewards_number
+  def get_rewards_points(self):
+    return self.rewards_points
+  def get_type(self):
+    return self.type
+  def set_customer(self,customer):
+    self.customer = customer
+  def set_date(self,date):
+    self.date = date
+  def set_author(self,author):
+    self.author = author
+  def set_book(self,book):
+    self.book = book
+  def set_cost(self,cost):
+    self.cost = cost
+  def set_total_cost(self,total_cost):
+    self.total_cost = total_cost
+  def set_employee(self,employee):
+    self.employee = employee
+  def set_rewards_number(self,rewards_number):
+    self.rewards_number = rewards_number
+  def set_rewards_points(self,rewards_points):
+    self.rewards_points = rewards_points
+  def set_type(self,type):
+    self.type = type
 
 # Add Example Book Data
 book1 = Book()
