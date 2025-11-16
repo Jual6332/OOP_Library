@@ -2,7 +2,7 @@ TRANSACTION.
 Customer Four enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $50.0 in cash.
-The book normally costs $0.0
+The book normally costs $15.0
 The customer does not have a rewards number.
 The customer does not get a discount.
-Customer Four purchases <__main__.Book object at 0x7f26ff189190> with $50.0 remaining.
+Customer Four purchases Along Came a Spider with $35.0 remaining.

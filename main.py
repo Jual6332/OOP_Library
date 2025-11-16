@@ -790,6 +790,7 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
   else:
     file.write("The customer does not have a rewards number.\n")
     file.write("The customer does not get a discount.\n")
+    cust.add_purchase(bought_book,cost)
   file.write("{0} purchases {1} with ${2} remaining.\n".format(cust.get_name(),bought_book,total_cost))
   file.close()
   print("Transaction complete.\n")
@@ -808,6 +809,10 @@ def purchase_specific_book(cust,bought_book,cash,emp):
   else:
     # Discount does not apply
     total_cost = round(cash-cost,2)
+  print("Cost: "+str(cost))
+  print("Total Cost: "+str(total_cost))
+  print("Cash: "+str(cash))
+  print("Bought Book: "+bought_book)
   print_transaction(cust,bought_book,cash,cost,total_cost,emp)
 
 # ======== Continued Development ======== #
@@ -1041,7 +1046,7 @@ purchase_random_book(cust2,lib_books,40.00,emp4)
 purchase_random_book(cust3,lib_books,30.00,emp4)
 
 # Make a specific book purchase
-purchase_specific_book(cust4,book3,50.00,emp4)
+purchase_specific_book(cust4,book3.get_title(),50.00,emp4)
 
 # 1.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
