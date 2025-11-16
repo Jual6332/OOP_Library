@@ -504,8 +504,8 @@ class Customer():
     self.rewards_number = ""
     self.previous_purchases = []
     self.rewards_points = 0
-  def add_purchase(self,bookTitle,cost):
-    self.previous_purchases.append("Bought {0} for ${1}.".format(bookTitle,cost))
+  def add_purchase(self,bookTitle,cost,date):
+    self.previous_purchases.append("Bought {0} for ${1} on {2}.".format(bookTitle,cost,date))
     self.rewards_points += cost
   def set_name(self,name):
     self.name = name
@@ -762,7 +762,7 @@ def cost_of_specific_book(bought_book):
   return cost
   
 # Make a random book purchase - Write to a file
-def purchase_random_book(cust,lib_books,cash,emp):
+def purchase_random_book(cust,lib_books,cash,emp,date):
   pick_random_book = random.choice(lib_books)
   bought_book = pick_random_book.get_title()
   cost = cost_of_specific_book(bought_book)
@@ -773,10 +773,10 @@ def purchase_random_book(cust,lib_books,cash,emp):
   else:
     # Discount does not apply
     total_cost = round(cash-cost,2)
-  print_transaction(cust,bought_book,cash,cost,total_cost,emp)
+  print_transaction(cust,bought_book,cash,cost,total_cost,emp,date)
 
 # Write transaction to a file
-def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
+def print_transaction(cust,bought_book,cash,cost,total_cost,emp,date):
   file = open("transactions.txt", "w") 
   file.write("TRANSACTION.\n")
   file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
@@ -789,18 +789,18 @@ def print_transaction(cust,bought_book,cash,cost,total_cost,emp):
     file.write("The customer gets a 5% discount.\n")
     file.write("The customer pays ${0}.\n".format(round(cost*0.95,2)))
     #cust.add_rewards_points(round(cost*0.95,2))
-    cust.add_purchase(bought_book,round(cost*0.95,2))
+    cust.add_purchase(bought_book,round(cost*0.95,2),date)
     file.write("The total rewards points for this customer is: " + str(round(cust.get_rewards_points(),2))+"\n")
   else:
     file.write("The customer does not have a rewards number.\n")
     file.write("The customer does not get a discount.\n")
-    cust.add_purchase(bought_book,cost)
+    cust.add_purchase(bought_book,cost,date)
   file.write("{0} purchases {1} with ${2} remaining.\n".format(cust.get_name(),bought_book,total_cost))
   file.close()
   print("Transaction complete.\n")
   
 # Make specific book purchase
-def purchase_specific_book(cust,bought_book,cash,emp):
+def purchase_specific_book(cust,bought_book,cash,emp,date):
   cost = cost_of_specific_book(bought_book)
   total_cost = 0
   if cust.get_rewards_number() != "xxxx":
@@ -814,7 +814,7 @@ def purchase_specific_book(cust,bought_book,cash,emp):
   #print("Total Cost: "+str(total_cost))
   #print("Cash: "+str(cash))
   #print("Bought Book: "+bought_book)
-  print_transaction(cust,bought_book,cash,cost,total_cost,emp)
+  print_transaction(cust,bought_book,cash,cost,total_cost,emp,date)
 
 # ======== Continued Development ======== #
 # Organized genres into a list
@@ -1044,14 +1044,14 @@ for employee in employees:
 # Make a random book purchase
 print("\n")
 print("Unit Tests for purchase_random_book()")
-purchase_random_book(cust1,lib_books,50.00,emp4)
-purchase_random_book(cust2,lib_books,40.00,emp4)
-purchase_random_book(cust3,lib_books,30.00,emp4)
+purchase_random_book(cust1,lib_books,50.00,emp4,"11/24/24")
+purchase_random_book(cust2,lib_books,40.00,emp4,"11/24/24")
+purchase_random_book(cust3,lib_books,30.00,emp4,"11/24/24")
 
 # Make a specific book purchase
 print("Unit Tests for purchase_specific_book()")
-purchase_specific_book(cust4,book3.get_title(),50.00,emp4)
-purchase_specific_book(cust5,book12.get_title(),50.00,emp4)
+purchase_specific_book(cust4,book3.get_title(),50.00,emp4,"11/24/24")
+purchase_specific_book(cust5,book12.get_title(),50.00,emp4,"11/24/24")
 
 # Previous Purchases for Customers
 print("\n")
