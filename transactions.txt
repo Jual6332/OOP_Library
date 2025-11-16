@@ -1,4 +1,5 @@
 TRANSACTION.
+Date: 11/24/24
 Customer Five enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $50.0 in cash.

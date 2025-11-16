@@ -779,6 +779,7 @@ def purchase_random_book(cust,lib_books,cash,emp,date):
 def print_transaction(cust,bought_book,cash,cost,total_cost,emp,date):
   file = open("transactions.txt", "w") 
   file.write("TRANSACTION.\n")
+  file.write("Date: {0}\n".format(date))
   file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
   employee = emp.get_name();
   file.write(employee+" helps customer with purchase.\n")
