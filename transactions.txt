@@ -1,11 +1,11 @@
 TRANSACTION.
 Date: 11/24/24
-Customer Five enters checkout aisle to purchase a book.
+Customer One enters checkout aisle to purchase a book.
 Employee Four helps customer with purchase.
 The customer has $50.0 in cash.
-The book normally costs $8.53
-The customer has a rewards number of 0005
+The book normally costs $0.0
+The customer has a rewards number of 0001
 The customer gets a 5% discount.
-The customer pays $8.1.
-The total rewards points for this customer is: 8.1
-Customer Five purchases Martian Chronicles with $41.9 remaining.
+The customer pays $0.0.
+The total rewards points for this customer is: 9.49
+Customer One purchases The Great Gatsby with $0.0 remaining.

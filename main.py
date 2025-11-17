@@ -914,7 +914,6 @@ for author in lib_authors:
   else:
     authors_dictionary[author] = 1
 
-
 # Key on book, value is how many times that book appears in library 
 #books_dictionary = {};
 #books_local = lib.get_books()
@@ -923,7 +922,6 @@ for author in lib_authors:
 #    books_dictionary[book.get_title()] += 1
 #  else:
 #    books_dictionary[book.get_title()] = 1
-    
 
 # ======== Continued Development ======== #
 # See how many of each employees have each job
@@ -1262,3 +1260,34 @@ print("The most frequent purchaser is: " + mostFrequentPurchaser + " with " + st
 max=0;
 mostFrequentPurchase="";
 
+# Return a book function
+def returnBook(customer,book,cash,emp,date):
+  # Add book back to library
+  lib.add_book(book)
+  # Find cost of book
+  cost = cost_of_specific_book(book)
+  # Add money back to customer
+  if customer.get_rewards_number() != "xxxx":
+    # 5% discount applies
+    new_cost = round(-cost*0.95,2)
+    customer.add_rewards_points(new_cost)
+    customer.add_purchase(book.get_title(),new_cost,date)
+    print_transaction(customer,book.get_title(),cash,cost,abs(new_cost),emp,date)
+  else:
+    customer.add_rewards_points(-cost)
+    customer.add_purchase(book.get_title(),-cost,date)
+    print_transaction(customer,book.get_title(),cash,cost,cost,emp,date)
+
+# Unit Testing:
+# Return a book
+print("\n")
+print("Unit Tests for returnBook()")
+returnBook(cust1,book1,50.00,emp4,"11/24/24")
+
+print("\n")
+print("Previous Purchases for Customers")
+for customer in customers:
+  prev_purchases = customer.get_previous_purchases()
+  print("Previous Purchases for {0}:".format(customer.get_name()))
+  for purchase in prev_purchases:
+    print(purchase)
