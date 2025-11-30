@@ -1289,5 +1289,8 @@ print("Previous Purchases for Customers")
 for customer in customers:
   prev_purchases = customer.get_previous_purchases()
   print("Previous Purchases for {0}:".format(customer.get_name()))
-  for purchase in prev_purchases:
-    print(purchase)
+  if (len(prev_purchases) == 0):
+    print("No previous purchases.")
+  else:
+    for purchase in prev_purchases:
+      print(purchase)

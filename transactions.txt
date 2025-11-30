@@ -7,5 +7,5 @@ The book normally costs $0.0
 The customer has a rewards number of 0001
 The customer gets a 5% discount.
 The customer pays $0.0.
-The total rewards points for this customer is: 9.49
+The total rewards points for this customer is: 21.38
 Customer One purchases The Great Gatsby with $0.0 remaining.
