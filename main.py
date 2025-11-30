@@ -1317,6 +1317,22 @@ class TestGenreDictionary(unittest.TestCase):
 print("\n")
 print("Unit Tests for genre_dictionary")
 #print(genres_dictionary)
-unittest.main()
+#unittest.main()
+
+# Create Unit Tests Class for author_dictionary
+class TestAuthorDictionary(unittest.TestCase):
+  def test_numRayBradburyBooks(self):
+    # Passing Test: Comparing identical integers
+    self.assertEqual(authors_dictionary["Ray Bradbury"],1)
+  def test_numAndyWeirBooks(self):
+    # Passing Test: Comparing identical integers
+    self.assertEqual(authors_dictionary["Andy Weir"],5)
+  def test_numGeorgeLucasBooks(self):
+    # Failing Test: Comparing different integers
+    self.assertEqual(authors_dictionary["George Lucas"],2)
 
 # Unit Testing authors_dictionary
+print("\n")
+print("Unit Tests for authors_dictionary")
+#print(authors_dictionary)
+unittest.main()
