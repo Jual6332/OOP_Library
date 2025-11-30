@@ -1,5 +1,6 @@
 #import matplotlib.pyplot as plt
 import random
+import unittest
 
 class Book():
   def __init__(self):
@@ -1294,3 +1295,28 @@ for customer in customers:
   else:
     for purchase in prev_purchases:
       print(purchase)
+
+# ======== Continued Development ======== #
+# Calculate the most frequent purchase
+max=0;
+mostFrequentPurchase="";
+
+# Create Unit Tests Class for genre_dictionary
+class TestGenreDictionary(unittest.TestCase):
+  def test_numHistoricalFictionBooks(self):
+    # Passing Test: Comparing identical integers
+    self.assertEqual(genres_dictionary["Historical Fiction"],1)
+  def test_numNonfictionBooks(self):
+    # Passing Test: Comparing identical integers
+    self.assertEqual(genres_dictionary["Non-fiction"],1)
+  def test_numFictionBooks(self):
+    # Failing Test: Comparing different integers
+    self.assertEqual(genres_dictionary["Fiction"],10)
+
+# Unit Testing genre_dictionary
+print("\n")
+print("Unit Tests for genre_dictionary")
+#print(genres_dictionary)
+unittest.main()
+
+# Unit Testing authors_dictionary
