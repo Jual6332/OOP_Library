@@ -1338,7 +1338,9 @@ print("Unit Tests for authors_dictionary")
 #unittest.main()
 
 class TestJobTitlesDictionary(unittest.TestCase):
-  def test_numCashiers(self):
+  def test_numBakeryCashiers(self):
+    self.assertEqual(job_titles_dict["Bakery Cashier"],2)
+  def test_numNormalCashiers(self):
     self.assertEqual(job_titles_dict["Cashier"],4)
   def test_numSupervisors(self):
     self.assertEqual(job_titles_dict["Supervisor"],2)
