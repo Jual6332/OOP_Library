@@ -1335,4 +1335,13 @@ class TestAuthorDictionary(unittest.TestCase):
 print("\n")
 print("Unit Tests for authors_dictionary")
 #print(authors_dictionary)
-unittest.main()
+#unittest.main()
+
+class TestJobTitlesDictionary(unittest.TestCase):
+  def test_numCashiers(self):
+    self.assertEqual(job_titles_dict["Cashier"],4)
+  def test_numSupervisors(self):
+    self.assertEqual(job_titles_dict["Supervisor"],2)
+  def test_numManagers(self):
+    self.assertEqual(job_titles_dict["Manager"],2)
+
