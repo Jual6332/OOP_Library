@@ -1345,3 +1345,8 @@ class TestJobTitlesDictionary(unittest.TestCase):
   def test_numManagers(self):
     self.assertEqual(job_titles_dict["Manager"],2)
 
+# Unit Testing job titles dictionary (job_titles_dict)
+print("\n")
+print("Unit Tests for job_titles_dict")
+#print(job_titles_dict):)
+unittest.main()
