@@ -734,9 +734,6 @@ for customer in customers_before:
 
 #customers_names_sorted = cust_db.get_customers_names()
 
-cust_db.sort_customers_fname()
-customers = cust_db.get_customers()
-
 """
 print("Testing: Print customers names")
 for customer in customers:
@@ -747,6 +744,10 @@ for customer_name in customers_names_sorted:
   print(customer_name)
 print("\n")
 """
+
+# This code is not working. It is not sorting the customers by last name. It is sorting the by the full name. Need to split the namme string into a first and last name and then sort by last name.
+#cust_db.sort_customers_fname()
+customers = cust_db.get_customers()
 
 # This code is not working. It is not sorting the customers by last name. It is sorting the by the full name. Need to split the namme string into a first and last name and then sort by last name.
 #print("Testing: Sort customers by last name")
