@@ -206,6 +206,7 @@ book1.set_year(1925)
 book1.set_genre("Historical Fiction")
 book1.set_publisher("Scribner Classics")
 book1.set_words("...")
+book1.set_cost(22.50)
 
 book2 = Book()
 book2.set_title("Forty Chances")
@@ -214,6 +215,7 @@ book2.set_year(2013)
 book2.set_genre("Non-fiction")
 book2.set_publisher("...")
 book2.set_words("...")
+book2.set_cost(25.00)
 
 book3 = Book()
 book3.set_title("Along Came a Spider")
@@ -222,6 +224,7 @@ book3.set_year(1993)
 book3.set_genre("Fiction")
 book3.set_publisher("Little, Brown and Company")
 book3.set_words("...")
+book3.set_cost(15.00)
 
 book4 = Book()
 book4.set_title("Star Wars Episode 4: A New Hope")
@@ -230,6 +233,7 @@ book4.set_year(2011)
 book4.set_genre("Fiction")
 book4.set_publisher("Ballantine Books")
 book4.set_words("...")
+book4.set_cost(17.50)
 
 book5 = Book()
 book5.set_title("The Complete Sherlock Holmes Volume II")
@@ -238,6 +242,7 @@ book5.set_year(2003)
 book5.set_genre("Fiction")
 book5.set_publisher("Barnes and Noble Inc.")
 book5.set_words("...")
+book5.set_cost(9.97)
 
 book6 = Book()
 book6.set_title("Martian")
@@ -246,6 +251,7 @@ book6.set_year(2020)
 book6.set_genre("Fiction")
 book6.set_publisher("Crown Publishing Group")
 book6.set_words("...")
+book5.set_cost(9.99)
 
 book7 = Book()
 book7.set_title("Star Wars Episode 5: The Empire Strikes Back")
@@ -254,6 +260,7 @@ book7.set_year(1985)
 book7.set_genre("Fiction")
 book7.set_publisher("Random House Worlds")
 book7.set_words("...")
+book7.set_cost(9.99)
 
 book8 = Book()
 book8.set_title("Martian")
@@ -262,6 +269,7 @@ book8.set_year(2020)
 book8.set_genre("Fiction")
 book8.set_publisher("Crown Publishing Group")
 book8.set_words("...")
+book8.set_cost(9.99)
 
 book9 = Book()
 book9.set_title("Martian")
@@ -270,6 +278,7 @@ book9.set_year(2020)
 book9.set_genre("Fiction")
 book9.set_publisher("Crown Publishing Group")
 book9.set_words("...")
+book9.set_cost(9.99)
 
 book10 = Book()
 book10.set_title("Martian")
@@ -278,6 +287,7 @@ book10.set_year(2020)
 book10.set_genre("Fiction")
 book10.set_publisher("Crown Publishing Group")
 book10.set_words("...")
+book10.set_cost(9.99)
 
 book11 = Book()
 book11.set_title("Martian")
@@ -286,6 +296,7 @@ book11.set_year(2020)
 book11.set_genre("Fiction")
 book11.set_publisher("Crown Publishing Group")
 book11.set_words("...")
+book11.set_cost(9.99)
 
 book12 = Book()
 book12.set_title("Martian Chronicles")
@@ -294,6 +305,7 @@ book12.set_year(1950)
 book12.set_genre("Fiction")
 book12.set_publisher("Doubleday")
 book12.set_words("...")
+book12.set_cost(8.53)
 
 ## Add Example Library Data
 # Create Library Object
@@ -366,15 +378,25 @@ for item in all_store_items:
   print(item.get_cost())
   print("\n")
 
-# Test removing an item from the store item database
+# Test removing an item not from the store item database
 si_db.remove_item("Bag 6")
-
+print("\n")
 
 # Print all items in the store item database
 print("Items in Store Item Database:")
 si_db_items = si_db.get_all_items()
 for item in si_db_items:
   print(item.get_name())
+print("\n")
+
+# Test removing an item from the store item database
+si_db.remove_item(bag1.get_name())
+# Print all items in the store item database again to see that Bag 1 was removed
+print("Items in Store Item Database: (after removing Bag1)")
+si_db_items = si_db.get_all_items()
+for item in si_db_items:
+  print(item.get_name())
+print("\n")
 
 ## Define Employee Class
 class Employee():
@@ -809,8 +831,6 @@ def cost_of_specific_book(bought_book):
     cost = 9.99
   elif bought_book == "The Complete Sherlock Holmes Volume II":
     cost = 9.97
-  elif bought_book == "Star Wars Episode 5: The Empire Strikes Back":
-    cost = 9.99
   elif bought_book == "Martian Chronicles":
     cost = 8.53
   return cost
@@ -967,11 +987,13 @@ for customer in customers:
 print("\n")
 
 # Print the Number of times each  shows up in the library
-# There was a Bug here. Found 2/4/24, fixed 2/4/24, documented 11/16/24,  - Justin
+# This data of numOccurrences for authors was stored in dictionary
+# There was a (misspelling) bug here. Found 2/4/24, fixed 2/4/24, documented 11/16/24,  - Justin
 print(genres_dictionary)
 print("\n")
 
 # Print the Number of times each author shows up in the library
+# This data of numOccurrences for authors was stored in dictionary
 print(authors_dictionary)
 print("\n")
 
@@ -1200,22 +1222,6 @@ if rank == 1:
   print("No customers with rewards points yet.")
 print("\n")
 
-# Todos:
-# Data
-# 1. Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
-# a.) Add function and data for tasks to Employee class
-
-# 2. Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
-# Database exists but needs some work - Justin 11/24/24
-# Specifically:
-# a.) Add clickers as class to database
-# b.) Add flashdrives as class to database
-# c.) Add satchel as class to database
-# d.) Add backpack as class to database
-
-# Sort employees by most recent raise.
-# Point: Find out who needs a raise next
-
 # Calculate most popular author
 max=0
 mostPopularAuthor=""
@@ -1357,7 +1363,18 @@ print("Unit Tests for job_titles_dict")
 #print(job_titles_dict):)
 unittest.main()
 
-
 # Todos:
-#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. Virtual functions dont exist in Python I dont think
-#2. 
+#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. Virtual functions dont exist in Python I dont think 
+# Data
+# 2. Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
+# a.) Add function and data for tasks to Employee class
+# 3. Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
+# Database exists but needs some work - Justin 11/24/24
+# Specifically:
+# a.) Add clickers as class to database
+# b.) Add flashdrives as class to database
+# c.) Add satchel as class to database
+# d.) Add backpack as class to database
+# 4.) Sort employees by most recent raise.
+# a.) Find out who needs a raise next
+
