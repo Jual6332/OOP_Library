@@ -748,10 +748,11 @@ for customer_name in customers_names_sorted:
 print("\n")
 """
 
-print("Testing: Sort customers by last name")
-for customer in customers:
-  print(customer.get_name())
-print("\n")
+# This code is not working. It is not sorting the customers by last name. It is sorting the by the full name. Need to split the namme string into a first and last name and then sort by last name.
+#print("Testing: Sort customers by last name")
+#for customer in customers:
+#  print(customer.get_name())
+#print("\n")
 
 cust_db.sort_customers_age()
 customers = cust_db.get_customers()
@@ -785,7 +786,7 @@ punctuality_grade = "B" # How punctual was he/she?
 customer_service_grade = "C" # How was their customer service rating?
 emp5.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
 
-comments = "This employee did join the cashier squad 4 months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She may be let-go during next round of budget cuts." # Manager/supervisor comments
+comments = "This employee joined the cashier squad 4 months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She may be let-go during next round of budget cuts." # Manager/supervisor comments
 emp5.performance_comments.append(comments) # Store comments
 
 # Print Output
@@ -801,7 +802,7 @@ punctuality_grade = "A" # How punctual was he/she?
 customer_service_grade = "B" # How was their customer service rating?
 emp6.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
 
-comments = "This employee joined the cashier squad 8 months ago. They are selling credit cards and helping customers well. Perfect attendance. They are due for a raise now." # Manager/supervisor comments
+comments = "This employee joined the cashier squad 8 months ago. They are selling credit cards and helping customers well. Perfect attendance. They are due for a raise soon." # Manager/supervisor comments
 emp6.performance_comments.append(comments) # Store comments
 
 # Print Output
@@ -1364,7 +1365,7 @@ print("Unit Tests for job_titles_dict")
 unittest.main()
 
 # Todos:
-#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. Virtual functions dont exist in Python I dont think 
+#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python.
 # Data
 # 2. Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
 # a.) Add function and data for tasks to Employee class
