@@ -1202,12 +1202,16 @@ print("\n")
 
 # Todos:
 # Data
-# 1. 
+# 1. Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
+# a.) Add function and data for tasks to Employee class
 
-# Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
-
-# Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
+# 2. Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
 # Database exists but needs some work - Justin 11/24/24
+# Specifically:
+# a.) Add clickers as class to database
+# b.) Add flashdrives as class to database
+# c.) Add satchel as class to database
+# d.) Add backpack as class to database
 
 # Sort employees by most recent raise.
 # Point: Find out who needs a raise next
@@ -1270,7 +1274,7 @@ def returnBook(customer,book,cash,emp,date):
   # Add money back to customer
   if customer.get_rewards_number() != "xxxx":
     # 5% discount applies
-    new_cost = round(-cost*0.95,2)
+    new_cost = round(-cost*0.95,2) # Instead of using separate remove_rewards_points function, just use add_rewards_points with a negative number
     customer.add_rewards_points(new_cost)
     customer.add_purchase(book.get_title(),new_cost,date)
     print_transaction(customer,book.get_title(),cash,cost,abs(new_cost),emp,date)
@@ -1352,3 +1356,8 @@ print("\n")
 print("Unit Tests for job_titles_dict")
 #print(job_titles_dict):)
 unittest.main()
+
+
+# Todos:
+#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. Virtual functions dont exist in Python I dont think
+#2. 
