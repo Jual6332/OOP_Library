@@ -655,9 +655,6 @@ cust1 = Customer()
 cust1.set_name("Customer One")
 cust1.set_age(34)
 cust1.set_rewards_number("0001")
-#cust1.add_purchase(book1.get_title(),12)
-# This call to add_purchase is missing the 5% discount for being a member of the Library Rewards Program
-# Bug: Customer rewards leaderboard rounding issue
 
 print("The total rewards points for Customer One is: " + str(cust1.get_rewards_points()))
 
@@ -1130,6 +1127,23 @@ print("Unit Tests for purchase_specific_book()")
 purchase_specific_book(cust4,book3.get_title(),50.00,emp4,"11/24/24")
 purchase_specific_book(cust5,book12.get_title(),50.00,emp4,"11/24/24")
 
+# Library book purchase Unit Test
+# Data Input: Transaction Data
+cash = 100
+date = "11/24/24"
+# This call to add_purchase is missing the 5% discount for being a member of the Library Rewards Program
+# Bug: Customer rewards leaderboard rounding issue, also missing arg for function call
+if cust1.get_rewards_number() != "xxxx":
+  # 5% discount applies
+  new_cost = round(-book1.get_cost()*0.95,2) # Instead of using separate remove_rewards_points function, just use add_rewards_points with a negative number
+  cust1.add_rewards_points(new_cost)
+  cust1.add_purchase(book1.get_title(),new_cost,date)
+  print_transaction(cust1,book.get_title(),cash,book1.get_cost(),abs(new_cost),emp4,date)
+else:
+  cust1.add_rewards_points(-book1.get_cost())
+  cust1.add_purchase(book1.get_title(),-book1.get_cost(),date)
+  #print_transaction(cust1,book1.get_title(),cash,book1.get_cost(),book1.get_cost(),emp4,date)
+
 # Previous Purchases for Customers
 print("\n")
 print("Previous Purchases for Customers")
@@ -1366,8 +1380,7 @@ print("Unit Tests for job_titles_dict")
 unittest.main()
 
 # Todos:
-#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python.
-# Data
+#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
 # 2. Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
 # a.) Add function and data for tasks to Employee class
 # 3. Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
@@ -1379,4 +1392,4 @@ unittest.main()
 # d.) Add backpack as class to database
 # 4.) Sort employees by most recent raise.
 # a.) Find out who needs a raise next
-
+# 4. Add function to EmployeeDatabase class to sort employees by most recent raise
