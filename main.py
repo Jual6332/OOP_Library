@@ -145,7 +145,7 @@ class Library():
         books.append(book)
     return books
 
-def sale():
+class Sale():
   def __init__(self):
     self.customer = "" 
     self.date = ""
@@ -883,7 +883,7 @@ def purchase_specific_book(cust,bought_book,cash,emp,date):
   else:
     # Discount does not apply
     total_cost = round(cash-cost,2)
-  # Debugging
+  # Debugging - Added more print statements to help debug the code
   #print("Cost: "+str(cost))
   #print("Total Cost: "+str(total_cost))
   #print("Cash: "+str(cash))
@@ -1135,13 +1135,13 @@ date = "11/24/24"
 # Bug: Customer rewards leaderboard rounding issue, also missing arg for function call
 if cust1.get_rewards_number() != "xxxx":
   # 5% discount applies
-  new_cost = round(-book1.get_cost()*0.95,2) # Instead of using separate remove_rewards_points function, just use add_rewards_points with a negative number
+  new_cost = round(book1.get_cost()*0.95,2)
   cust1.add_rewards_points(new_cost)
   cust1.add_purchase(book1.get_title(),new_cost,date)
-  print_transaction(cust1,book.get_title(),cash,book1.get_cost(),abs(new_cost),emp4,date)
+  print_transaction(cust1,book1.get_title(),cash,book1.get_cost(),new_cost,emp4,date)
 else:
-  cust1.add_rewards_points(-book1.get_cost())
-  cust1.add_purchase(book1.get_title(),-book1.get_cost(),date)
+  cust1.add_rewards_points(book1.get_cost())
+  cust1.add_purchase(book1.get_title(),book1.get_cost(),date)
   #print_transaction(cust1,book1.get_title(),cash,book1.get_cost(),book1.get_cost(),emp4,date)
 
 # Previous Purchases for Customers
@@ -1203,6 +1203,31 @@ else:
   for book in old_books:
     print(book.get_title())
 print("\n")
+
+# Sale Class Getter and Setter Methods Unit Tests
+sale1 = Sale()
+sale1.set_customer("Customer One")
+sale1.set_date("11/24/24")
+sale1.set_author("F. Scott Fitzgerald")
+sale1.set_book("The Great Gatsby")
+sale1.set_cost(22.50)
+sale1.set_total_cost(22.50)
+sale1.set_employee("Employee Four")
+sale1.set_rewards_number("0001")
+sale1.set_rewards_points(22.50)
+sale1.set_type("Book Purchase")
+print("Sale 1 Customer: " + sale1.get_customer())
+print("Sale 1 Date: " + sale1.get_date())
+
+class TestSaleGetterSetterethods(unittest.TestCase):
+  def test_CountTotalNumSales(self):
+    pass  # TODO: complete this test
+
+#sale1.get_cost
+
+# ======== Continued Development ======== #
+# Add a raise to an employee
+
 
 # ======== LEADERBOARD TESTING ======== #
 # Test Employee Performance Leaderboard
@@ -1364,13 +1389,13 @@ print("Unit Tests for authors_dictionary")
 #unittest.main()
 
 class TestJobTitlesDictionary(unittest.TestCase):
-  def test_numBakeryCashiers(self):
+  def test_CountnumBakeryCashiers(self):
     self.assertEqual(job_titles_dict["Bakery Cashier"],2)
-  def test_numNormalCashiers(self):
+  def test_CountnumNormalCashiers(self):
     self.assertEqual(job_titles_dict["Cashier"],4)
-  def test_numSupervisors(self):
+  def test_CountnumSupervisors(self):
     self.assertEqual(job_titles_dict["Supervisor"],2)
-  def test_numManagers(self):
+  def test_CountnumManagers(self):
     self.assertEqual(job_titles_dict["Manager"],2)
 
 # Unit Testing job titles dictionary (job_titles_dict)
