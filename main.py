@@ -198,6 +198,33 @@ class Sale():
   def set_type(self,type):
     self.type = type
 
+class SaleDatabase():
+  def __init__(self):
+    self.sales = []
+    self.sales_by_customer = {}
+    self.sales_by_date = {}
+    self.sales_by_author = {}
+    self.sales_by_book = {}
+    self.sales_by_cost = {}
+    self.sales_by_total_cost = {}
+    self.sales_by_employee = {}
+    self.sales_by_rewards_number = {}
+    self.sales_by_rewards_points = {}
+    self.sales_by_type = {}
+  def add_sale(self,sale):
+    self.sales.append(sale)
+    self.sales_by_customer[sale.get_customer()] = sale
+    self.sales_by_date[sale.get_date()] = sale
+    self.sales_by_author[sale.get_author()] = sale
+    self.sales_by_book[sale.get_book()] = sale
+    self.sales_by_cost[sale.get_cost()] = sale
+    self.sales_by_total_cost[sale.get_total_cost()] = sale
+    self.sales_by_employee[sale.get_employee()] = sale
+    self.sales_by_rewards_number[sale.get_rewards_number()] = sale
+    self.sales_by_rewards_points[sale.get_rewards_points()] = sale
+    self.sales_by_type[sale.get_type()] = sale
+    
+
 # Add Example Book Data
 book1 = Book()
 book1.set_title("The Great Gatsby")
