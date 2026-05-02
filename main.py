@@ -223,7 +223,30 @@ class SaleDatabase():
     self.sales_by_rewards_number[sale.get_rewards_number()] = sale
     self.sales_by_rewards_points[sale.get_rewards_points()] = sale
     self.sales_by_type[sale.get_type()] = sale
-    
+  def get_sales_data(self):
+    return self.sales
+  def get_sales_data_by_customer(self,customer):
+    return self.sales_by_customer[customer]
+  def get_sales_data_by_date(self,date):
+    return self.sales_by_date[date]
+  def get_sales_data_by_author(self,author):
+    return self.sales_by_author[author]
+  def get_sales_data_by_book(self,book):
+    return self.sales_by_book[book]
+  def get_sales_data_by_cost(self,cost):
+    return self.sales_by_cost[cost]
+  def get_sales_data_by_total_cost(self,total_cost):
+    return self.sales_by_total_cost[total_cost]
+  def get_sales_data_by_employee(self,employee):
+    return self.sales_by_employee[employee]
+  def get_sales_data_by_rewards_number(self,rewards_number):
+    return self.sales_by_rewards_number[rewards_number]
+  def get_sales_data_by_rewards_points(self,rewards_points):
+    return self.sales_by_rewards_points[rewards_points]
+  def get_sales_data_by_type(self,type):
+    return self.sales_by_type[type]
+  def get_sales_data_by_customer(self,customer):
+    return self.sales_by_customer[customer]    
 
 # Add Example Book Data
 book1 = Book()
