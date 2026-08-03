@@ -198,7 +198,7 @@ class Sale():
   def set_type(self,type):
     self.type = type
 
-class SaleDatabase():
+class SalesDatabase():
   def __init__(self):
     self.sales = []
     self.sales_by_customer = {}
@@ -1165,6 +1165,9 @@ for employee in employees:
 #plt.show
 
 # Unit Test for Transactions
+# Setup SalesDatabase
+sdb = SalesDatabase()
+
 # Make a random book purchase
 print("\n")
 print("Unit Tests for purchase_random_book()")
@@ -1175,6 +1178,21 @@ purchase_random_book(cust3,lib_books,30.00,emp4,"11/24/24")
 # Make a specific book purchase
 print("Unit Tests for purchase_specific_book()")
 purchase_specific_book(cust4,book3.get_title(),50.00,emp4,"11/24/24")
+sale1 = Sale()
+sale1.set_customer(cust4.get_name())
+sale1.set_date("11/24/24")
+sale1.set_author(book3.get_author())
+sale1.set_book(book3.get_title())
+sale1.set_cost(book3.get_cost())
+sale1.set_total_cost(book3.get_cost())
+sale1.set_employee(emp4.get_name())
+sale1.set_rewards_number(cust4.get_rewards_number())
+sale1.set_rewards_points(book3.get_cost())
+sale1.set_type("Book Purchase")
+
+# Add sale to SalesDatabase()
+sdb.add_sale(sale1)
+
 purchase_specific_book(cust5,book12.get_title(),50.00,emp4,"11/24/24")
 
 # Library book purchase Unit Test
