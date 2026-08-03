@@ -897,6 +897,7 @@ def purchase_random_book(cust,lib_books,cash,emp,date):
     # Discount does not apply
     total_cost = round(cash-cost,2)
   print_transaction(cust,bought_book,cash,cost,total_cost,emp,date)
+  return pick_random_book
 
 # Write transaction to a file
 def print_transaction(cust,bought_book,cash,cost,total_cost,emp,date):
@@ -1164,18 +1165,30 @@ for employee in employees:
 #plt.bar(name_data[0:5],salary_data[0:5])
 #plt.show
 
-# Unit Test for Transactions
+## Unit Test for Transactions
 # Setup SalesDatabase
 sdb = SalesDatabase()
 
 # Make a random book purchase
 print("\n")
 print("Unit Tests for purchase_random_book()")
-purchase_random_book(cust1,lib_books,50.00,emp4,"11/24/24")
+bought_book = purchase_random_book(cust1,lib_books,50.00,emp4,"11/24/24")
+sale2 = Sale()
+sale2.set_customer(cust1.get_name())
+sale2.set_date("11/24/24")
+sale2.set_author(bought_book.get_author())
+sale2.set_book(bought_book.get_title())
+sale2.set_cost(bought_book.get_cost())
+sale2.set_total_cost(bought_book.get_cost())
+sale2.set_employee(emp4.get_name())
+sale2.set_rewards_number(cust1.get_rewards_number())
+sale2.set_rewards_points(bought_book.get_cost())
+sale2.set_type("Book Purchase")
+
 purchase_random_book(cust2,lib_books,40.00,emp4,"11/24/24")
 purchase_random_book(cust3,lib_books,30.00,emp4,"11/24/24")
 
-# Make a specific book purchase
+# Make a book purchase - Book 3
 print("Unit Tests for purchase_specific_book()")
 purchase_specific_book(cust4,book3.get_title(),50.00,emp4,"11/24/24")
 sale1 = Sale()
