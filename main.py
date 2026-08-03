@@ -1336,7 +1336,7 @@ rank = 1
 for key,value in customer_leaderboard:
   if value > 0:  # Only show customers with rewards points
     #print(f"Rank {rank}: {key} - {value} Points")
-    print("Rank {0}: {1} - {2} Points".format(rank,key,value))
+    print("Rank {0}: {1} - {2} Points".format(rank,key,round(value,2)))
     rank += 1
 
 # If no customers have points yet
