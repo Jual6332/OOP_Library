@@ -1794,18 +1794,29 @@ print("Unit Tests for job_titles_dict")
 '''
 
 # Test New Inheritance (Employee and Customer classes from Person)
-# Test 1:
-# Test whether Customer class initializes id
-try:
-  print("Customer ID: "+cust1.id)
-except AttributeError as e:
-  print(f"Attribute '{e.name}' not found in {e.obj}.")
-# Test 2:
-# Test whether Customer class initializes job_title fields
-try:
-  print("Customer job_title: "+cust1.job_title)
-except AttributeError as e:
-  print(f"Attribute '{e.name}' not found in {e.obj}.")
+# Test whether Customer class initializes id, job_title
+# Test whether Employee class initializes id, job_title
+class TestCustomerFields(unittest.TestCase):
+  def setUp(self):
+    self.customer = Customer()
+    self.employee = Employee()
+
+  def test_customer_does_not_have_id(self):
+    self.assertFalse(hasattr(self.customer, "id"))
+
+  def test_customer_does_not_have_job_title(self):
+    self.assertFalse(hasattr(self.customer, "job_title"))
+
+  def test_employee_does_have_id(self):
+    self.assertTrue(hasattr(self.employee, "id"))
+    
+  def test_employee_does_have_job_title(self):
+    self.assertTrue(hasattr(self.employee, "job_title"))
+
+# Unit Testing Customer fields
+print("\n")
+print("Unit Tests for Customer fields")
+unittest.main()
 
 # Todos:
 # 1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
