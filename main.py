@@ -1327,6 +1327,15 @@ class TestSaleGetterSetterethods(unittest.TestCase):
 
 # ======== Continued Development ======== #
 # Add a raise to an employee
+print("Test distributing raises")
+highest_rank = ("",0)
+employee_leaderboard = emp_db.get_employee_leaderboard()
+for employee, score in employee_leaderboard:
+  print("Employee: "+employee.get_name())
+  print("Employee: "+str(round(score,2)))
+  if (highest_rank[1] < score):
+    highest_rank = (employee.get_name(),score)
+print(highest_rank)
 
 
 # ======== LEADERBOARD TESTING ======== #
@@ -1502,7 +1511,23 @@ class TestJobTitlesDictionary(unittest.TestCase):
 print("\n")
 print("Unit Tests for job_titles_dict")
 #print(job_titles_dict):)
-unittest.main()
+#unittest.main()
+
+class TestMostRecentRaise(unittest.TestCase):
+  def test_CountnumRecentRaisesInLastYr(self):
+    self.assertEqual(job_titles_dict["Bakery Cashier"],2)
+  def test_CountnumNormalCashiers(self):
+    self.assertEqual(job_titles_dict["Cashier"],4)
+  def test_CountnumSupervisors(self):
+    self.assertEqual(job_titles_dict["Supervisor"],2)
+  def test_CountnumManagers(self):
+    self.assertEqual(job_titles_dict["Manager"],2)
+
+# Unit Testing job titles dictionary (job_titles_dict)
+print("\n")
+print("Unit Tests for job_titles_dict")
+#print(job_titles_dict):)
+#unittest.main()
 
 # Todos:
 #1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
