@@ -1,5 +1,5 @@
 .breakpoints
 .replit
 poetry.lock
-prproject.toml
+pyproject.toml
 replit.nix
