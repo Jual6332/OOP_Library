@@ -1797,13 +1797,13 @@ print("Unit Tests for job_titles_dict")
 # Test 1:
 # Test whether Customer class initializes id
 try:
-  print("Customer ID: "+Customer.id)
+  print("Customer ID: "+cust1.id)
 except AttributeError as e:
   print(f"Attribute '{e.name}' not found in {e.obj}.")
 # Test 2:
 # Test whether Customer class initializes job_title fields
 try:
-  print("Customer job_title: "+Customer.job_title)
+  print("Customer job_title: "+cust1.job_title)
 except AttributeError as e:
   print(f"Attribute '{e.name}' not found in {e.obj}.")
 
