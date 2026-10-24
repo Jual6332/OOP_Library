@@ -1,6 +1,7 @@
 #import matplotlib.pyplot as plt
 import random
 import unittest
+from abc import ABC, abstractmethod
 
 class Book():
   def __init__(self):
@@ -70,12 +71,21 @@ class StoreItem():
     return self.details
   def get_cost(self):
     return self.cost
+  @abstractmethod
+  def printDetails(self):
+    pass
 
 class Bag(StoreItem):
-  def printBagDetails(self):
+  def printDetails(self):
     print("Bag Name: " + self.name)
     print("Bag Details: " + self.details)
     print("Bag Cost: " + str(self.cost))
+
+class Clicker(StoreItem):
+  def printDetails(self):
+    print("Clicker Name: " + self.name)
+    print("Clicker Details: " + self.details)
+    print("Clicker Cost: " + str(self.cost))
 
 # Does Python allow for lists to have different object types in the same list? A string and a set to exist within a list. JavaScript does. C++ does not
 
@@ -410,14 +420,21 @@ bag1.set_name("Bag 1")
 bag1.set_details("Brown leather backpack with zippers. Real leather. Worn. 3 years old.")
 bag1.set_cost(15.00)
 
+clicker1 = Clicker()
+clicker1.set_name("mae's Clicker")
+clicker1.set_details("A 2 year old clicker that is the new version.")
+clicker1.set_cost(15.00)
+
 # Add Store Items to StoreItemDatabase
 si_db = StoreItemDatabase()
 
 # Test adding an item to the store item database
 si_db.add_item(bag1)
+si_db.add_item(clicker1)
 
 # Test getting an item from the store item database
 si_db.get_item(bag1.get_name())
+si_db.get_item(clicker1.get_name())
 
 # Test getting all items from the store item database
 all_store_items = si_db.get_all_items()
@@ -706,7 +723,7 @@ cust1.set_name("Customer One")
 cust1.set_age(34)
 cust1.set_rewards_number("0001")
 
-print("The total rewards points for Customer One is: " + str(cust1.get_rewards_points()))
+print("The total rewards points for Customer One is: " + str(cust1.get_rewards_points())+"\n") 
 
 cust2 = Customer()
 cust2.set_name("Customer Two")
@@ -772,6 +789,8 @@ cust_db.add_customer(cust10)
 cust_db.add_customer(cust11)
 customers_before = cust_db.get_customers()
 
+# Print all custoers in custoer database
+print("Print all customer names in database:")
 for customer in customers_before:
   print(customer.get_name())
 
