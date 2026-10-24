@@ -1,287 +1,378 @@
-#import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import random
 import unittest
 from abc import ABC, abstractmethod
 
-class Book():
-  def __init__(self):
-    self.title = ""
-    self.author = ""
-    self.year = 0
-    self.genre = ""
-    self.publisher = ""
-    self.words = ""
-    self.cost = 0
-  def set_title(self,title):
-    self.title = title
-  def set_author(self,author):
-    self.author = author
-  def set_year(self,year):
-    self.year = year
-  def set_genre(self,genre):
-    self.genre = genre
-  def set_publisher(self,publisher):
-    self.publisher = publisher
-  def set_words(self,words):
-    self.words = words
-  def set_cost(self,cost):
-    self.cost = cost
-  def get_title(self):
-    return self.title
-  def get_author(self):
-    return self.author
-  def get_year(self):
-    return self.year
-  def get_genre(self):
-    return self.genre
-  def get_publisher(self):
-    return self.publisher
-  def get_words(self):
-    return self.words
-  def get_cost(self):
-    return self.cost
-  # Method: update_title()
-  # Input Parameter 1: tle, a string for the new title
-  # Purpose: to change title string value to a new string value. Similar methods: set_title() is only used for the first time the title value is set - update_title() is used on other occassions to set the string value of title
-  def update_title(self,tle):
-    self.title = tle
-  # Method: update_year() 
-  # Purpose: to change year number to new number value. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occassions to set the number value of year
-  def update_year(self,yr):
-    self.year = yr
-  # Method: update_cost() 
-  # Purpose: to change cost of a book when it goes on sale. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occasions to set the number value of year
-  def update_cost(self,c):
-    self.cost = c
 
-class StoreItem():
-  def __init__(self):
-    self.name = ""
-    self.details = ""
-    self.cost = 0
-  def set_name(self,name):
-    self.name = name
-  def set_details(self,details):
-    self.details = details
-  def set_cost(self,ct):
-    self.cost = ct
-  def get_name(self):
-    return self.name
-  def get_details(self):
-    return self.details
-  def get_cost(self):
-    return self.cost
-  @abstractmethod
-  def printDetails(self):
-    pass
+class Book:
+    def __init__(self):
+        self.title = ""
+        self.author = ""
+        self.year = 0
+        self.genre = ""
+        self.publisher = ""
+        self.words = ""
+        self.cost = 0
+
+    def set_title(self, title):
+        self.title = title
+
+    def set_author(self, author):
+        self.author = author
+
+    def set_year(self, year):
+        self.year = year
+
+    def set_genre(self, genre):
+        self.genre = genre
+
+    def set_publisher(self, publisher):
+        self.publisher = publisher
+
+    def set_words(self, words):
+        self.words = words
+
+    def set_cost(self, cost):
+        self.cost = cost
+
+    def get_title(self):
+        return self.title
+
+    def get_author(self):
+        return self.author
+
+    def get_year(self):
+        return self.year
+
+    def get_genre(self):
+        return self.genre
+
+    def get_publisher(self):
+        return self.publisher
+
+    def get_words(self):
+        return self.words
+
+    def get_cost(self):
+        return self.cost
+
+    # Method: update_title()
+    # Input Parameter 1: tle, a string for the new title
+    # Purpose: to change title string value to a new string value. Similar methods: set_title() is only used for the first time the title value is set - update_title() is used on other occassions to set the string value of title
+    def update_title(self, tle):
+        self.title = tle
+
+    # Method: update_year()
+    # Purpose: to change year number to new number value. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occassions to set the number value of year
+    def update_year(self, yr):
+        self.year = yr
+
+    # Method: update_cost()
+    # Purpose: to change cost of a book when it goes on sale. Similar methods: set_year() is only used for the first time the year is set, update_year() is used on other occasions to set the number value of year
+    def update_cost(self, c):
+        self.cost = c
+
+
+class StoreItem:
+    def __init__(self):
+        self.name = ""
+        self.details = ""
+        self.cost = 0
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_details(self, details):
+        self.details = details
+
+    def set_cost(self, ct):
+        self.cost = ct
+
+    def get_name(self):
+        return self.name
+
+    def get_details(self):
+        return self.details
+
+    def get_cost(self):
+        return self.cost
+
+    @abstractmethod
+    def printDetails(self):
+        pass
+
 
 class Bag(StoreItem):
-  def printDetails(self):
-    print("Bag Name: " + self.name)
-    print("Bag Details: " + self.details)
-    print("Bag Cost: " + str(self.cost))
+    def printDetails(self):
+        print("Bag Name: " + self.name)
+        print("Bag Details: " + self.details)
+        print("Bag Cost: " + str(self.cost))
+
 
 class Clicker(StoreItem):
-  def printDetails(self):
-    print("Clicker Name: " + self.name)
-    print("Clicker Details: " + self.details)
-    print("Clicker Cost: " + str(self.cost))
+    def printDetails(self):
+        print("Clicker Name: " + self.name)
+        print("Clicker Details: " + self.details)
+        print("Clicker Cost: " + str(self.cost))
+
 
 # Does Python allow for lists to have different object types in the same list? A string and a set to exist within a list. JavaScript does. C++ does not
 
-class StoreItemDatabase():
-  def __init__(self):
-    self.items = []
-  def add_item(self,item):
-    self.items.append(item)
-  def get_all_items(self):
-    return self.items
-  def get_item(self,itemName):
-    for item in self.items:
-      if item.get_name() == itemName:
-        return item
-  def remove_item(self,itemName):
-    found=False
-    for item in self.items:
-      if item.get_name() == itemName:
-        self.items.remove(item)
-        found=True
-    if not found:
-      print("Item {0} not found in database.".format(itemName))
 
-class Library():
-  def __init__(self):
-    self.name = "" 
-    self.year = 0
-    self.authors = []
-    self.books = []
-  def add_author(self,author):
-    self.authors.append(author)
-  def add_book(self,book):
-    self.books.append(book)
-  def get_name(self):
-    return self.name
-  def get_year(self):
-    return self.year
-  def get_authors(self):
-    return self.authors
-  def get_books(self):
-    return self.books
-  def set_name(self,name):
-    self.name = name
-  def set_year(self,year):
-    self.year = year
-  def find_book(self,title):
-    for book in self.books:
-      if book.get_title() == title:
-        return book
-    return None
-  def sort_by_genre(self,genre):
-    books = []
-    for book in self.books:
-      if book.get_genre() == genre:
-        books.append(book)
-    return books
-  def sort_by_author(self,author):
-    authors = []
-    for book in self.books:
-      if book.get_author() == author:
-        authors.append(book)
-    return authors
-  def sort_by_year(self,year):
-    books = []
-    for book in self.books:
-      if book.get_year() == year:
-        books.append(book)
-    return books
+class StoreItemDatabase:
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def get_all_items(self):
+        return self.items
+
+    def get_item(self, itemName):
+        for item in self.items:
+            if item.get_name() == itemName:
+                return item
+
+    def remove_item(self, itemName):
+        found = False
+        for item in self.items:
+            if item.get_name() == itemName:
+                self.items.remove(item)
+                found = True
+        if not found:
+            print("Item {0} not found in database.".format(itemName))
+
+
+class Library:
+    def __init__(self):
+        self.name = ""
+        self.year = 0
+        self.authors = []
+        self.books = []
+
+    def add_author(self, author):
+        self.authors.append(author)
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def get_name(self):
+        return self.name
+
+    def get_year(self):
+        return self.year
+
+    def get_authors(self):
+        return self.authors
+
+    def get_books(self):
+        return self.books
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_year(self, year):
+        self.year = year
+
+    def find_book(self, title):
+        for book in self.books:
+            if book.get_title() == title:
+                return book
+        return None
+
+    def sort_by_genre(self, genre):
+        books = []
+        for book in self.books:
+            if book.get_genre() == genre:
+                books.append(book)
+        return books
+
+    def sort_by_author(self, author):
+        authors = []
+        for book in self.books:
+            if book.get_author() == author:
+                authors.append(book)
+        return authors
+
+    def sort_by_year(self, year):
+        books = []
+        for book in self.books:
+            if book.get_year() == year:
+                books.append(book)
+        return books
+
 
 ## Define Person Class
-class Person():
-  def __init__(self):
-    self.id = 0
-    self.name = ""
-    self.age = 0
-    self.job_title = ""
-  def set_id(self):
-    pass
-  def set_name(self):
-    pass
-  def set_age(self):
-    pass
-  def set_job_title(self):
-    pass
-  def get_id(self):
-    pass
-  def get_name(self):
-    pass
-  def get_age(self):
-    pass
-  def get_job_title(self):
-    pass
-  
+class Person:
+    def __init__(self):
+        self.id = 0
+        self.name = ""
+        self.age = 0
+        self.job_title = ""
 
-class Sale():
-  def __init__(self):
-    self.customer = "" 
-    self.date = ""
-    self.author = ""
-    self.book = ""
-    self.cost = 0
-    self.total_cost = 0
-    self.employee = ""
-    self.rewards_number = ""
-    self.rewards_points = 0
-    self.type = ""
-  def get_customer(self):
-    return self.customer
-  def get_date(self):
-    return self.date
-  def get_author(self):
-    return self.author
-  def get_book(self):
-    return self.book
-  def get_cost(self):
-    return self.cost
-  def get_total_cost(self):
-    return self.total_cost
-  def get_employee(self):
-    return self.employee
-  def get_rewards_number(self):
-    return self.rewards_number
-  def get_rewards_points(self):
-    return self.rewards_points
-  def get_type(self):
-    return self.type
-  def set_customer(self,customer):
-    self.customer = customer
-  def set_date(self,date):
-    self.date = date
-  def set_author(self,author):
-    self.author = author
-  def set_book(self,book):
-    self.book = book
-  def set_cost(self,cost):
-    self.cost = cost
-  def set_total_cost(self,total_cost):
-    self.total_cost = total_cost
-  def set_employee(self,employee):
-    self.employee = employee
-  def set_rewards_number(self,rewards_number):
-    self.rewards_number = rewards_number
-  def set_rewards_points(self,rewards_points):
-    self.rewards_points = rewards_points
-  def set_type(self,type):
-    self.type = type
+    def set_id(self):
+        pass
 
-class SalesDatabase():
-  def __init__(self):
-    self.sales = []
-    self.sales_by_customer = {}
-    self.sales_by_date = {}
-    self.sales_by_author = {}
-    self.sales_by_book = {}
-    self.sales_by_cost = {}
-    self.sales_by_total_cost = {}
-    self.sales_by_employee = {}
-    self.sales_by_rewards_number = {}
-    self.sales_by_rewards_points = {}
-    self.sales_by_type = {}
-  def add_sale(self,sale):
-    self.sales.append(sale)
-    self.sales_by_customer[sale.get_customer()] = sale
-    self.sales_by_date[sale.get_date()] = sale
-    self.sales_by_author[sale.get_author()] = sale
-    self.sales_by_book[sale.get_book()] = sale
-    self.sales_by_cost[sale.get_cost()] = sale
-    self.sales_by_total_cost[sale.get_total_cost()] = sale
-    self.sales_by_employee[sale.get_employee()] = sale
-    self.sales_by_rewards_number[sale.get_rewards_number()] = sale
-    self.sales_by_rewards_points[sale.get_rewards_points()] = sale
-    self.sales_by_type[sale.get_type()] = sale
-  def get_sales_data(self):
-    return self.sales
-  def get_sales_data_by_customer(self,customer):
-    return self.sales_by_customer[customer]
-  def get_sales_data_by_date(self,date):
-    return self.sales_by_date[date]
-  def get_sales_data_by_author(self,author):
-    return self.sales_by_author[author]
-  def get_sales_data_by_book(self,book):
-    return self.sales_by_book[book]
-  def get_sales_data_by_cost(self,cost):
-    return self.sales_by_cost[cost]
-  def get_sales_data_by_total_cost(self,total_cost):
-    return self.sales_by_total_cost[total_cost]
-  def get_sales_data_by_employee(self,employee):
-    return self.sales_by_employee[employee]
-  def get_sales_data_by_rewards_number(self,rewards_number):
-    return self.sales_by_rewards_number[rewards_number]
-  def get_sales_data_by_rewards_points(self,rewards_points):
-    return self.sales_by_rewards_points[rewards_points]
-  def get_sales_data_by_type(self,type):
-    return self.sales_by_type[type]
-  def get_sales_data_by_customer(self,customer):
-    return self.sales_by_customer[customer]    
+    def set_name(self):
+        pass
+
+    def set_age(self):
+        pass
+
+    def set_job_title(self):
+        pass
+
+    def get_id(self):
+        pass
+
+    def get_name(self):
+        pass
+
+    def get_age(self):
+        pass
+
+    def get_job_title(self):
+        pass
+
+
+class Sale:
+    def __init__(self):
+        self.customer = ""
+        self.date = ""
+        self.author = ""
+        self.book = ""
+        self.cost = 0
+        self.total_cost = 0
+        self.employee = ""
+        self.rewards_number = ""
+        self.rewards_points = 0
+        self.type = ""
+
+    def get_customer(self):
+        return self.customer
+
+    def get_date(self):
+        return self.date
+
+    def get_author(self):
+        return self.author
+
+    def get_book(self):
+        return self.book
+
+    def get_cost(self):
+        return self.cost
+
+    def get_total_cost(self):
+        return self.total_cost
+
+    def get_employee(self):
+        return self.employee
+
+    def get_rewards_number(self):
+        return self.rewards_number
+
+    def get_rewards_points(self):
+        return self.rewards_points
+
+    def get_type(self):
+        return self.type
+
+    def set_customer(self, customer):
+        self.customer = customer
+
+    def set_date(self, date):
+        self.date = date
+
+    def set_author(self, author):
+        self.author = author
+
+    def set_book(self, book):
+        self.book = book
+
+    def set_cost(self, cost):
+        self.cost = cost
+
+    def set_total_cost(self, total_cost):
+        self.total_cost = total_cost
+
+    def set_employee(self, employee):
+        self.employee = employee
+
+    def set_rewards_number(self, rewards_number):
+        self.rewards_number = rewards_number
+
+    def set_rewards_points(self, rewards_points):
+        self.rewards_points = rewards_points
+
+    def set_type(self, type):
+        self.type = type
+
+
+class SalesDatabase:
+    def __init__(self):
+        self.sales = []
+        self.sales_by_customer = {}
+        self.sales_by_date = {}
+        self.sales_by_author = {}
+        self.sales_by_book = {}
+        self.sales_by_cost = {}
+        self.sales_by_total_cost = {}
+        self.sales_by_employee = {}
+        self.sales_by_rewards_number = {}
+        self.sales_by_rewards_points = {}
+        self.sales_by_type = {}
+
+    def add_sale(self, sale):
+        self.sales.append(sale)
+        self.sales_by_customer[sale.get_customer()] = sale
+        self.sales_by_date[sale.get_date()] = sale
+        self.sales_by_author[sale.get_author()] = sale
+        self.sales_by_book[sale.get_book()] = sale
+        self.sales_by_cost[sale.get_cost()] = sale
+        self.sales_by_total_cost[sale.get_total_cost()] = sale
+        self.sales_by_employee[sale.get_employee()] = sale
+        self.sales_by_rewards_number[sale.get_rewards_number()] = sale
+        self.sales_by_rewards_points[sale.get_rewards_points()] = sale
+        self.sales_by_type[sale.get_type()] = sale
+
+    def get_sales_data(self):
+        return self.sales
+
+    def get_sales_data_by_customer(self, customer):
+        return self.sales_by_customer[customer]
+
+    def get_sales_data_by_date(self, date):
+        return self.sales_by_date[date]
+
+    def get_sales_data_by_author(self, author):
+        return self.sales_by_author[author]
+
+    def get_sales_data_by_book(self, book):
+        return self.sales_by_book[book]
+
+    def get_sales_data_by_cost(self, cost):
+        return self.sales_by_cost[cost]
+
+    def get_sales_data_by_total_cost(self, total_cost):
+        return self.sales_by_total_cost[total_cost]
+
+    def get_sales_data_by_employee(self, employee):
+        return self.sales_by_employee[employee]
+
+    def get_sales_data_by_rewards_number(self, rewards_number):
+        return self.sales_by_rewards_number[rewards_number]
+
+    def get_sales_data_by_rewards_points(self, rewards_points):
+        return self.sales_by_rewards_points[rewards_points]
+
+    def get_sales_data_by_type(self, type):
+        return self.sales_by_type[type]
+
+    def get_sales_data_by_customer(self, customer):
+        return self.sales_by_customer[customer]
+
 
 # Add Example Book Data
 book1 = Book()
@@ -411,38 +502,42 @@ lib.add_book(book9)
 lib.add_book(book10)
 lib.add_book(book11)
 lib.add_book(book12)
-lib_books = lib.get_books() # SHort-hand
+lib_books = lib.get_books()  # SHort-hand
 
 # Track book inventory in a dictionary
 # Key on book, value is how many times that book appears in library
 # Also, tracks for duplicates
-books_dictionary = {};
+books_dictionary = {}
 books_local = lib.get_books()
 for book in books_local:
-  if (book.get_title() in books_dictionary): # If the book title is already in the dictionary, increment the number of occurrences of this author
-    books_dictionary[book.get_title()] += 1
-  else:
-    books_dictionary[book.get_title()] = 1
-    #print("Book: " + book.get_title() + " Quantity: " + str(books_dictionary[book.get_title()]))
-#print("\n")
+    if (
+        book.get_title() in books_dictionary
+    ):  # If the book title is already in the dictionary, increment the number of occurrences of this author
+        books_dictionary[book.get_title()] += 1
+    else:
+        books_dictionary[book.get_title()] = 1
+        # print("Book: " + book.get_title() + " Quantity: " + str(books_dictionary[book.get_title()]))
+# print("\n")
 
 # Check if Library is low on a book (less than 5 copies))
 for book in books_dictionary:
-  if (books_dictionary[book] < 5):
-    print("Library is low on " + book + ".")
-    print("Quantity: " + str(books_dictionary[book]))
-    print("Order more copies of " + book + ".")
-    print("\n")
+    if books_dictionary[book] < 5:
+        print("Library is low on " + book + ".")
+        print("Quantity: " + str(books_dictionary[book]))
+        print("Order more copies of " + book + ".")
+        print("\n")
 
 # Add Authors to Library
 for book in lib_books:
-  lib.add_author(book.get_author())
+    lib.add_author(book.get_author())
 lib_authors = lib.get_authors()
 
 # Add other store items
 bag1 = Bag()
 bag1.set_name("Bag 1")
-bag1.set_details("Brown leather backpack with zippers. Real leather. Worn. 3 years old.")
+bag1.set_details(
+    "Brown leather backpack with zippers. Real leather. Worn. 3 years old."
+)
 bag1.set_cost(15.00)
 
 clicker1 = Clicker()
@@ -465,10 +560,10 @@ si_db.get_item(clicker1.get_name())
 all_store_items = si_db.get_all_items()
 print("All Store Items:")
 for item in all_store_items:
-  print(item.get_name())
-  print(item.get_details())
-  print(item.get_cost())
-  print("\n")
+    print(item.get_name())
+    print(item.get_details())
+    print(item.get_cost())
+    print("\n")
 
 # Test removing an item not from the store item database
 si_db.remove_item("Bag 6")
@@ -478,7 +573,7 @@ print("\n")
 print("Items in Store Item Database:")
 si_db_items = si_db.get_all_items()
 for item in si_db_items:
-  print(item.get_name())
+    print(item.get_name())
 print("\n")
 
 # Test removing an item from the store item database
@@ -487,98 +582,124 @@ si_db.remove_item(bag1.get_name())
 print("Items in Store Item Database: (after removing Bag1)")
 si_db_items = si_db.get_all_items()
 for item in si_db_items:
-  print(item.get_name())
+    print(item.get_name())
 print("\n")
 
+
 ## Define Employee Class
-class Employee():
-  def __init__(self):
-    self.id = 0
-    self.name = ""
-    self.age = 0
-    self.job_title = ""
-    self.salary = 0
-    self.start_date = ""
-    self.performance_grades = []
-    self.performance_comments = []
-  def set_id(self,id):
-    self.id = id
-  def set_name(self,name):
-    self.name = name
-  def set_age(self,age):
-    self.age = age
-  def set_job_title(self,job_title):
-    self.job_title = job_title
-  def set_salary(self,salary):
-    self.salary = salary
-  def set_start_date(self,start_date):
-    self.start_date = start_date
-  def get_id(self):
-    return self.id
-  def get_name(self):
-    return self.name
-  def get_age(self):
-    return self.age
-  def get_job_title(self):
-    return self.job_title
-  def get_salary(self):
-    return self.salary
-  def get_start_date(self):
-    return self.start_date
-  def get_performance_grades(self):
-    return self.performance_grades
-  def get_performance_comments(self):
-    return self.performance_comments
-  def calculate_average_performance_score(self):
-    # Convert letter grades to numeric scores and calculate average
-    # A=4, B=3, C=2, D=1, F=0
-    grade_values = {'A': 4, 'B': 3, 'C': 2, 'D': 1, 'F': 0}
-    total_score = 0
-    grade_count = 0
-    
-    for grade_string in self.performance_grades:
-      # Split the grade string (e.g., "A A B" becomes ["A", "A", "B"])
-      individual_grades = grade_string.split()
-      for grade in individual_grades:
-        if grade in grade_values:
-          total_score += grade_values[grade]
-          grade_count += 1
-    
-    if grade_count == 0:
-      return 0  # No grades yet
-    return total_score / grade_count
+class Employee(Person):
+    def __init__(self):
+        self.id = 0
+        self.name = ""
+        self.age = 0
+        self.job_title = ""
+        self.salary = 0
+        self.start_date = ""
+        self.performance_grades = []
+        self.performance_comments = []
+
+    def set_id(self, id):
+        self.id = id
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_age(self, age):
+        self.age = age
+
+    def set_job_title(self, job_title):
+        self.job_title = job_title
+
+    def set_salary(self, salary):
+        self.salary = salary
+
+    def set_start_date(self, start_date):
+        self.start_date = start_date
+
+    def get_id(self):
+        return self.id
+
+    def get_name(self):
+        return self.name
+
+    def get_age(self):
+        return self.age
+
+    def get_job_title(self):
+        return self.job_title
+
+    def get_salary(self):
+        return self.salary
+
+    def get_start_date(self):
+        return self.start_date
+
+    def get_performance_grades(self):
+        return self.performance_grades
+
+    def get_performance_comments(self):
+        return self.performance_comments
+
+    def calculate_average_performance_score(self):
+        # Convert letter grades to numeric scores and calculate average
+        # A=4, B=3, C=2, D=1, F=0
+        grade_values = {"A": 4, "B": 3, "C": 2, "D": 1, "F": 0}
+        total_score = 0
+        grade_count = 0
+
+        for grade_string in self.performance_grades:
+            # Split the grade string (e.g., "A A B" becomes ["A", "A", "B"])
+            individual_grades = grade_string.split()
+            for grade in individual_grades:
+                if grade in grade_values:
+                    total_score += grade_values[grade]
+                    grade_count += 1
+
+        if grade_count == 0:
+            return 0  # No grades yet
+        return total_score / grade_count
+
 
 ## Create Employee Database
 # A storage class for sensitive employee information
-class EmployeeDatabase():
-  def __init__(self):
-    self.employees = []
-    self.raise_history = []
-  def add_employee(self,employee):
-    self.employees.append(employee)
-  def get_employees(self):
-    return self.employees
-  # Replacing total salary or adding only the difference which wuld be the raise amount per year
-  def add_raise_data(self,raise_new):
-      self.raise_history.append(raise_new)
-  def get_raise_data(self):
-    return self.raise_history
-  def get_employee_leaderboard(self):
-    # Sort employees by performance score (highest to lowest)
-    # Returns list of tuples: (employee, average_score)
-    employee_scores = []
-    for employee in self.employees:
-      score = employee.calculate_average_performance_score()
-      employee_scores.append((employee, score))
-    
-    # Sort by score in descending order (highest first)
-    employee_scores_sorted = sorted(employee_scores, key=lambda x: x[1], reverse=True)
-    return employee_scores_sorted
-  def find_employee_by_id(self,emp_id):
-    for employee in self.employees:
-      if employee.get_id() == emp_id:
-        return employee
-    return None
+class EmployeeDatabase:
+    def __init__(self):
+        self.employees = []
+        self.raise_history = []
+
+    def add_employee(self, employee):
+        self.employees.append(employee)
+
+    def get_employees(self):
+        return self.employees
+
+    # Replacing total salary or adding only the difference which wuld be the raise amount per year
+    def add_raise_data(self, raise_new):
+        self.raise_history.append(raise_new)
+
+    def get_raise_data(self):
+        return self.raise_history
+
+    def get_employee_leaderboard(self):
+        # Sort employees by performance score (highest to lowest)
+        # Returns list of tuples: (employee, average_score)
+        employee_scores = []
+        for employee in self.employees:
+            score = employee.calculate_average_performance_score()
+            employee_scores.append((employee, score))
+
+        # Sort by score in descending order (highest first)
+        employee_scores_sorted = sorted(
+            employee_scores, key=lambda x: x[1], reverse=True
+        )
+        return employee_scores_sorted
+
+    def find_employee_by_id(self, emp_id):
+        for employee in self.employees:
+            if employee.get_id() == emp_id:
+                return employee
+        return None
+
 
 ## Add Employees to the Project
 emp1 = Employee()
@@ -662,52 +783,72 @@ emp_db.add_employee(emp7)
 emp_db.add_employee(emp8)
 emp_db.add_employee(emp9)
 emp_db.add_employee(emp10)
-employees = emp_db.get_employees() # Store employee information objects in an easier-to-use variable
+employees = (
+    emp_db.get_employees()
+)  # Store employee information objects in an easier-to-use variable
+
 
 # Create Customer Class
-class Customer():
-  def __init__(self):
-    self.name = ""
-    self.age = 0
-    self.rewards_number = ""
-    self.previous_purchases = []
-    self.rewards_points = 0
-  def add_purchase(self,bookTitle,cost,date):
-    self.previous_purchases.append("Bought {0} for ${1} on {2}.".format(bookTitle,cost,date))
-    self.rewards_points += cost
-  def set_name(self,name):
-    self.name = name
-  def set_age(self,age):
-    self.age = age
-  def set_rewards_number(self,rewards):
-    self.rewards_number = rewards
-  def get_name(self):
-    return self.name
-  def get_age(self):
-    return self.age
-  def get_rewards_number(self):
-    return self.rewards_number
-  def get_previous_purchases(self):
-    return self.previous_purchases
-  def get_rewards_points(self):
-    return self.rewards_points
-  def add_rewards_points(self,points):
-    self.rewards_points += points
+class Customer(Person):
+    def __init__(self):
+        self.name = ""
+        self.age = 0
+        self.rewards_number = ""
+        self.previous_purchases = []
+        self.rewards_points = 0
 
-class CustomerDatabase():
-  def __init__(self):
-    self.customers = []
-    self.customer_names = []
-  def add_customer(self,customer):
-    self.customers.append(customer)
-  def get_customers(self):
-    return self.customers
-  def find_customer_by_name(self,name):
-    for customer in self.customers:
-      if customer.get_name() == name:
-        return customer
-    return None
-  """def sort_customers_lname(self):
+    def add_purchase(self, bookTitle, cost, date):
+        self.previous_purchases.append(
+            "Bought {0} for ${1} on {2}.".format(bookTitle, cost, date)
+        )
+        self.rewards_points += cost
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_age(self, age):
+        self.age = age
+
+    def set_rewards_number(self, rewards):
+        self.rewards_number = rewards
+
+    def get_name(self):
+        return self.name
+
+    def get_age(self):
+        return self.age
+
+    def get_rewards_number(self):
+        return self.rewards_number
+
+    def get_previous_purchases(self):
+        return self.previous_purchases
+
+    def get_rewards_points(self):
+        return self.rewards_points
+
+    def add_rewards_points(self, points):
+        self.rewards_points += points
+
+
+class CustomerDatabase:
+    def __init__(self):
+        self.customers = []
+        self.customer_names = []
+
+    def add_customer(self, customer):
+        self.customers.append(customer)
+
+    def get_customers(self):
+        return self.customers
+
+    def find_customer_by_name(self, name):
+        for customer in self.customers:
+            if customer.get_name() == name:
+                return customer
+        return None
+
+    """def sort_customers_lname(self):
     customers_names_reversed = []
     for customer in self.customers:
       [fname,lname] = customer.get_name().split(" ")
@@ -722,25 +863,31 @@ class CustomerDatabase():
     self.customers_names = customers_sorted_rearranged
   def get_customers_names(self):
     return self.customers_names"""
-  def sort_customers_fname(self):
-    self.customers = sorted(self.customers, key=lambda x: x.name)
-  def sort_customers_age(self):
-    self.customers = sorted(self.customers, key=lambda x: x.age)
-  def get_customer_rewards_leaderboard(self):
-    # Sort customers by rewards points (highest to lowest)
-    # Returns list of tuples: (customer, rewards_points)
-    customer_rewards = {}
-    for customer in self.customers:
-      points = customer.get_rewards_points()
-      if customer.get_name() in customer_rewards:
-        customer_rewards[customer.get_name()] += points
-      else:
-        customer_rewards[customer.get_name()] = points
-    
-    # Sort by rewards points in descending order (highest first)
-    #customer_rewards_sorted = sorted(customer_rewards, key=lambda x: , reverse=True)
-    customer_rewards_sorted = sorted(customer_rewards.items(), key=lambda x:x[1] , reverse=True)
-    return customer_rewards_sorted
+
+    def sort_customers_fname(self):
+        self.customers = sorted(self.customers, key=lambda x: x.name)
+
+    def sort_customers_age(self):
+        self.customers = sorted(self.customers, key=lambda x: x.age)
+
+    def get_customer_rewards_leaderboard(self):
+        # Sort customers by rewards points (highest to lowest)
+        # Returns list of tuples: (customer, rewards_points)
+        customer_rewards = {}
+        for customer in self.customers:
+            points = customer.get_rewards_points()
+            if customer.get_name() in customer_rewards:
+                customer_rewards[customer.get_name()] += points
+            else:
+                customer_rewards[customer.get_name()] = points
+
+        # Sort by rewards points in descending order (highest first)
+        # customer_rewards_sorted = sorted(customer_rewards, key=lambda x: , reverse=True)
+        customer_rewards_sorted = sorted(
+            customer_rewards.items(), key=lambda x: x[1], reverse=True
+        )
+        return customer_rewards_sorted
+
 
 # Data Input: Customer Data
 cust1 = Customer()
@@ -748,7 +895,11 @@ cust1.set_name("Customer One")
 cust1.set_age(34)
 cust1.set_rewards_number("0001")
 
-print("The total rewards points for Customer One is: " + str(cust1.get_rewards_points())+"\n") 
+print(
+    "The total rewards points for Customer One is: "
+    + str(cust1.get_rewards_points())
+    + "\n"
+)
 
 cust2 = Customer()
 cust2.set_name("Customer Two")
@@ -817,13 +968,13 @@ customers_before = cust_db.get_customers()
 # Print all custoers in custoer database
 print("Print all customer names in database:")
 for customer in customers_before:
-  print(customer.get_name())
+    print(customer.get_name())
 
 # Sort customers by last name
-#cust_db.sort_customers_lname()
-#customers = cust_db.get_customers()
+# cust_db.sort_customers_lname()
+# customers = cust_db.get_customers()
 
-#customers_names_sorted = cust_db.get_customers_names()
+# customers_names_sorted = cust_db.get_customers_names()
 
 """
 print("Testing: Print customers names")
@@ -837,33 +988,35 @@ print("\n")
 """
 
 # This code is not working. It is not sorting the customers by last name. It is sorting the by the full name. Need to split the namme string into a first and last name and then sort by last name.
-#cust_db.sort_customers_fname()
+# cust_db.sort_customers_fname()
 customers = cust_db.get_customers()
 
 # This code is not working. It is not sorting the customers by last name. It is sorting the by the full name. Need to split the namme string into a first and last name and then sort by last name.
-#print("Testing: Sort customers by last name")
-#for customer in customers:
+# print("Testing: Sort customers by last name")
+# for customer in customers:
 #  print(customer.get_name())
-#print("\n")
+# print("\n")
 
 cust_db.sort_customers_age()
 customers = cust_db.get_customers()
 
 print("Testing: Sort customers by age")
 for customer in customers:
-  print(customer.get_name() + " is age " + str(customer.get_age()))
+    print(customer.get_name() + " is age " + str(customer.get_age()))
 print("\n")
 
 # ======== Continued Development ======== #
 # I would like to give a performance review (first employee)
-employee_review1 = emp4.get_name() # Employee under review
-selling_credit_cards_grade = "A" # How well did he/she sell credit cards?
-punctuality_grade = "A" # How punctual was he/she?
-customer_service_grade = "B" # How was their customer service rating?
-emp4.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
+employee_review1 = emp4.get_name()  # Employee under review
+selling_credit_cards_grade = "A"  # How well did he/she sell credit cards?
+punctuality_grade = "A"  # How punctual was he/she?
+customer_service_grade = "B"  # How was their customer service rating?
+emp4.performance_grades.append(
+    selling_credit_cards_grade + " " + punctuality_grade + " " + customer_service_grade
+)  # Add strings
 
-comments = "This employee is great at selling credit cards. She is never late for work. Loved by her manager. Sold 15 credit cards in the last month. Gives reliable advice to other cashiers. A great choice for a supervisor role soon. May get a raise." # Manager/supervisor comments
-emp4.performance_comments.append(comments) # Store comments 
+comments = "This employee is great at selling credit cards. She is never late for work. Loved by her manager. Sold 15 credit cards in the last month. Gives reliable advice to other cashiers. A great choice for a supervisor role soon. May get a raise."  # Manager/supervisor comments
+emp4.performance_comments.append(comments)  # Store comments
 
 # Print Output
 print(employee_review1)
@@ -872,14 +1025,16 @@ print(emp4.performance_comments)
 print("\n")
 
 # I would like to give a performance review (second employee)
-employee_review2 = emp5.get_name() # Employee under review
-selling_credit_cards_grade = "C" # How well did he/she sell credit cards?
-punctuality_grade = "B" # How punctual was he/she?
-customer_service_grade = "C" # How was their customer service rating?
-emp5.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
+employee_review2 = emp5.get_name()  # Employee under review
+selling_credit_cards_grade = "C"  # How well did he/she sell credit cards?
+punctuality_grade = "B"  # How punctual was he/she?
+customer_service_grade = "C"  # How was their customer service rating?
+emp5.performance_grades.append(
+    selling_credit_cards_grade + " " + punctuality_grade + " " + customer_service_grade
+)  # Add strings
 
-comments = "This employee joined the cashier squad 4 months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She may be let-go during next round of budget cuts." # Manager/supervisor comments
-emp5.performance_comments.append(comments) # Store comments
+comments = "This employee joined the cashier squad 4 months ago. Her last experience as a cashier did not carry over. There is no excuses for her bad performance. She has C grades in selling credit cards and customer service. She is on-time at least 80% of the time, which grants her a B grade for punctuality. She may be let-go during next round of budget cuts."  # Manager/supervisor comments
+emp5.performance_comments.append(comments)  # Store comments
 
 # Print Output
 print(employee_review2)
@@ -888,14 +1043,16 @@ print(emp5.performance_comments)
 print("\n")
 
 # I would like to give a performance review (second employee)
-employee_review3 = emp6.get_name() # Employee under review
-selling_credit_cards_grade = "B" # How well did he/she sell credit cards?
-punctuality_grade = "A" # How punctual was he/she?
-customer_service_grade = "B" # How was their customer service rating?
-emp6.performance_grades.append(selling_credit_cards_grade+" "+punctuality_grade+" "+customer_service_grade) # Add strings
+employee_review3 = emp6.get_name()  # Employee under review
+selling_credit_cards_grade = "B"  # How well did he/she sell credit cards?
+punctuality_grade = "A"  # How punctual was he/she?
+customer_service_grade = "B"  # How was their customer service rating?
+emp6.performance_grades.append(
+    selling_credit_cards_grade + " " + punctuality_grade + " " + customer_service_grade
+)  # Add strings
 
-comments = "This employee joined the cashier squad 8 months ago. They are selling credit cards and helping customers well. Perfect attendance. They are due for a raise soon." # Manager/supervisor comments
-emp6.performance_comments.append(comments) # Store comments
+comments = "This employee joined the cashier squad 8 months ago. They are selling credit cards and helping customers well. Perfect attendance. They are due for a raise soon."  # Manager/supervisor comments
+emp6.performance_comments.append(comments)  # Store comments
 
 # Print Output
 print(employee_review3)
@@ -906,84 +1063,103 @@ print("\n")
 
 # Write function to determine if person gets a raise next based on performance review scores
 
+
 # ======== Continued Development ======== #
 # Cost of a book depends on the book
 def cost_of_specific_book(bought_book):
-  cost = 0.00
-  if bought_book == "The Great Gatsby":
-    cost = 22.50
-  elif bought_book == "Forty Chances":
-    cost = 25.00
-  elif bought_book == "Along Came a Spider":
-    cost = 15.00
-  elif bought_book == "Star Wars Episode 4: A New Hope":
-    cost = 17.50
-  elif bought_book == "Star Wars Episode 5: The Empire Strikes Back":
-    cost = 7.95
-  elif bought_book == "Martian":
-    cost = 9.99
-  elif bought_book == "The Complete Sherlock Holmes Volume II":
-    cost = 9.97
-  elif bought_book == "Martian Chronicles":
-    cost = 8.53
-  return cost
-  
+    cost = 0.00
+    if bought_book == "The Great Gatsby":
+        cost = 22.50
+    elif bought_book == "Forty Chances":
+        cost = 25.00
+    elif bought_book == "Along Came a Spider":
+        cost = 15.00
+    elif bought_book == "Star Wars Episode 4: A New Hope":
+        cost = 17.50
+    elif bought_book == "Star Wars Episode 5: The Empire Strikes Back":
+        cost = 7.95
+    elif bought_book == "Martian":
+        cost = 9.99
+    elif bought_book == "The Complete Sherlock Holmes Volume II":
+        cost = 9.97
+    elif bought_book == "Martian Chronicles":
+        cost = 8.53
+    return cost
+
+
 # Make a random book purchase - Write to a file
-def purchase_random_book(cust,lib_books,cash,emp,date):
-  pick_random_book = random.choice(lib_books)
-  bought_book = pick_random_book.get_title()
-  cost = cost_of_specific_book(bought_book)
-  total_cost = 0
-  if cust.get_rewards_number() != "xxxx":
-    # 5% discount applies
-    total_cost = round(cash-cost*0.95,2)
-  else:
-    # Discount does not apply
-    total_cost = round(cash-cost,2)
-  print_transaction(cust,bought_book,cash,cost,total_cost,emp,date)
-  return pick_random_book
+def purchase_random_book(cust, lib_books, cash, emp, date):
+    pick_random_book = random.choice(lib_books)
+    bought_book = pick_random_book.get_title()
+    cost = cost_of_specific_book(bought_book)
+    total_cost = 0
+    if cust.get_rewards_number() != "xxxx":
+        # 5% discount applies
+        total_cost = round(cash - cost * 0.95, 2)
+    else:
+        # Discount does not apply
+        total_cost = round(cash - cost, 2)
+    print_transaction(cust, bought_book, cash, cost, total_cost, emp, date)
+    return pick_random_book
+
 
 # Write transaction to a file
-def print_transaction(cust,bought_book,cash,cost,total_cost,emp,date):
-  file = open("transactions.txt", "w") 
-  file.write("TRANSACTION.\n")
-  file.write("Date: {0}\n".format(date))
-  file.write("{0} enters checkout aisle to purchase a book.\n".format(cust.get_name()))
-  employee = emp.get_name();
-  file.write(employee+" helps customer with purchase.\n")
-  file.write("The customer has ${0} in cash.\n".format(cash))
-  file.write("The book normally costs ${0}\n".format(cost))
-  if cust.get_rewards_number() != "xxxx":
-    file.write("The customer has a rewards number of {0}\n".format(cust.get_rewards_number()))
-    file.write("The customer gets a 5% discount.\n")
-    file.write("The customer pays ${0}.\n".format(round(cost*0.95,2)))
-    #cust.add_rewards_points(round(cost*0.95,2))
-    cust.add_purchase(bought_book,round(cost*0.95,2),date)
-    file.write("The total rewards points for this customer is: " + str(round(cust.get_rewards_points(),2))+"\n")
-  else:
-    file.write("The customer does not have a rewards number.\n")
-    file.write("The customer does not get a discount.\n")
-    cust.add_purchase(bought_book,cost,date)
-  file.write("{0} purchases {1} with ${2} remaining.\n".format(cust.get_name(),bought_book,total_cost))
-  file.close()
-  print("Transaction complete.\n")
-  
+def print_transaction(cust, bought_book, cash, cost, total_cost, emp, date):
+    file = open("transactions.txt", "w")
+    file.write("TRANSACTION.\n")
+    file.write("Date: {0}\n".format(date))
+    file.write(
+        "{0} enters checkout aisle to purchase a book.\n".format(cust.get_name())
+    )
+    employee = emp.get_name()
+    file.write(employee + " helps customer with purchase.\n")
+    file.write("The customer has ${0} in cash.\n".format(cash))
+    file.write("The book normally costs ${0}\n".format(cost))
+    if cust.get_rewards_number() != "xxxx":
+        file.write(
+            "The customer has a rewards number of {0}\n".format(
+                cust.get_rewards_number()
+            )
+        )
+        file.write("The customer gets a 5% discount.\n")
+        file.write("The customer pays ${0}.\n".format(round(cost * 0.95, 2)))
+        # cust.add_rewards_points(round(cost*0.95,2))
+        cust.add_purchase(bought_book, round(cost * 0.95, 2), date)
+        file.write(
+            "The total rewards points for this customer is: "
+            + str(round(cust.get_rewards_points(), 2))
+            + "\n"
+        )
+    else:
+        file.write("The customer does not have a rewards number.\n")
+        file.write("The customer does not get a discount.\n")
+        cust.add_purchase(bought_book, cost, date)
+    file.write(
+        "{0} purchases {1} with ${2} remaining.\n".format(
+            cust.get_name(), bought_book, total_cost
+        )
+    )
+    file.close()
+    print("Transaction complete.\n")
+
+
 # Make specific book purchase
-def purchase_specific_book(cust,bought_book,cash,emp,date):
-  cost = cost_of_specific_book(bought_book)
-  total_cost = 0
-  if cust.get_rewards_number() != "xxxx":
-    # 5% discount applies
-    total_cost = round(cash-cost*0.95,2)
-  else:
-    # Discount does not apply
-    total_cost = round(cash-cost,2)
-  # Debugging - Added more print statements to help debug the code
-  #print("Cost: "+str(cost))
-  #print("Total Cost: "+str(total_cost))
-  #print("Cash: "+str(cash))
-  #print("Bought Book: "+bought_book)
-  print_transaction(cust,bought_book,cash,cost,total_cost,emp,date)
+def purchase_specific_book(cust, bought_book, cash, emp, date):
+    cost = cost_of_specific_book(bought_book)
+    total_cost = 0
+    if cust.get_rewards_number() != "xxxx":
+        # 5% discount applies
+        total_cost = round(cash - cost * 0.95, 2)
+    else:
+        # Discount does not apply
+        total_cost = round(cash - cost, 2)
+    # Debugging - Added more print statements to help debug the code
+    # print("Cost: "+str(cost))
+    # print("Total Cost: "+str(total_cost))
+    # print("Cash: "+str(cash))
+    # print("Bought Book: "+bought_book)
+    print_transaction(cust, bought_book, cash, cost, total_cost, emp, date)
+
 
 # ======== Continued Development ======== #
 # Organized genres into a list
@@ -991,12 +1167,12 @@ def purchase_specific_book(cust,bought_book,cash,emp,date):
 # 2/2/24 Justin
 genres = []
 for book in lib_books:
-  genres.append(book.get_genre())
-  print(book.get_genre())
+    genres.append(book.get_genre())
+    print(book.get_genre())
 print(genres)
 
 # Old code - Broken, deprecated at this point
-#for index in range(0,len(genres)):
+# for index in range(0,len(genres)):
 #  chosen_genre = genres[index]
 #  numBooksInThisGenre = 0
 #  for genre in genres[index:len(genres)]:
@@ -1006,33 +1182,36 @@ print(genres)
 #      print("Chosen genre: "+chosen_genre)
 #      numBooksInThisGenre+=1
 #      print("Number of Books in this Genre: "+str(numBooksInThisGenre))
-  #print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_genre,duplicates))
-#genres_books[chosen_genre] = numBooksInThisGenre
+# print("Chosen Genre {0} has {1} duplicates in the library of books.".format(chosen_genre,duplicates))
+# genres_books[chosen_genre] = numBooksInThisGenre
 
 # Key on genre, value is how mnay times that author appears in library
 genres_dictionary = {}
 
 # Store genre of books, count how many books per genre
 for genre in genres:
-  if (genre in genres_dictionary): # If the genre is already in the dictionary, increment the number of occurrences of this genre 
-    genres_dictionary[genre] += 1
-  else:
-    genres_dictionary[genre] = 1
+    if (
+        genre in genres_dictionary
+    ):  # If the genre is already in the dictionary, increment the number of occurrences of this genre
+        genres_dictionary[genre] += 1
+    else:
+        genres_dictionary[genre] = 1
 
-# ======== Continued Development ======== # 
-# Key on author, value is how many times that author appears in library 
-authors_dictionary = {};
-
+# ======== Continued Development ======== #
+# Key on author, value is how many times that author appears in library
+authors_dictionary = {}
 for author in lib_authors:
-  if (author in authors_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
-    authors_dictionary[author] += 1
-  else:
-    authors_dictionary[author] = 1
+    if (
+        author in authors_dictionary
+    ):  # If the author is already in the dictionary, increment the number of occurrences of this author
+        authors_dictionary[author] += 1
+    else:
+        authors_dictionary[author] = 1
 
-# Key on book, value is how many times that book appears in library 
-#books_dictionary = {};
-#books_local = lib.get_books()
-#for book in books_local:
+# Key on book, value is how many times that book appears in library
+# books_dictionary = {};
+# books_local = lib.get_books()
+# for book in books_local:
 #  if (book in books_dictionary): # If the author is already in the dictionary, increment the number of occurrences of this author
 #    books_dictionary[book.get_title()] += 1
 #  else:
@@ -1042,8 +1221,8 @@ for author in lib_authors:
 # See how many of each employees have each job
 job_titles = []
 for employee in employees:
-  job_titles.append(employee.get_job_title())
-  print(employee.get_job_title())
+    job_titles.append(employee.get_job_title())
+    print(employee.get_job_title())
 print(job_titles)
 
 job_titles_dict = {}
@@ -1054,30 +1233,30 @@ job_titles_dict["Bakery Cashier"] = job_titles.count("Bakery Cashier")
 
 print(job_titles_dict)
 print("\n")
-  
+
 # ======== Testing ======== #
 # Print the Name of Each Book
 print("Books in Library:")
 for book in lib_books:
-  print(book.get_title())
+    print(book.get_title())
 print("\n")
 
 # Print the Name of Each Author
 print("Authors in Library:")
 for author in lib_authors:
-  print(author)
+    print(author)
 print("\n")
 
 # Print the Name of Each Employee
 print("Employees at Bookstore:")
 for employee in employees:
-  print(employee.get_name())
+    print(employee.get_name())
 print("\n")
 
 # Print the Name of Each Employee
 print("Previous Customers:")
 for customer in customers:
-  print(customer.get_name())
+    print(customer.get_name())
 print("\n")
 
 # Print the Number of times each  shows up in the library
@@ -1103,15 +1282,17 @@ customer_example5 = "Customer Five"
 customer_example6 = "Customer Six"
 customer_example7 = "Customer Seven"
 
+
 # If Customer name is in the list of usual customers, then the customer is "found" by our database
 def find_customer_by_name_unittest(customer_example):
-  found_customer = cust_db.find_customer_by_name(customer_example)
-  if found_customer is None:
-    print("Failure.")
-    print(customer_example + " was not found.")
-  else:
-    print("Success!")
-    print(customer_example + " was found!")
+    found_customer = cust_db.find_customer_by_name(customer_example)
+    if found_customer is None:
+        print("Failure.")
+        print(customer_example + " was not found.")
+    else:
+        print("Success!")
+        print(customer_example + " was found!")
+
 
 # Unit Test 1
 print("Test1 for cust_db.find_customer_by_name():")
@@ -1155,15 +1336,17 @@ book_example6 = "Star Wars Episode 5: The Empire Strikes Back"
 book_example7 = "Martian"
 book_example8 = "The Complete Sherlock Holmes Volume II"
 
+
 # If the book name is in the list of books in the database, then the book requested is "found" by our database
 def find_book_by_name_unittest(book_example):
-  found_book = lib.find_book(book_example)
-  if found_book is None:
-    print("Failure.")
-    print(book_example + " was not found.")
-  else:
-    print("Success!")
-    print(book_example + " was found!")
+    found_book = lib.find_book(book_example)
+    if found_book is None:
+        print("Failure.")
+        print(book_example + " was not found.")
+    else:
+        print("Success!")
+        print(book_example + " was found!")
+
 
 # Unit Test 1
 print("Test1 for lib.find_book():")
@@ -1198,16 +1381,17 @@ print("Test8 for lib.find_book():")
 find_book_by_name_unittest(book_example8)
 
 # ======== Plotting ======== #
-name_data = []; salary_data = [];
+name_data = []
+salary_data = []
 for employee in employees:
-  salary = employee.get_salary()
-  name = employee.get_name()
-  name_data.append(name)
-  salary_data.append(salary)
+    salary = employee.get_salary()
+    name = employee.get_name()
+    name_data.append(name)
+    salary_data.append(salary)
 
-#plt.bar([1,2,3],salary_data[0:3])
-#plt.bar(name_data[0:5],salary_data[0:5])
-#plt.show
+# plt.bar([1,2,3],salary_data[0:3])
+# plt.bar(name_data[0:5],salary_data[0:5])
+# plt.show
 
 ## Unit Test for Transactions
 # Setup SalesDatabase
@@ -1216,7 +1400,7 @@ sdb = SalesDatabase()
 # Make a random book purchase
 print("\n")
 print("Unit Tests for purchase_random_book()")
-bought_book = purchase_random_book(cust1,lib_books,50.00,emp4,"11/24/24")
+bought_book = purchase_random_book(cust1, lib_books, 50.00, emp4, "11/24/24")
 sale2 = Sale()
 sale2.set_customer(cust1.get_name())
 sale2.set_date("11/24/24")
@@ -1229,12 +1413,12 @@ sale2.set_rewards_number(cust1.get_rewards_number())
 sale2.set_rewards_points(bought_book.get_cost())
 sale2.set_type("Book Purchase")
 
-purchase_random_book(cust2,lib_books,40.00,emp4,"11/24/24")
-purchase_random_book(cust3,lib_books,30.00,emp4,"11/24/24")
+purchase_random_book(cust2, lib_books, 40.00, emp4, "11/24/24")
+purchase_random_book(cust3, lib_books, 30.00, emp4, "11/24/24")
 
 # Make a book purchase - Book 3
 print("Unit Tests for purchase_specific_book()")
-purchase_specific_book(cust4,book3.get_title(),50.00,emp4,"11/24/24")
+purchase_specific_book(cust4, book3.get_title(), 50.00, emp4, "11/24/24")
 sale1 = Sale()
 sale1.set_customer(cust4.get_name())
 sale1.set_date("11/24/24")
@@ -1250,7 +1434,7 @@ sale1.set_type("Book Purchase")
 # Add sale to SalesDatabase()
 sdb.add_sale(sale1)
 
-purchase_specific_book(cust5,book12.get_title(),50.00,emp4,"11/24/24")
+purchase_specific_book(cust5, book12.get_title(), 50.00, emp4, "11/24/24")
 
 # Library book purchase Unit Test
 # Data Input: Transaction Data
@@ -1259,74 +1443,76 @@ date = "11/24/24"
 # This call to add_purchase is missing the 5% discount for being a member of the Library Rewards Program
 # Bug: Customer rewards leaderboard rounding issue, also missing arg for function call
 if cust1.get_rewards_number() != "xxxx":
-  # 5% discount applies
-  new_cost = round(book1.get_cost()*0.95,2)
-  cust1.add_rewards_points(new_cost)
-  cust1.add_purchase(book1.get_title(),new_cost,date)
-  print_transaction(cust1,book1.get_title(),cash,book1.get_cost(),new_cost,emp4,date)
+    # 5% discount applies
+    new_cost = round(book1.get_cost() * 0.95, 2)
+    cust1.add_rewards_points(new_cost)
+    cust1.add_purchase(book1.get_title(), new_cost, date)
+    print_transaction(
+        cust1, book1.get_title(), cash, book1.get_cost(), new_cost, emp4, date
+    )
 else:
-  cust1.add_rewards_points(book1.get_cost())
-  cust1.add_purchase(book1.get_title(),book1.get_cost(),date)
-  #print_transaction(cust1,book1.get_title(),cash,book1.get_cost(),book1.get_cost(),emp4,date)
+    cust1.add_rewards_points(book1.get_cost())
+    cust1.add_purchase(book1.get_title(), book1.get_cost(), date)
+    # print_transaction(cust1,book1.get_title(),cash,book1.get_cost(),book1.get_cost(),emp4,date)
 
 # Previous Purchases for Customers
 print("\n")
 print("Previous Purchases for Customers")
 for customer in customers:
-  prev_purchases = customer.get_previous_purchases()
-  print("Previous Purchases for {0}:".format(customer.get_name()))
-  for purchase in prev_purchases:
-    print(purchase)
+    prev_purchases = customer.get_previous_purchases()
+    print("Previous Purchases for {0}:".format(customer.get_name()))
+    for purchase in prev_purchases:
+        print(purchase)
 
 # 1.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
 print("Test 1 for lib.sort_by_genre()")
 fiction_books = lib.sort_by_genre("Fiction")
 if fiction_books is None:
-  print("No Fiction books in the library.")
+    print("No Fiction books in the library.")
 else:
-  for book in fiction_books:
-    print(book.get_title())
+    for book in fiction_books:
+        print(book.get_title())
 
 # 2.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
 print("Test 2 for lib.sort_by_genre()")
 nonfiction_books = lib.sort_by_genre("Non-fiction")
 if nonfiction_books is None:
-  print("No non-fiction books in the library.")
+    print("No non-fiction books in the library.")
 else:
-  for book in nonfiction_books:
-    print(book.get_title())
+    for book in nonfiction_books:
+        print(book.get_title())
 
 # 3.)  Unit Test for sort_by_genre() method for Library class
 print("\n")
 print("Test 3 for lib.sort_by_genre()")
 hist_fiction_books = lib.sort_by_genre("Historical Fiction")
 if hist_fiction_books is None:
-  print("No historical fiction books in the library.")
+    print("No historical fiction books in the library.")
 else:
-  for book in hist_fiction_books:
-    print(book.get_title())
+    for book in hist_fiction_books:
+        print(book.get_title())
 
 # 4.)  Unit Test for sort_by_author() method for Library class
 print("\n")
 print("Test 1 for lib.sort_by_author()")
 authored_books = lib.sort_by_author("James Patterson")
 if authored_books is None:
-  print("No books by James Patterson.")
+    print("No books by James Patterson.")
 else:
-  for book in authored_books:
-    print(book.get_title())
+    for book in authored_books:
+        print(book.get_title())
 
 # 5.) Unit Test for sort_by_year() method for Library class
 print("\n")
 print("Test 1 for lib.sort_by_year()")
 old_books = lib.sort_by_year(1925)
 if old_books is None:
-  print("No books for the year {0}.".format(1925))
+    print("No books for the year {0}.".format(1925))
 else:
-  for book in old_books:
-    print(book.get_title())
+    for book in old_books:
+        print(book.get_title())
 print("\n")
 
 # Sale Class Getter and Setter Methods Unit Tests
@@ -1344,22 +1530,24 @@ sale1.set_type("Book Purchase")
 print("Sale 1 Customer: " + sale1.get_customer())
 print("Sale 1 Date: " + sale1.get_date())
 
-class TestSaleGetterSetterethods(unittest.TestCase):
-  def test_CountTotalNumSales(self):
-    pass  # TODO: complete this test
 
-#sale1.get_cost
+class TestSaleGetterSetterethods(unittest.TestCase):
+    def test_CountTotalNumSales(self):
+        pass  # TODO: complete this test
+
+
+# sale1.get_cost
 
 # ======== Continued Development ======== #
 # Add a raise to an employee
 print("Test distributing raises")
-highest_rank = ("",0)
+highest_rank = ("", 0)
 employee_leaderboard = emp_db.get_employee_leaderboard()
 for employee, score in employee_leaderboard:
-  print("Employee: "+employee.get_name())
-  print("Employee: "+str(round(score,2)))
-  if (highest_rank[1] < score):
-    highest_rank = (employee.get_name(),score)
+    print("Employee: " + employee.get_name())
+    print("Employee: " + str(round(score, 2)))
+    if highest_rank[1] < score:
+        highest_rank = (employee.get_name(), score)
 print(highest_rank)
 
 
@@ -1371,13 +1559,15 @@ print("=" * 50)
 employee_leaderboard = emp_db.get_employee_leaderboard()
 rank = 1
 for employee, score in employee_leaderboard:
-  if score > 0:  # Only show employees with performance reviews
-    print(f"Rank {rank}: {employee.get_name()} - Score: {score:.2f}/4.0 - {employee.get_job_title()}")
-    rank += 1
+    if score > 0:  # Only show employees with performance reviews
+        print(
+            f"Rank {rank}: {employee.get_name()} - Score: {score:.2f}/4.0 - {employee.get_job_title()}"
+        )
+        rank += 1
 
 # If no employees have reviews yet
 if rank == 1:
-  print("No employees with performance reviews yet.")
+    print("No employees with performance reviews yet.")
 print("\n")
 
 # Test Customer Rewards Leaderboard
@@ -1386,176 +1576,238 @@ print("CUSTOMER REWARDS LEADERBOARD - Top Customers for Giveaways")
 print("=" * 50)
 customer_leaderboard = cust_db.get_customer_rewards_leaderboard()
 rank = 1
-for key,value in customer_leaderboard:
-  if value > 0:  # Only show customers with rewards points
-    #print(f"Rank {rank}: {key} - {value} Points")
-    print("Rank {0}: {1} - {2} Points".format(rank,key,round(value,2)))
-    rank += 1
+for key, value in customer_leaderboard:
+    if value > 0:  # Only show customers with rewards points
+        # print(f"Rank {rank}: {key} - {value} Points")
+        print("Rank {0}: {1} - {2} Points".format(rank, key, round(value, 2)))
+        rank += 1
 
 # If no customers have points yet
 if rank == 1:
-  print("No customers with rewards points yet.")
+    print("No customers with rewards points yet.")
 print("\n")
 
 # Calculate most popular author
-max=0
-mostPopularAuthor=""
+max = 0
+mostPopularAuthor = ""
 for author in lib_authors:
-  if (authors_dictionary[author] > max): # If the author is already in the dictionary, more than the current max, increment the number of occurrences of this author
-    max = authors_dictionary[author]
-    mostPopularAuthor = author
-print("The most popular author is: " + mostPopularAuthor + " with " + str(max) + " occurences in the library.")
+    if (
+        authors_dictionary[author] > max
+    ):  # If the author is already in the dictionary, more than the current max, increment the number of occurrences of this author
+        max = authors_dictionary[author]
+        mostPopularAuthor = author
+print(
+    "The most popular author is: "
+    + mostPopularAuthor
+    + " with "
+    + str(max)
+    + " occurences in the library."
+)
 
 # Calculate most popular book
-max=0 # Max occurrences of book
-mostPopularBook=""
+max = 0  # Max occurrences of book
+mostPopularBook = ""
 for book in books_dictionary:
-  if (books_dictionary[book] > max): # If the book is already in the dictionary, more than the current max, increment the number of occurrences of this book
-    max = books_dictionary[book]
-    mostPopularBook = book
-print("The most popular book is: " + mostPopularBook + " with " + str(max) + " occurences in the library.")
+    if (
+        books_dictionary[book] > max
+    ):  # If the book is already in the dictionary, more than the current max, increment the number of occurrences of this book
+        max = books_dictionary[book]
+        mostPopularBook = book
+print(
+    "The most popular book is: "
+    + mostPopularBook
+    + " with "
+    + str(max)
+    + " occurences in the library."
+)
 
 # Calculate the most popular genre
-max=0
-mostPopularGenre=""
+max = 0
+mostPopularGenre = ""
 for genre in genres_dictionary:
-   if (genres_dictionary[genre] > max): # If the genre is already in the dictionary, more than the current max, increment the number of occurrences of this genre
-    max = genres_dictionary[genre]
-    mostPopularGenre = genre   # Store the most popular genre
-print("The most popular genre is: " + mostPopularGenre + " with " + str(max) + " occurences in the library.")
+    if (
+        genres_dictionary[genre] > max
+    ):  # If the genre is already in the dictionary, more than the current max, increment the number of occurrences of this genre
+        max = genres_dictionary[genre]
+        mostPopularGenre = genre  # Store the most popular genre
+print(
+    "The most popular genre is: "
+    + mostPopularGenre
+    + " with "
+    + str(max)
+    + " occurences in the library."
+)
 
 # Calculate the most popular job title
-max=0
-mostPopularJobTitle=""
+max = 0
+mostPopularJobTitle = ""
 for job_title in job_titles_dict:
-   if (job_titles_dict[job_title] > max): # If the job title is already in the dictionary, more than the current max, increment the number of occurrences of this job title
-    max = job_titles_dict[job_title]
-    mostPopularJobTitle = job_title   # Store the most popular job title
-print("The most popular job title is: " + mostPopularJobTitle + " with " + str(max) + " occurences in the library.")
+    if (
+        job_titles_dict[job_title] > max
+    ):  # If the job title is already in the dictionary, more than the current max, increment the number of occurrences of this job title
+        max = job_titles_dict[job_title]
+        mostPopularJobTitle = job_title  # Store the most popular job title
+print(
+    "The most popular job title is: "
+    + mostPopularJobTitle
+    + " with "
+    + str(max)
+    + " occurences in the library."
+)
 
 # Calculate the most frequent customers
-max=0;
-mostFrequentPurchaser="";
+max = 0
+mostFrequentPurchaser = ""
 for customer in customers:
-  if (customer.get_rewards_points() > max):
-    max = customer.get_rewards_points()
-    mostFrequentPurchaser = customer.get_name()
-print("The most frequent purchaser is: " + mostFrequentPurchaser + " with " + str(max) + " points.")
+    if customer.get_rewards_points() > max:
+        max = customer.get_rewards_points()
+        mostFrequentPurchaser = customer.get_name()
+print(
+    "The most frequent purchaser is: "
+    + mostFrequentPurchaser
+    + " with "
+    + str(max)
+    + " points."
+)
 
 # Calculate the most frequent purchase
-max=0;
-mostFrequentPurchase="";
+max = 0
+mostFrequentPurchase = ""
+
 
 # Return a book function
-def returnBook(customer,book,cash,emp,date):
-  # Add book back to library
-  lib.add_book(book)
-  # Find cost of book
-  cost = cost_of_specific_book(book)
-  # Add money back to customer
-  if customer.get_rewards_number() != "xxxx":
-    # 5% discount applies
-    new_cost = round(-cost*0.95,2) # Instead of using separate remove_rewards_points function, just use add_rewards_points with a negative number
-    customer.add_rewards_points(new_cost)
-    customer.add_purchase(book.get_title(),new_cost,date)
-    print_transaction(customer,book.get_title(),cash,cost,abs(new_cost),emp,date)
-  else:
-    customer.add_rewards_points(-cost)
-    customer.add_purchase(book.get_title(),-cost,date)
-    print_transaction(customer,book.get_title(),cash,cost,cost,emp,date)
+def returnBook(customer, book, cash, emp, date):
+    # Add book back to library
+    lib.add_book(book)
+    # Find cost of book
+    cost = cost_of_specific_book(book)
+    # Add money back to customer
+    if customer.get_rewards_number() != "xxxx":
+        # 5% discount applies
+        new_cost = round(
+            -cost * 0.95, 2
+        )  # Instead of using separate remove_rewards_points function, just use add_rewards_points with a negative number
+        customer.add_rewards_points(new_cost)
+        customer.add_purchase(book.get_title(), new_cost, date)
+        print_transaction(
+            customer, book.get_title(), cash, cost, abs(new_cost), emp, date
+        )
+    else:
+        customer.add_rewards_points(-cost)
+        customer.add_purchase(book.get_title(), -cost, date)
+        print_transaction(customer, book.get_title(), cash, cost, cost, emp, date)
+
 
 # Unit Testing:
 # Return a book
 print("\n")
 print("Unit Tests for returnBook()")
-returnBook(cust1,book1,50.00,emp4,"11/24/24")
+returnBook(cust1, book1, 50.00, emp4, "11/24/24")
 
 print("\n")
 print("Previous Purchases for Customers")
 for customer in customers:
-  prev_purchases = customer.get_previous_purchases()
-  print("Previous Purchases for {0}:".format(customer.get_name()))
-  if (len(prev_purchases) == 0):
-    print("No previous purchases.")
-  else:
-    for purchase in prev_purchases:
-      print(purchase)
+    prev_purchases = customer.get_previous_purchases()
+    print("Previous Purchases for {0}:".format(customer.get_name()))
+    if len(prev_purchases) == 0:
+        print("No previous purchases.")
+    else:
+        for purchase in prev_purchases:
+            print(purchase)
 
 # ======== Continued Development ======== #
 # Calculate the most frequent purchase
-max=0;
-mostFrequentPurchase="";
+max = 0
+mostFrequentPurchase = ""
+
 
 # Create Unit Tests Class for genre_dictionary
 class TestGenreDictionary(unittest.TestCase):
-  def test_numHistoricalFictionBooks(self):
-    # Passing Test: Comparing identical integers
-    self.assertEqual(genres_dictionary["Historical Fiction"],1)
-  def test_numNonfictionBooks(self):
-    # Passing Test: Comparing identical integers
-    self.assertEqual(genres_dictionary["Non-fiction"],1)
-  def test_numFictionBooks(self):
-    # Failing Test: Comparing different integers
-    self.assertEqual(genres_dictionary["Fiction"],10)
+    def test_numHistoricalFictionBooks(self):
+        # Passing Test: Comparing identical integers
+        self.assertEqual(genres_dictionary["Historical Fiction"], 1)
+
+    def test_numNonfictionBooks(self):
+        # Passing Test: Comparing identical integers
+        self.assertEqual(genres_dictionary["Non-fiction"], 1)
+
+    def test_numFictionBooks(self):
+        # Failing Test: Comparing different integers
+        self.assertEqual(genres_dictionary["Fiction"], 10)
+
 
 # Unit Testing genre_dictionary
 print("\n")
 print("Unit Tests for genre_dictionary")
-#print(genres_dictionary)
-#unittest.main()
+# print(genres_dictionary)
+# unittest.main()
+
 
 # Create Unit Tests Class for author_dictionary
 class TestAuthorDictionary(unittest.TestCase):
-  def test_numRayBradburyBooks(self):
-    # Passing Test: Comparing identical integers
-    self.assertEqual(authors_dictionary["Ray Bradbury"],1)
-  def test_numAndyWeirBooks(self):
-    # Passing Test: Comparing identical integers
-    self.assertEqual(authors_dictionary["Andy Weir"],5)
-  def test_numGeorgeLucasBooks(self):
-    # Failing Test: Comparing different integers
-    self.assertEqual(authors_dictionary["George Lucas"],2)
+    def test_numRayBradburyBooks(self):
+        # Passing Test: Comparing identical integers
+        self.assertEqual(authors_dictionary["Ray Bradbury"], 1)
+
+    def test_numAndyWeirBooks(self):
+        # Passing Test: Comparing identical integers
+        self.assertEqual(authors_dictionary["Andy Weir"], 5)
+
+    def test_numGeorgeLucasBooks(self):
+        # Failing Test: Comparing different integers
+        self.assertEqual(authors_dictionary["George Lucas"], 2)
+
 
 # Unit Testing authors_dictionary
 print("\n")
 print("Unit Tests for authors_dictionary")
-#print(authors_dictionary)
-#unittest.main()
+# print(authors_dictionary)
+# unittest.main()
+
 
 class TestJobTitlesDictionary(unittest.TestCase):
-  def test_CountnumBakeryCashiers(self):
-    self.assertEqual(job_titles_dict["Bakery Cashier"],2)
-  def test_CountnumNormalCashiers(self):
-    self.assertEqual(job_titles_dict["Cashier"],4)
-  def test_CountnumSupervisors(self):
-    self.assertEqual(job_titles_dict["Supervisor"],2)
-  def test_CountnumManagers(self):
-    self.assertEqual(job_titles_dict["Manager"],2)
+    def test_CountnumBakeryCashiers(self):
+        self.assertEqual(job_titles_dict["Bakery Cashier"], 2)
+
+    def test_CountnumNormalCashiers(self):
+        self.assertEqual(job_titles_dict["Cashier"], 4)
+
+    def test_CountnumSupervisors(self):
+        self.assertEqual(job_titles_dict["Supervisor"], 2)
+
+    def test_CountnumManagers(self):
+        self.assertEqual(job_titles_dict["Manager"], 2)
+
 
 # Unit Testing job titles dictionary (job_titles_dict)
 print("\n")
 print("Unit Tests for job_titles_dict")
-#print(job_titles_dict):)
-#unittest.main()
+# print(job_titles_dict):)
+# unittest.main()
+
 
 class TestMostRecentRaise(unittest.TestCase):
-  def test_CountnumRecentRaisesInLastYr(self):
-    self.assertEqual(job_titles_dict["Bakery Cashier"],2)
-  def test_CountnumNormalCashiers(self):
-    self.assertEqual(job_titles_dict["Cashier"],4)
-  def test_CountnumSupervisors(self):
-    self.assertEqual(job_titles_dict["Supervisor"],2)
-  def test_CountnumManagers(self):
-    self.assertEqual(job_titles_dict["Manager"],2)
+    def test_CountnumRecentRaisesInLastYr(self):
+        self.assertEqual(job_titles_dict["Bakery Cashier"], 2)
+
+    def test_CountnumNormalCashiers(self):
+        self.assertEqual(job_titles_dict["Cashier"], 4)
+
+    def test_CountnumSupervisors(self):
+        self.assertEqual(job_titles_dict["Supervisor"], 2)
+
+    def test_CountnumManagers(self):
+        self.assertEqual(job_titles_dict["Manager"], 2)
+
 
 # Unit Testing job titles dictionary (job_titles_dict)
 print("\n")
 print("Unit Tests for job_titles_dict")
-#print(job_titles_dict):)
-#unittest.main()
+# print(job_titles_dict):)
+# unittest.main()
 
 # Todos:
-#1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
+# 1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
 # 2. Supervisor has different duties, like setting hours and delegating. Needs to have a working relationship with the cashiers
 # a.) Add function and data for tasks to Employee class
 # 3. Add database for "other items" like satchel, backpack, clickers, flashdrives that can be sold
