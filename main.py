@@ -206,13 +206,8 @@ class Library:
 ## Define Person Class
 class Person:
     def __init__(self):
-        self.id = 0
         self.name = ""
         self.age = 0
-        self.job_title = ""
-
-    def set_id(self):
-        pass
 
     def set_name(self):
         pass
@@ -220,19 +215,10 @@ class Person:
     def set_age(self):
         pass
 
-    def set_job_title(self):
-        pass
-
-    def get_id(self):
-        pass
-
     def get_name(self):
         pass
 
     def get_age(self):
-        pass
-
-    def get_job_title(self):
         pass
 
 
@@ -1785,7 +1771,7 @@ print("Unit Tests for job_titles_dict")
 # print(job_titles_dict):)
 # unittest.main()
 
-
+'''
 class TestMostRecentRaise(unittest.TestCase):
     def test_CountnumRecentRaisesInLastYr(self):
         self.assertEqual(job_titles_dict["Bakery Cashier"], 2)
@@ -1805,6 +1791,21 @@ print("\n")
 print("Unit Tests for job_titles_dict")
 # print(job_titles_dict):)
 # unittest.main()
+'''
+
+# Test New Inheritance (Employee and Customer classes from Person)
+# Test 1:
+# Test whether Customer class initializes id
+try:
+  print("Customer ID: "+Customer.id)
+except AttributeError as e:
+  print(f"Attribute '{e.name}' not found in {e.obj}.")
+# Test 2:
+# Test whether Customer class initializes job_title fields
+try:
+  print("Customer job_title: "+Customer.job_title)
+except AttributeError as e:
+  print(f"Attribute '{e.name}' not found in {e.obj}.")
 
 # Todos:
 # 1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
