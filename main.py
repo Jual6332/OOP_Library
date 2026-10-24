@@ -162,28 +162,20 @@ class Person():
     self.name = ""
     self.age = 0
     self.job_title = ""
-  @abstractmethod
   def set_id(self):
     pass
-  @abstractmethod
   def set_name(self):
     pass
-  @abstractmethod
   def set_age(self):
     pass
-  @abstractmethod
   def set_job_title(self):
     pass
-  @abstractmethod
   def get_id(self):
     pass
-  @abstractmethod
   def get_name(self):
     pass
-  @abstractmethod
   def get_age(self):
     pass
-  @abstractmethod
   def get_job_title(self):
     pass
   
