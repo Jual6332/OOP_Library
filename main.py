@@ -1824,7 +1824,7 @@ class TestCustomerFields(unittest.TestCase):
 
 class TestEmployeeFields(unittest.TestCase):
     def setUp(self):
-        self.customer = Employee()
+        self.employee = Employee()
     
     def test_employee_does_have_id(self):
         self.assertTrue(hasattr(self.employee, "id"))
@@ -1854,15 +1854,6 @@ class TestEmployeeFields(unittest.TestCase):
 print("\n")
 print("Unit Tests for Customer fields")
 unittest.main()
-
-self.id = 0
-self.name = ""
-self.age = 0
-self.job_title = ""
-self.salary = 0
-self.start_date = ""
-self.performance_grades = []
-self.performance_comments = []
 
 # Todos:
 # 1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
