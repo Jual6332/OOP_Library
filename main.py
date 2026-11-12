@@ -1829,7 +1829,55 @@ class TestEmployeeFields(unittest.TestCase):
 
     def test_employee_does_have_performance(self):
         self.assertTrue(hasattr(self.employee, "performance_comments"))
-    
+
+
+class TestSaleFields(unittest.TestCase):
+    def setUp(self):
+        self.sale1 = Sale()
+        self.sdb = SalesDatabase()
+        self.book = Book()
+        self.book.set_title("The Great Gatsby")
+        self.book.set_author("F. Scott Fitzgerald")
+        self.book.set_year(1925)
+        self.book.set_genre("Historical Fiction")
+        self.book.set_publisher("Scribner Classics")
+        self.book.set_words("...")
+        self.book.set_cost(22.50)
+        self.customer = Customer()
+        self.customer.set_name("Customer Four")
+        self.customer.set_age(30)
+        self.customer.set_rewards_number("xxxx")
+        self.employee = Employee()
+        self.employee.set_id(4)
+        self.employee.set_name("Employee Four")
+        self.employee.set_age(33)
+        self.employee.set_job_title("Cashier")
+        self.employee.set_salary(40000)
+
+    def test_adding_sale(self):
+        date = "11/11/26"
+        purchase_specific_book(self.customer,self.book.get_title(),50.00,self.employee,date)
+        self.sale1.set_customer(self.customer.get_name())
+        self.sale1.set_date(date)
+        self.sale1.set_author(self.book.get_author())
+        self.sale1.set_book(self.book.get_title())
+        self.sale1.set_cost(self.book.get_cost())
+        self.sale1.set_total_cost(self.book.get_cost())
+        self.sale1.set_employee(self.employee.get_name())
+        self.sale1.set_rewards_number(self.customer.get_rewards_number())
+        self.sale1.set_rewards_points(self.book.get_cost())
+        self.sale1.set_type("Book Purchase")
+        self.sdb.add_sale(self.sale1)
+
+        # Pull sales_data fro sales database
+        sales_data = self.sdb.get_sales_data() # local copy
+        test_result1_cost = sales_data[0].get_cost()
+        self.assertEqual(test_result1_cost, 22.50)
+
+
+# Add sale to SalesDatabase()
+sdb.add_sale(sale1)
+
 # Unit Testing Customer fields
 print("\n")
 print("Unit Tests for Customer fields")
