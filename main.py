@@ -1501,25 +1501,49 @@ else:
         print(book.get_title())
 print("\n")
 
-# Sale Class Getter and Setter Methods Unit Tests
-sale1 = Sale()
-sale1.set_customer("Customer One")
-sale1.set_date("11/24/24")
-sale1.set_author("F. Scott Fitzgerald")
-sale1.set_book("The Great Gatsby")
-sale1.set_cost(22.50)
-sale1.set_total_cost(22.50)
-sale1.set_employee("Employee Four")
-sale1.set_rewards_number("0001")
-sale1.set_rewards_points(22.50)
-sale1.set_type("Book Purchase")
-print("Sale 1 Customer: " + sale1.get_customer())
-print("Sale 1 Date: " + sale1.get_date())
+# Sale class unit tests
+class TestSale(unittest.TestCase):
+    def setUp(self):
+        self.sale = Sale()
 
+    def test_default_values(self):
+        defaults = {
+            "customer": ("get_customer", ""),
+            "date": ("get_date", ""),
+            "author": ("get_author", ""),
+            "book": ("get_book", ""),
+            "cost": ("get_cost", 0),
+            "total_cost": ("get_total_cost", 0),
+            "employee": ("get_employee", ""),
+            "rewards_number": ("get_rewards_number", ""),
+            "rewards_points": ("get_rewards_points", 0),
+            "type": ("get_type", ""),
+        }
 
-class TestSaleGetterSetterethods(unittest.TestCase):
-    def test_CountTotalNumSales(self):
-        pass  # TODO: complete this test
+        for field, (getter_name, expected) in defaults.items():
+            with self.subTest(field=field):
+                actual = getattr(self.sale, getter_name)()
+                self.assertEqual(actual, expected)
+
+    def test_setters_return_values_through_matching_getters(self):
+        values = {
+            "customer": ("set_customer", "get_customer", "Customer One"),
+            "date": ("set_date", "get_date", "11/11/26"),
+            "author": ("set_author", "get_author", "F. Scott Fitzgerald"),
+            "book": ("set_book", "get_book", "The Great Gatsby"),
+            "cost": ("set_cost", "get_cost", 22.50),
+            "total_cost": ("set_total_cost", "get_total_cost", 20.00),
+            "employee": ("set_employee", "get_employee", "Employee Four"),
+            "rewards_number": ("set_rewards_number", "get_rewards_number", "0001"),
+            "rewards_points": ("set_rewards_points", "get_rewards_points", 25),
+            "type": ("set_type", "get_type", "Book Purchase"),
+        }
+
+        for field, (setter_name, getter_name, expected) in values.items():
+            with self.subTest(field=field):
+                getattr(self.sale, setter_name)(expected)
+                actual = getattr(self.sale, getter_name)()
+                self.assertEqual(actual, expected)
 
 
 # sale1.get_cost
