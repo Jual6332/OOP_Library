@@ -1828,14 +1828,41 @@ class TestEmployeeFields(unittest.TestCase):
     
     def test_employee_does_have_id(self):
         self.assertTrue(hasattr(self.employee, "id"))
+
+    def test_employee_does_have_name(self):
+        self.assertTrue(hasattr(self.employee, "name"))
+
+    def test_employee_does_have_age(self):
+        self.assertTrue(hasattr(self.employee, "age"))
     
     def test_employee_does_have_job_title(self):
         self.assertTrue(hasattr(self.employee, "job_title"))
+
+    def test_employee_does_have_salary(self):
+        self.assertTrue(hasattr(self.employee, "salary"))
+
+    def test_employee_does_have_start_date(self):
+        self.assertTrue(hasattr(self.employee, "start_date"))
+
+    def test_employee_does_have_performance(self):
+        self.assertTrue(hasattr(self.employee, "performance_grades"))
+
+    def test_employee_does_have_performance(self):
+        self.assertTrue(hasattr(self.employee, "performance_comments"))
 
 # Unit Testing Customer fields
 print("\n")
 print("Unit Tests for Customer fields")
 unittest.main()
+
+self.id = 0
+self.name = ""
+self.age = 0
+self.job_title = ""
+self.salary = 0
+self.start_date = ""
+self.performance_grades = []
+self.performance_comments = []
 
 # Todos:
 # 1. C++ - practice virtual functions for interviews in other EmployeeDatabaseC++ project. The virtual function itself doesnt exist in Python but Pthon dynamically performs polymorphism behind the scenes. Functions can be overwritten in the derived class in Python. Source: https://araqev.com/are-there-virtual-functions-in-python/
