@@ -1797,21 +1797,40 @@ print("Unit Tests for job_titles_dict")
 # Test whether Customer class initializes id, job_title
 # Test whether Employee class initializes id, job_title
 class TestCustomerFields(unittest.TestCase):
-  def setUp(self):
-    self.customer = Customer()
-    self.employee = Employee()
+    def setUp(self):
+        self.customer = Customer()
+        
+    def test_customer_does_have_name(self):
+        self.assertTrue(hasattr(self.customer,"name"))
 
-  def test_customer_does_not_have_id(self):
-    self.assertFalse(hasattr(self.customer, "id"))
+    def test_customer_does_have_age(self):
+        self.assertTrue(hasattr(self.customer,"age"))
 
-  def test_customer_does_not_have_job_title(self):
-    self.assertFalse(hasattr(self.customer, "job_title"))
+    def test_customer_does_have_rewards_number(self):
+        self.assertTrue(hasattr(self.customer,"rewards number"))
 
-  def test_employee_does_have_id(self):
-    self.assertTrue(hasattr(self.employee, "id"))
+    def test_customer_does_have_previous_purchases(self):
+        self.assertTrue(hasattr(self.customer,"previous_purchases"))
+
+    def test_customer_does_have_rewards_points(self):
+        self.assertTrue(hasattr(self.customer,"rewards_points"))
+        
+    def test_customer_does_not_have_id(self):
+        self.assertFalse(hasattr(self.customer, "id"))
+
+    def test_customer_does_not_have_job_title(self):
+        self.assertFalse(hasattr(self.customer, "job_title"))
+
+
+class TestEmployeeFields(unittest.TestCase):
+    def setUp(self):
+        self.customer = Employee()
     
-  def test_employee_does_have_job_title(self):
-    self.assertTrue(hasattr(self.employee, "job_title"))
+    def test_employee_does_have_id(self):
+        self.assertTrue(hasattr(self.employee, "id"))
+    
+    def test_employee_does_have_job_title(self):
+        self.assertTrue(hasattr(self.employee, "job_title"))
 
 # Unit Testing Customer fields
 print("\n")
