@@ -1807,7 +1807,7 @@ class TestCustomerFields(unittest.TestCase):
         self.assertTrue(hasattr(self.customer,"age"))
 
     def test_customer_does_have_rewards_number(self):
-        self.assertTrue(hasattr(self.customer,"rewards number"))
+        self.assertTrue(hasattr(self.customer,"rewards_number"))
 
     def test_customer_does_have_previous_purchases(self):
         self.assertTrue(hasattr(self.customer,"previous_purchases"))
