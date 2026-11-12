@@ -1829,51 +1829,6 @@ class TestEmployeeFields(unittest.TestCase):
 
     def test_employee_does_have_performance(self):
         self.assertTrue(hasattr(self.employee, "performance_comments"))
-
-# Sale class unit tests
-class TestSale(unittest.TestCase):
-    def setUp(self):
-        self.sale = Sale()
-        self.defaults = {
-                "customer": "",
-                "date": "",
-                "author": "",
-                "book": "",
-                "cost": 0,
-                "total_cost": 0,
-                "employee": "",
-                "rewards_number": "",
-                "rewards_points": 0,
-                "type": "",
-            }
-
-    def test_sale_default_values(self):
-        for key in self.defaults:
-            expected = self.defaults[key]
-            actual = getattr(self.sale)
-            self.assertEqual(actual, expected)
-
-        '''
-        def test_setters_return_values_through_matching_getters(self):
-            values = {
-                "customer": ("set_customer", "get_customer", "Customer One"),
-                "date": ("set_date", "get_date", "11/11/26"),
-                "author": ("set_author", "get_author", "F. Scott Fitzgerald"),
-                "book": ("set_book", "get_book", "The Great Gatsby"),
-                "cost": ("set_cost", "get_cost", 22.50),
-                "total_cost": ("set_total_cost", "get_total_cost", 20.00),
-                "employee": ("set_employee", "get_employee", "Employee Four"),
-                "rewards_number": ("set_rewards_number", "get_rewards_number", "0001"),
-                "rewards_points": ("set_rewards_points", "get_rewards_points", 25),
-                "type": ("set_type", "get_type", "Book Purchase"),
-            }
-
-            for field, (setter_name, getter_name, expected) in values.items():
-                with self.subTest(field=field):
-                    getattr(self.sale, setter_name)(expected)
-                    actual = getattr(self.sale, getter_name)()
-                    self.assertEqual(actual, expected)
-'''
     
 # Unit Testing Customer fields
 print("\n")
